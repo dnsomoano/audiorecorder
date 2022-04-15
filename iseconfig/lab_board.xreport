@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2022-04-04T19:33:43</DateModified>
+  <DateModified>2022-04-14T15:02:23</DateModified>
   <ModuleName>lab_board</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Halberd/audiorecorder/iseconfig/lab_board.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Halberd/audiorecorder</ImplementationReportsDirectory>
+  <SavedFilePath>D:/PortableGit/audiorecorder/iseconfig/lab_board.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>D:/PortableGit/audiorecorder\</ImplementationReportsDirectory>
   <DateInitialized>2022-04-04T19:33:43</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
