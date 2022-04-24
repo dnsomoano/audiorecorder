@@ -23,6 +23,12 @@
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="audiomessagerecorder.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="audiomessagerecorder.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="audiomessagerecorder.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="lab_board.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="lab_board.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="lab_board.xst"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ram_interface_wrapper.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="ram_interface_wrapper.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="ram_interface_wrapper.xst"/>
