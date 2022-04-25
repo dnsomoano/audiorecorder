@@ -10,10 +10,10 @@
  - The name can only contain the characters &apos;a-z&apos;, &apos;A-Z&apos;,&apos;0-9&apos;, and &apos;_&apos;.
 </msg>
 
-<msg type="error" file="sim" num="918" delta="new" >Could not create instance of component <arg fmt="%s" index="1">MIG Virtex-6 and Spartan-6 v3.91</arg>.
+<msg type="error" file="sim" num="918" delta="old" >Could not create instance of component <arg fmt="%s" index="1">MIG Virtex-6 and Spartan-6 v3.91</arg>.
 </msg>
 
-<msg type="error" file="sim" num="621" delta="new" >Unable to create project from file &apos;<arg fmt="%s" index="1">D:/PortableGit/audiorecorder/ipcore_dir/ram_interface.xco</arg>&apos;.
+<msg type="error" file="sim" num="621" delta="new" >Unable to create project from file &apos;<arg fmt="%s" index="1">C:/Users/Halberd/audiorecorder/ipcore_dir/ram_interface.xco</arg>&apos;.
 </msg>
 
 </messages>

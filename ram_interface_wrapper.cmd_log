@@ -1,0 +1,4 @@
+xst -intstyle ise -ifn "C:/Users/Halberd/audiorecorder/ram_interface_wrapper.xst" -ofn "C:/Users/Halberd/audiorecorder/ram_interface_wrapper.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc Anvyl_Master.ucf -uc loopback.ucf -p xc6slx45-csg484-3 ram_interface_wrapper.ngc ram_interface_wrapper.ngd  
+xst -intstyle ise -ifn "C:/Users/Halberd/audiorecorder/ram_interface_wrapper.xst" -ofn "C:/Users/Halberd/audiorecorder/ram_interface_wrapper.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc Anvyl_Master.ucf -uc loopback.ucf -p xc6slx45-csg484-3 ram_interface_wrapper.ngc ram_interface_wrapper.ngd  
