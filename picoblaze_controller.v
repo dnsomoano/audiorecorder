@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    
+// Create Date:    23:47:10 04/27/2022 
 // Design Name: 
-// Module Name:    loopback 
+// Module Name:    picoblaze_controller 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,8 +18,14 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-
-module loopback( switches, leds, rs232_tx, rs232_rx, reset, clk );
+module picoblaze_controller(
+switches, 
+leds, 
+rs232_tx, 
+rs232_rx, 
+reset, 
+clk
+    );
 
 	// Top-level Inputs and Outputs
 	// These connect directly to FPGA pins via the pin map
@@ -165,5 +171,6 @@ module loopback( switches, leds, rs232_tx, rs232_rx, reset, clk );
 			read_from_uart <= pb_read_strobe & (pb_port_id == 8'h04);
 		end
 	end
+
 
 endmodule

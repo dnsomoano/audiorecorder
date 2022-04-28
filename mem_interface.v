@@ -19,10 +19,9 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module mem_interface(
-input [11:0] address, 
-output [17:0] instruction,
-input enableWrite;
-input clk,
+	hw_ram_rasn, hw_ram_casn, hw_ram_wen, hw_ram_ba, hw_ram_udqs_p, 
+	hw_ram_udqs_n, hw_ram_ldqs_p, hw_ram_ldqs_n, hw_ram_udm, hw_ram_ldm, hw_ram_ck, 
+	hw_ram_ckn, hw_ram_cke, hw_ram_odt, hw_ram_ad, hw_ram_dq, hw_rzq_pin, hw_zio_pin,
 );
 
 output 	hw_ram_rasn;
@@ -44,13 +43,15 @@ inout [15:0] hw_ram_dq;
 inout 	hw_rzq_pin;
 inout 	hw_zio_pin;
 
-input reset, sys_clk; 
+//input reset, sys_clk; 
+input 	CLK, reset;
 output 	status;
 
 output [7:0]	leds;			// data read out of RAM
 
-//reg [25:0] address = 0;
-//input [25:0] data_in;
+reg [25:0] address = 0;
+input [25:0] data_in;
+
 reg [7:0] RAMin;
 wire [7:0] RAMout;
 reg	[7:0] dataOut; 
@@ -90,7 +91,12 @@ begin
 			 // switches are read and used as address
 			 // dip_switches are read and used as data to be written into RAM
 			 stReadFromPorts: begin
+			// TODO change input from switches to address
+			   // * The orig statement below, read RAMin from address instead of
+			   // * DIP SWITCHES
+			  //address <= {18'b00_0000_0000_0000_0000, switches};
 			  address <= {18'b00_0000_0000_0000_0000, address};
+			  //RAMin <= dip_switches;
 			  RAMin <= instruction;
 			   state <= stMemWrite;
 			 end
