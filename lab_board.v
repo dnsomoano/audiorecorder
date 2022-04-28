@@ -136,18 +136,20 @@ module lab_board(
 	wire	[7:0]	uart_rx_data;
 	
 	// LED wires
-	wire write_to_leds;
-	wire led_reset;
+	// wire write_to_leds;
+	// wire led_reset;
+	
+	wire [4:0] clk_bus;
 
-	wire clk_picoblaze_clk;
-	wire clk_uart_clk;
-	wire clk_led_driver;
+	// wire clk_picoblaze_clk;
+	// wire clk_uart_clk;
+	// wire clk_led_driver;
 
 
 	// CODEC wires
-	wire clk_to_codec_clk;
+	// wire clk_to_codec_clk;
 
-	wire clk_to_ram_interface;
+	// wire clk_to_ram_interface;
 	
 
 	// LED Driver and control logic
@@ -156,20 +158,21 @@ module lab_board(
 	assign led_reset = ~BTN[0];
 	//assign led_reset = ~reset;
 
-	assign clk_led_driver = CLK;
+	assign clk_bus = CLK;
 	// LED driver instantiation
 	led_driver_wrapper led_driver (
 		.led_value(pb_out_port),
 		.leds(leds),
 		.write_to_leds(write_to_leds),
 		.reset(led_reset),
-		.clk(clk_led_driver)
+		.clk(clk_bus[0])
 	);
  //   input  [3:0] KEY,
 //    input  [3:0] SW,
     //output [2:0] LED,
 	 
 	 // TODO wire from picoblaze switches to AUD_ADCDAT for recording and AUD_DACDAT for playback
+	 wire audio_dac_data_ram_switches;
 
 	// picoblaze_controller picoblaze(
 	// 	.switches(switches), 
@@ -184,7 +187,7 @@ module lab_board(
 	//
 	// UART expects ACTIVE-HIGH reset	
 	assign uart_reset =  ~BTN[0];
-	assign clk_uart_clk = CLK;
+	//assign clk_uart_clk = CLK;
 	//assign uart_reset =  ~reset;
 	// UART instantiation
 	//
@@ -200,7 +203,7 @@ module lab_board(
 		.rs232_tx(RS232_Uart_TX),
 		.rs232_rx(RS232_Uart_RX),
 		.reset(uart_reset),
-		.clk(clk_uart_clk)
+		.clk(clk_bus[1])
 	);	
 	
 	// PicoBlaze and control logic
@@ -210,7 +213,7 @@ module lab_board(
 	// Disable interrupt by assigning 0 to interrupt
 	assign pb_interrupt = 1'b0;
 
-	assign clk_picoblaze_clk = CLK;
+	//assign clk_picoblaze_clk = CLK;
 	// PB CPU instantiation
 	//
 	// Within the PicoBlaze Module (picoblaze.v), make sure you fill in the
@@ -224,30 +227,31 @@ module lab_board(
 		.interrupt(pb_interrupt),
 		.interrupt_ack(pb_int_ack),
 		.reset(pb_reset),
-		.clk(clk_picoblaze_clk)
+		.clk(clk_bus[2])
 	);	
 
-	assign clk_to_codec_clk = CLK;
+	//assign clk_to_codec_clk = CLK;
 
 	codec_interface codec(
-		.OSC_100MHz(clk_to_codec_clk),
+		.OSC_100MHz(clk_bus[3]),
 		.AUD_ADCLRCK(AUD_ADCLRCK),
 		.AUD_ADCDAT(AUD_ADCDAT),
 		.AUD_DACLRCK(AUD_DACLRCK),
-		.AUD_DACDAT(AUD_DACDAT),
+		.AUD_DACDAT(audio_dac_data_ram_switches),
 		.AUD_XCK(AUD_XCK),
 		.AUD_BCLK(AUD_BCLK),
 		.AUD_I2C_SCLK(AUD_I2C_SCLK),
 		.AUD_I2C_SDAT(AUD_I2C_SDAT),
 		.AUD_MUTE(AUD_MUTE),
 		.PLL_LOCKED(LED[4]),
+		// TODO remove key and switches for activating feedback and speaker mode.
 		.KEY(SW[3:0]),
 		// * May have to declare switches reverse order like in sockit_top.ucf
 		.SW(SW[7:4]),
 		.LED(LED[3:0])
 	);
 
-	assign clk_to_ram_interface = CLK;
+	//assign clk_to_ram_interface = CLK;
 
     mem_interface RAMinterface(
 	    .hw_ram_rasn(hw_ram_rasn),
@@ -268,14 +272,20 @@ module lab_board(
 	    .hw_ram_dq(hw_ram_dq),
 	    .hw_rzq_pin(hw_rzq_pin),
 	    .hw_zio_pin(hw_zio_pin),
-	    .CLK(clk_to_ram_interface),
+	    .CLK(clk_bus[4]),
 		.reset(BTN[0]),
 		.leds(),
+		// TODO remove switches for reading data.
 		.switches(SW),
-		.dip_switches(dip_switches),
+		.dip_switches(audio_dac_data_ram_switches),
 		.status(status)
     );
 
+	parameter initState = 4'b0000;
+	parameter playbackState = 4'b0001;
+	parameter recordState = 4'b0010;
+	parameter deleteState = 4'b0011;
+	parameter delAllState = 4'b0100;
 	// PB I/O selection/routing
 	//
 	// Handle PicoBlaze Output Port Logic

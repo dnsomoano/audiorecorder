@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Reading design: lab_board.prj
 
@@ -168,8 +168,8 @@ Parsing architecture <xilinx> of entity <clk_wiz_v3_6>.
 Elaborating module <lab_board>.
 
 Elaborating module <led_driver_wrapper>.
-WARNING:HDLCompiler:189 - "C:\Users\Halberd\audiorecorder\lab_board.v" Line 163: Size mismatch in connection of port <leds>. Formal port size is 8-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "C:\Users\Halberd\audiorecorder\lab_board.v" Line 163: Assignment to leds ignored, since the identifier is never used
+WARNING:HDLCompiler:189 - "C:\Users\Halberd\audiorecorder\lab_board.v" Line 165: Size mismatch in connection of port <leds>. Formal port size is 8-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "C:\Users\Halberd\audiorecorder\lab_board.v" Line 165: Assignment to leds ignored, since the identifier is never used
 
 Elaborating module <rs232_uart>.
 WARNING:HDLCompiler:413 - "C:\Users\Halberd\audiorecorder\rs232_uart.v" Line 73: Result of 11-bit expression is truncated to fit in 10-bit target.
@@ -225,7 +225,7 @@ Elaborating module <LUT6(INIT=64'b0100010001000100000000011110000000000000000000
 Elaborating module <LUT6_2(INIT=64'b0110110011001100000000000000000001011010101010100000000000000000)>.
 
 Elaborating module <LUT6_2(INIT=64'b010000000000000000000000010001000100010001000100010001000)>.
-WARNING:HDLCompiler:189 - "C:\Users\Halberd\audiorecorder\lab_board.v" Line 197: Size mismatch in connection of port <rx_data_out>. Formal port size is 8-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "C:\Users\Halberd\audiorecorder\lab_board.v" Line 200: Size mismatch in connection of port <rx_data_out>. Formal port size is 8-bit while actual signal size is 1-bit.
 
 Elaborating module <picoblaze>.
 
@@ -326,7 +326,7 @@ D=256'b0,INIT_3E=256'b0,INIT_3F=256'b0,INITP_00=256'b011001011000110100111101010
 Elaborating module
 <RAMB16BWER(DATA_WIDTH_A=9,DOA_REG=0,EN_RSTRAM_A="FALSE",INIT_A=32'b0,RST_PRIORITY_A="CE",SRVAL_A=32'b0,WRITE_MODE_A="WRITE_FIRST",DATA_WIDTH_B=9,DOB_REG=0,EN_RSTRAM_B="FALSE",INIT_B=32'b0,RST_PRIORITY_B="CE",SRVAL_B=32'b0,WRITE_MODE_B="WRITE_FIRST",RSTTYPE="SYNC",INIT_FILE="NONE",SIM_COLLISION_CHECK="ALL",SIM_DEVICE="SPARTAN6",INIT_00=256'b0,INIT_01=256'b0,INIT_02=256'b0,INIT_03=256'b0,INIT_04=256'b0,INIT_05=256'b0,INIT_06=256'b0,INIT_07=256'b0,INIT_08=256'b0,INIT_09=256'b0,INIT_0A=256'b0,INIT_0B=256'b0,INIT_0C=256'b0,INIT_0D=256'b0,INIT_0E=256'b0,INIT_0F=256'b0,INIT_10=256'b0,INIT_11=256'b0,INIT_12=256'b0,INIT_13=256'b0,INIT_14=256'b0,INIT_15=256'b0,INIT_16=256'b0,INIT_17=256'b0,INIT_18=256'b0,INIT_19=256'b0,INIT_1A=256'b0,INIT_1B=256'b0,INIT_1C=256'b0,INIT_1D=256'b0,INIT_1E=256'b0,INIT_1F=256'b0,INIT_20=256'b0,INIT_21=256'b0,INIT_22=256'b0,INIT_23=256'b0,INIT_24=256'b0,INIT_25=256'b0,INIT_26=256'b0,INIT_27=256'b0,INIT_28=256'b0,INIT_29=256'b0,INIT_2A=256'b0,INIT_2B=256'b0,INIT_2C=256'b0,INIT_2D=256'b0,INIT
 _2E=256'b0,INIT_2F=256'b0,INIT_30=256'b0,INIT_31=256'b0,INIT_32=256'b0,INIT_33=256'b0,INIT_34=256'b0,INIT_35=256'b0,INIT_36=256'b0,INIT_37=256'b0,INIT_38=256'b0,INIT_39=256'b0,INIT_3A=256'b0,INIT_3B=256'b0,INIT_3C=256'b0,INIT_3D=256'b0,INIT_3E=256'b0,INIT_3F=256'b0,INITP_00=256'b0,INITP_01=256'b0,INITP_02=256'b0,INITP_03=256'b0,INITP_04=256'b0,INITP_05=256'b0,INITP_06=256'b0,INITP_07=256'b0)>.
-WARNING:HDLCompiler:1127 - "C:\Users\Halberd\audiorecorder\lab_board.v" Line 225: Assignment to pb_int_ack ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\Halberd\audiorecorder\lab_board.v" Line 228: Assignment to pb_int_ack ignored, since the identifier is never used
 
 Elaborating module <codec_interface>.
 Going to vhdl side to elaborate module clk_wiz_v3_6
@@ -851,11 +851,10 @@ WARNING:HDLCompiler:1127 - "C:\Users\Halberd\audiorecorder\ram_interface_wrapper
 WARNING:HDLCompiler:1127 - "C:\Users\Halberd\audiorecorder\ram_interface_wrapper.v" Line 202: Assignment to c3_p0_rd_overflow ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "C:\Users\Halberd\audiorecorder\ram_interface_wrapper.v" Line 203: Assignment to c3_p0_rd_error ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "C:\Users\Halberd\audiorecorder\mem_interface.v" Line 169: Assignment to max_ram_address ignored, since the identifier is never used
-WARNING:HDLCompiler:189 - "C:\Users\Halberd\audiorecorder\lab_board.v" Line 256: Size mismatch in connection of port <hw_ram_ba>. Formal port size is 3-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "C:\Users\Halberd\audiorecorder\lab_board.v" Line 256: Assignment to hw_ran_ba ignored, since the identifier is never used
-WARNING:HDLCompiler:189 - "C:\Users\Halberd\audiorecorder\lab_board.v" Line 275: Size mismatch in connection of port <dip_switches>. Formal port size is 8-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:634 - "C:\Users\Halberd\audiorecorder\lab_board.v" Line 275: Net <dip_switches> does not have a driver.
-WARNING:Xst:2972 - "C:\Users\Halberd\audiorecorder\lab_board.v" line 161. All outputs of instance <led_driver> of block <led_driver_wrapper> are unconnected in block <lab_board>. Underlying logic will be removed.
+WARNING:HDLCompiler:189 - "C:\Users\Halberd\audiorecorder\lab_board.v" Line 259: Size mismatch in connection of port <hw_ram_ba>. Formal port size is 3-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "C:\Users\Halberd\audiorecorder\lab_board.v" Line 259: Assignment to hw_ran_ba ignored, since the identifier is never used
+WARNING:HDLCompiler:189 - "C:\Users\Halberd\audiorecorder\lab_board.v" Line 278: Size mismatch in connection of port <dip_switches>. Formal port size is 8-bit while actual signal size is 1-bit.
+WARNING:Xst:2972 - "C:\Users\Halberd\audiorecorder\lab_board.v" line 163. All outputs of instance <led_driver> of block <led_driver_wrapper> are unconnected in block <lab_board>. Underlying logic will be removed.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -864,11 +863,10 @@ WARNING:Xst:2972 - "C:\Users\Halberd\audiorecorder\lab_board.v" line 161. All ou
 Synthesizing Unit <lab_board>.
     Related source file is "C:\Users\Halberd\audiorecorder\lab_board.v".
 WARNING:Xst:647 - Input <BTN<3:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "C:\Users\Halberd\audiorecorder\lab_board.v" line 161: Output port <leds> of the instance <led_driver> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\Halberd\audiorecorder\lab_board.v" line 218: Output port <interrupt_ack> of the instance <CPU> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\Halberd\audiorecorder\lab_board.v" line 252: Output port <hw_ram_ba> of the instance <RAMinterface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\Halberd\audiorecorder\lab_board.v" line 252: Output port <leds> of the instance <RAMinterface> is unconnected or connected to loadless signal.
-WARNING:Xst:653 - Signal <dip_switches> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+INFO:Xst:3210 - "C:\Users\Halberd\audiorecorder\lab_board.v" line 163: Output port <leds> of the instance <led_driver> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Halberd\audiorecorder\lab_board.v" line 221: Output port <interrupt_ack> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Halberd\audiorecorder\lab_board.v" line 255: Output port <hw_ram_ba> of the instance <RAMinterface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\Halberd\audiorecorder\lab_board.v" line 255: Output port <leds> of the instance <RAMinterface> is unconnected or connected to loadless signal.
     Found 8-bit register for signal <pb_in_port>.
     Found 1-bit register for signal <read_from_uart>.
     Summary:
@@ -2631,7 +2629,7 @@ INFO:Xst:1799 - State 111010 is never reached in FSM <STATE>.
     Found 8-bit adder for signal <counter_inc[7]_GND_104_o_add_211_OUT> created at line 1470.
     Found 8-bit adder for signal <DQS_DELAY[7]_GND_104_o_add_214_OUT> created at line 1475.
     Found 8-bit adder for signal <counter_dec[7]_GND_104_o_add_225_OUT> created at line 1495.
-    Found 15-bit adder for signal <_n0865> created at line 471.
+    Found 15-bit adder for signal <_n0866> created at line 471.
     Found 15-bit adder for signal <n0476> created at line 471.
     Found 13-bit adder for signal <_n0873> created at line 471.
     Found 13-bit adder for signal <n0466> created at line 471.
@@ -2805,33 +2803,43 @@ Macro Statistics
 
 INFO:Xst:2261 - The FF/Latch <IODRPCTRLR_MEMCELL_ADDR_2> in Unit <mcb_soft_calibration_inst> is equivalent to the following 3 FFs/Latches, which will be removed : <IODRPCTRLR_MEMCELL_ADDR_4> <IODRPCTRLR_MEMCELL_ADDR_5> <IODRPCTRLR_MEMCELL_ADDR_6> 
 INFO:Xst:2261 - The FF/Latch <address_8> in Unit <RAMinterface> is equivalent to the following 17 FFs/Latches, which will be removed : <address_9> <address_10> <address_11> <address_12> <address_13> <address_14> <address_15> <address_16> <address_17> <address_18> <address_19> <address_20> <address_21> <address_22> <address_23> <address_24> <address_25> 
-WARNING:Xst:1293 - FF/Latch <address_8> has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_7> (without init value) has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_6> (without init value) has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_5> (without init value) has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_4> (without init value) has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_3> (without init value) has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_2> (without init value) has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <RAMin_1> (without init value) has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_0> (without init value) has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <IODRPCTRLR_MEMCELL_ADDR_2> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <DQS_DELAY_INITIAL_7> has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_3> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_2> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_1> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_0> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <MCB_UICMD> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <WarmEnough> (without init value) has a constant value of 1 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <SELFREFRESH_MCB_REQ> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <SELFREFRESH_REQ_R1> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_6> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_5> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_4> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_2> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_6> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_5> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_4> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RAMin_2> (without init value) has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RAMin_3> (without init value) has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RAMin_4> (without init value) has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RAMin_5> (without init value) has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RAMin_6> (without init value) has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RAMin_7> (without init value) has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <address_8> has a constant value of 0 in block <RAMinterface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <en_16_x_baud> (without init value) has a constant value of 0 in block <UART>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baud_count_0> (without init value) has a constant value of 0 in block <UART>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baud_count_1> (without init value) has a constant value of 0 in block <UART>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baud_count_2> (without init value) has a constant value of 0 in block <UART>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baud_count_3> (without init value) has a constant value of 0 in block <UART>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baud_count_4> (without init value) has a constant value of 0 in block <UART>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baud_count_5> (without init value) has a constant value of 0 in block <UART>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baud_count_6> (without init value) has a constant value of 0 in block <UART>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baud_count_7> (without init value) has a constant value of 0 in block <UART>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baud_count_8> (without init value) has a constant value of 0 in block <UART>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <baud_count_9> (without init value) has a constant value of 0 in block <UART>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_2> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_4> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_5> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_6> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_2> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_4> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_5> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_6> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <SELFREFRESH_REQ_R1> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <SELFREFRESH_MCB_REQ> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <WarmEnough> (without init value) has a constant value of 1 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <MCB_UICMD> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_0> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_1> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_2> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_3> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DQS_DELAY_INITIAL_7> has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <IODRPCTRLR_MEMCELL_ADDR_2> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SELFREFRESH_REQ_R2> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SELFREFRESH_REQ_R3> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
 
@@ -2957,23 +2965,15 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <RAMin_0> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_1> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_2> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_3> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_4> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_5> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_6> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_7> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_17> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_18> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_19> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_20> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_21> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_22> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_23> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <address_25> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_24> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_25> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_23> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_22> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_21> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_20> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_19> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_18> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_17> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_16> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_15> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <address_14> has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
@@ -2994,8 +2994,11 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <IODRPCTRLR_MEMCELL_
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <IODRPCTRLR_MEMCELL_ADDR_5> (without init value) has a constant value of 0 in block <mcb_soft_calibration>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <IODRPCTRLR_MEMCELL_ADDR_6> (without init value) has a constant value of 0 in block <mcb_soft_calibration>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <DRP_BKST> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <en_16_x_baud> (without init value) has a constant value of 0 in block <rs232_uart>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <RAMin_1> in Unit <mem_interface> is equivalent to the following 6 FFs/Latches, which will be removed : <RAMin_2> <RAMin_3> <RAMin_4> <RAMin_5> <RAMin_6> <RAMin_7> 
 INFO:Xst:2261 - The FF/Latch <memcell_addr_reg_2> in Unit <iodrp_controller> is equivalent to the following 3 FFs/Latches, which will be removed : <memcell_addr_reg_4> <memcell_addr_reg_5> <memcell_addr_reg_6> 
 INFO:Xst:2261 - The FF/Latch <memcell_addr_reg_2> in Unit <iodrp_mcb_controller> is equivalent to the following 3 FFs/Latches, which will be removed : <memcell_addr_reg_4> <memcell_addr_reg_5> <memcell_addr_reg_6> 
+WARNING:Xst:1710 - FF/Latch <RAMin_1> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <SELFREFRESH_REQ_R1> (without init value) has a constant value of 0 in block <mcb_soft_calibration>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SELFREFRESH_MCB_REQ> (without init value) has a constant value of 0 in block <mcb_soft_calibration>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <WarmEnough> (without init value) has a constant value of 1 in block <mcb_soft_calibration>. This FF/Latch will be trimmed during the optimization process.
@@ -3187,210 +3190,26 @@ WARNING:Xst:2677 - Node <RAMinterface/RAMRapper/u_memory_interface/memc3_wrapper
 WARNING:Xst:2677 - Node <RAMinterface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_2> of sequential type is unconnected in block <lab_board>.
 WARNING:Xst:2677 - Node <RAMinterface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_1> of sequential type is unconnected in block <lab_board>.
 WARNING:Xst:2677 - Node <RAMinterface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_0> of sequential type is unconnected in block <lab_board>.
-WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <lab_board>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <lab_board>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <lab_board>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <lab_board>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <lab_board>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <lab_board>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <lab_board>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <lab_board>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <lab_board>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <lab_board>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
+WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <lab_board>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <lab_board>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <lab_board>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <lab_board>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <lab_board>. This FF/Latch will be trimmed during the optimization process.
-ERROR:Xst:2035 - Port <CLK> has illegal connections. This port is connected to an input buffer and other components.
-Input Buffer:
-   Port <I> of node <codec/pll/clkin1_buf> (IBUFG) in unit <lab_board>
-   Port <I> of node <RAMinterface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/se_input_clk.u_ibufg_sys_clk> (IBUFG) in unit <lab_board>
-Other Components:
-   Port <C> of node <read_from_uart> (FDC) in unit <lab_board>
-   Port <C> of node <pb_in_port_0> (FDC) in unit <lab_board>
-   Port <C> of node <pb_in_port_1> (FDC) in unit <lab_board>
-   Port <C> of node <pb_in_port_2> (FDC) in unit <lab_board>
-   Port <C> of node <pb_in_port_3> (FDC) in unit <lab_board>
-   Port <C> of node <pb_in_port_4> (FDC) in unit <lab_board>
-   Port <C> of node <pb_in_port_5> (FDC) in unit <lab_board>
-   Port <C> of node <pb_in_port_6> (FDC) in unit <lab_board>
-   Port <C> of node <pb_in_port_7> (FDC) in unit <lab_board>
-   Port <C> of node <UART/en_16_x_baud> (FDR) in unit <lab_board>
-   Port <C> of node <UART/baud_count_0> (FDR) in unit <lab_board>
-   Port <C> of node <UART/baud_count_3> (FDR) in unit <lab_board>
-   Port <C> of node <UART/baud_count_1> (FDR) in unit <lab_board>
-   Port <C> of node <UART/baud_count_2> (FDR) in unit <lab_board>
-   Port <C> of node <UART/baud_count_6> (FDR) in unit <lab_board>
-   Port <C> of node <UART/baud_count_4> (FDR) in unit <lab_board>
-   Port <C> of node <UART/baud_count_5> (FDR) in unit <lab_board>
-   Port <C> of node <UART/baud_count_9> (FDR) in unit <lab_board>
-   Port <C> of node <UART/baud_count_7> (FDR) in unit <lab_board>
-   Port <C> of node <UART/baud_count_8> (FDR) in unit <lab_board>
-   Port <C> of node <UART/transmitter/pointer3_flop> (FDR) in unit <lab_board>
-   Port <C> of node <UART/transmitter/pointer2_flop> (FDR) in unit <lab_board>
-   Port <C> of node <UART/transmitter/pointer1_flop> (FDR) in unit <lab_board>
-   Port <C> of node <UART/transmitter/pointer0_flop> (FDR) in unit <lab_board>
-   Port <C> of node <UART/transmitter/data_present_flop> (FDR) in unit <lab_board>
-   Port <C> of node <UART/transmitter/data_width_loop[0].storage_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/data_width_loop[1].storage_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/data_width_loop[2].storage_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/data_width_loop[3].storage_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/data_width_loop[4].storage_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/data_width_loop[5].storage_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/data_width_loop[6].storage_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/data_width_loop[7].storage_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/serial_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/sm0_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/sm1_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/sm2_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/sm3_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/div0_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/div1_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/div2_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/div3_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/next_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/transmitter/read_flop> (FD) in unit <lab_board>
-   Port <CLK> of node <UART/transmitter/data_width_loop[0].storage_srl> (SRL16E) in unit <lab_board>
-   Port <CLK> of node <UART/transmitter/data_width_loop[1].storage_srl> (SRL16E) in unit <lab_board>
-   Port <CLK> of node <UART/transmitter/data_width_loop[2].storage_srl> (SRL16E) in unit <lab_board>
-   Port <CLK> of node <UART/transmitter/data_width_loop[3].storage_srl> (SRL16E) in unit <lab_board>
-   Port <CLK> of node <UART/transmitter/data_width_loop[4].storage_srl> (SRL16E) in unit <lab_board>
-   Port <CLK> of node <UART/transmitter/data_width_loop[5].storage_srl> (SRL16E) in unit <lab_board>
-   Port <CLK> of node <UART/transmitter/data_width_loop[6].storage_srl> (SRL16E) in unit <lab_board>
-   Port <CLK> of node <UART/transmitter/data_width_loop[7].storage_srl> (SRL16E) in unit <lab_board>
-   Port <C> of node <UART/receiver/pointer3_flop> (FDR) in unit <lab_board>
-   Port <C> of node <UART/receiver/pointer2_flop> (FDR) in unit <lab_board>
-   Port <C> of node <UART/receiver/pointer1_flop> (FDR) in unit <lab_board>
-   Port <C> of node <UART/receiver/pointer0_flop> (FDR) in unit <lab_board>
-   Port <C> of node <UART/receiver/data_present_flop> (FDR) in unit <lab_board>
-   Port <C> of node <UART/receiver/sample_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/sample_dly_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/buffer_write_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/stop_bit_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/data0_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/data1_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/data2_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/data3_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/data4_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/data5_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/data6_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/data7_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/run_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/start_bit_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/div0_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/div1_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/div2_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/div3_flop> (FD) in unit <lab_board>
-   Port <C> of node <UART/receiver/sample_input_flop> (FD) in unit <lab_board>
-   Port <CLK> of node <UART/receiver/data_width_loop[0].storage_srl> (SRL16E) in unit <lab_board>
-   Port <CLK> of node <UART/receiver/data_width_loop[1].storage_srl> (SRL16E) in unit <lab_board>
-   Port <CLK> of node <UART/receiver/data_width_loop[2].storage_srl> (SRL16E) in unit <lab_board>
-   Port <CLK> of node <UART/receiver/data_width_loop[3].storage_srl> (SRL16E) in unit <lab_board>
-   Port <CLK> of node <UART/receiver/data_width_loop[4].storage_srl> (SRL16E) in unit <lab_board>
-   Port <CLK> of node <UART/receiver/data_width_loop[5].storage_srl> (SRL16E) in unit <lab_board>
-   Port <CLK> of node <UART/receiver/data_width_loop[6].storage_srl> (SRL16E) in unit <lab_board>
-   Port <CLK> of node <UART/receiver/data_width_loop[7].storage_srl> (SRL16E) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/sync_interrupt_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/run_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/internal_reset_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/sync_sleep_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/t_state1_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/t_state2_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/interrupt_enable_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/active_interrupt_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/interrupt_ack_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/alu_mux_sel0_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/alu_mux_sel1_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/flag_enable_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/register_enable_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/k_write_strobe_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/spm_enable_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/write_strobe_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/read_strobe_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/bank_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/sx_addr4_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/arith_carry_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/shift_carry_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/carry_flag_flop> (FDRE) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/use_zero_flag_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/zero_flag_flop> (FDRE) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[0].return_vector_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[0].pc_flop> (FDRE) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[1].return_vector_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[1].pc_flop> (FDRE) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[2].return_vector_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[2].pc_flop> (FDRE) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[3].return_vector_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[3].pc_flop> (FDRE) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[4].return_vector_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[4].pc_flop> (FDRE) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[5].return_vector_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[5].pc_flop> (FDRE) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[6].return_vector_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[6].pc_flop> (FDRE) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[7].return_vector_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[7].pc_flop> (FDRE) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[8].return_vector_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[8].pc_flop> (FDRE) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[9].return_vector_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[9].pc_flop> (FDRE) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[10].return_vector_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[10].pc_flop> (FDRE) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[11].return_vector_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/address_loop[11].pc_flop> (FDRE) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/shadow_carry_flag_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/stack_zero_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/shadow_zero_flag_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/shadow_bank_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/stack_bit_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/stack_loop[0].lsb_stack.pointer_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/stack_loop[1].upper_stack.pointer_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/stack_loop[2].upper_stack.pointer_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/stack_loop[3].upper_stack.pointer_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/stack_loop[4].upper_stack.pointer_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[0].arith_logical_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[0].low_hwbuild.shift_rotate_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[0].small_spm.spm_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[1].arith_logical_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[1].low_hwbuild.shift_rotate_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[1].small_spm.spm_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[2].arith_logical_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[2].low_hwbuild.shift_rotate_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[2].small_spm.spm_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[3].arith_logical_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[3].low_hwbuild.shift_rotate_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[3].small_spm.spm_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[4].arith_logical_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[4].low_hwbuild.shift_rotate_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[4].small_spm.spm_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[5].arith_logical_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[5].low_hwbuild.shift_rotate_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[5].small_spm.spm_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[6].arith_logical_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[6].low_hwbuild.shift_rotate_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[6].small_spm.spm_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[7].arith_logical_flop> (FD) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[7].low_hwbuild.shift_rotate_flop> (FDR) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_cpu/data_path_loop[7].small_spm.spm_flop> (FD) in unit <lab_board>
-   Port <WCLK> of node <CPU/pblaze_cpu/stack_ram_low> (RAM32M) in unit <lab_board>
-   Port <WCLK> of node <CPU/pblaze_cpu/stack_ram_high> (RAM32M) in unit <lab_board>
-   Port <WCLK> of node <CPU/pblaze_cpu/data_path_loop[0].small_spm.small_spm_ram.spm_ram> (RAM64M) in unit <lab_board>
-   Port <WCLK> of node <CPU/pblaze_cpu/data_path_loop[4].small_spm.small_spm_ram.spm_ram> (RAM64M) in unit <lab_board>
-   Port <WCLK> of node <CPU/pblaze_cpu/lower_reg_banks> (RAM32M) in unit <lab_board>
-   Port <WCLK> of node <CPU/pblaze_cpu/upper_reg_banks> (RAM32M) in unit <lab_board>
-   Port <C> of node <CPU/pblaze_rom/s6_a11_flop> (FD) in unit <lab_board>
-   Port <CLKA> of node <CPU/pblaze_rom/kcpsm6_rom_ll> (RAMB16BWER) in unit <lab_board>
-   Port <CLKA> of node <CPU/pblaze_rom/kcpsm6_rom_lh> (RAMB16BWER) in unit <lab_board>
-   Port <CLKA> of node <CPU/pblaze_rom/kcpsm6_rom_hl> (RAMB16BWER) in unit <lab_board>
-   Port <CLKA> of node <CPU/pblaze_rom/kcpsm6_rom_hh> (RAMB16BWER) in unit <lab_board>
-
-
-Total REAL time to Xst completion: 20.00 secs
-Total CPU time to Xst completion: 19.46 secs
- 
+ERROR:Xst:2033 - Port I of Input buffer codec/pll/clkin1_buf is connected to GND
+ERROR:Xst:2033 - Port I of Input buffer RAMinterface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/se_input_clk.u_ibufg_sys_clk is connected to GND
+ERROR:Xst:1847 - Design checking failed
 --> 
 
-Total memory usage is 4537532 kilobytes
+Total memory usage is 4537548 kilobytes
 
-Number of errors   :    1 (   0 filtered)
-Number of warnings : 1108 (   0 filtered)
-Number of infos    :  184 (   0 filtered)
+Number of errors   :    3 (   0 filtered)
+Number of warnings : 1110 (   0 filtered)
+Number of infos    :  185 (   0 filtered)
 
