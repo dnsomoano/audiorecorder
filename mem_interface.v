@@ -22,6 +22,7 @@ module mem_interface(
 	hw_ram_rasn, hw_ram_casn, hw_ram_wen, hw_ram_ba, hw_ram_udqs_p, 
 	hw_ram_udqs_n, hw_ram_ldqs_p, hw_ram_ldqs_n, hw_ram_udm, hw_ram_ldm, hw_ram_ck, 
 	hw_ram_ckn, hw_ram_cke, hw_ram_odt, hw_ram_ad, hw_ram_dq, hw_rzq_pin, hw_zio_pin,
+	CLK, reset, leds, switches, dip_switches, status
 );
 
 output 	hw_ram_rasn;
@@ -43,23 +44,24 @@ inout [15:0] hw_ram_dq;
 inout 	hw_rzq_pin;
 inout 	hw_zio_pin;
 
-//input reset, sys_clk; 
 input 	CLK, reset;
 output 	status;
-
+	
+input  [7:0]	switches; 		// address
+input	 [7:0]	dip_switches; 	// data to be written into RAM
 output [7:0]	leds;			// data read out of RAM
-
-reg [25:0] address = 0;
-input [25:0] data_in;
-
-reg [7:0] RAMin;
-wire [7:0] RAMout;
+	
+reg 	[25:0] address = 0;
+reg 	[7:0]	RAMin;
+wire 	[7:0]	RAMout;
 reg	[7:0] dataOut; 
-reg reqRead;
-reg ackRead = 0;
+reg 			reqRead;
+reg 			enableWrite;
+reg 			ackRead = 0;
+wire 			systemCLK;
 
+wire rdy, 	dataPresent;
 wire [25:0]	max_ram_address;
-wire rdy;
 
 reg [3:0]	state=4'b0000;
 	
@@ -91,13 +93,13 @@ begin
 			 // switches are read and used as address
 			 // dip_switches are read and used as data to be written into RAM
 			 stReadFromPorts: begin
-			// TODO change input from switches to address
+			 // TODO change input from switches to address
 			   // * The orig statement below, read RAMin from address instead of
 			   // * DIP SWITCHES
-			  //address <= {18'b00_0000_0000_0000_0000, switches};
-			  address <= {18'b00_0000_0000_0000_0000, address};
-			  //RAMin <= dip_switches;
-			  RAMin <= instruction;
+			  address <= {18'b00_0000_0000_0000_0000, switches};
+			  //address <= {18'b00_0000_0000_0000_0000, address};
+			  RAMin <= dip_switches;
+			  //RAMin <= instruction;
 			   state <= stMemWrite;
 			 end
 				  
@@ -132,41 +134,44 @@ begin
 		end // rdy
 	end
 
-ram_interface_wrapper mem_wrapper(
-    .address(address),
-    .data_in(RAMin),
-    .write_enable(writeEnable),
-    .read_request(read_request),
-    .read_ack(read_ack),
-    .data_out(RAMout),
-    .reset(reset),
-    .clk(clk),
-	.hw_ram_rasn(hw_ram_rasn), 
-	.hw_ram_casn(hw_ram_casn),
-	.hw_ram_wen(hw_ram_wen), 
-	.hw_ram_ba(hw_ram_ba), 
-	.hw_ram_udqs_p(hw_ram_udqs_p), 
-	.hw_ram_udqs_n(hw_ram_udqs_n), 
-	.hw_ram_ldqs_p(hw_ram_ldqs_p), 
-	.hw_ram_ldqs_n(hw_ram_ldqs_n), 
-	.hw_ram_udm(hw_ram_udm), 
-	.hw_ram_ldm(hw_ram_ldm), 
-	.hw_ram_ck(hw_ram_ck), 
-	.hw_ram_ckn(hw_ram_ckn), 
-	.hw_ram_cke(hw_ram_cke), 
-	.hw_ram_odt(hw_ram_odt),
-	.hw_ram_ad(hw_ram_ad), 
-	.hw_ram_dq(hw_ram_dq), 
-	.hw_rzq_pin(hw_rzq_pin), 
-	.hw_zio_pin(hw_zio_pin), 
-	.clkout(sys_clk), 
-    .sys_clk(sys_clk),
-	.rdy(rdy), 
-	.rd_data_pres(dataPresent),
-	.max_ram_address(max_ram_address)
-);
+	// ram interface instantiation
+	ram_interface_wrapper RAMRapper (
+					.address(address),				// input 
+					.data_in(RAMin), 					// input
+					.write_enable(enableWrite), 	//	input
+					.read_request(reqRead), 		//	input
+					.read_ack(ackRead), 
+					.data_out(RAMout), 				// output from ram to wire
+					.reset(reset), 
+					.clk(CLK), 
+					.hw_ram_rasn(hw_ram_rasn), 
+					.hw_ram_casn(hw_ram_casn),
+					.hw_ram_wen(hw_ram_wen), 
+					.hw_ram_ba(hw_ram_ba), 
+					.hw_ram_udqs_p(hw_ram_udqs_p), 
+					.hw_ram_udqs_n(hw_ram_udqs_n), 
+					.hw_ram_ldqs_p(hw_ram_ldqs_p), 
+					.hw_ram_ldqs_n(hw_ram_ldqs_n), 
+					.hw_ram_udm(hw_ram_udm), 
+					.hw_ram_ldm(hw_ram_ldm), 
+					.hw_ram_ck(hw_ram_ck), 
+					.hw_ram_ckn(hw_ram_ckn), 
+					.hw_ram_cke(hw_ram_cke), 
+					.hw_ram_odt(hw_ram_odt),
+					.hw_ram_ad(hw_ram_ad), 
+					.hw_ram_dq(hw_ram_dq), 
+					.hw_rzq_pin(hw_rzq_pin), 
+					.hw_zio_pin(hw_zio_pin), 
+					.clkout(systemCLK), 
+					.sys_clk(systemCLK), 
+					.rdy(rdy), 
+					.rd_data_pres(dataPresent),
+					.max_ram_address(max_ram_address)
+	);
 
 assign status = rdy; // ready signal from ram
-assign leds = dataOut; // output data read to leds
+//assign leds = dataOut; // output data read to leds
+
+//end
 
 endmodule

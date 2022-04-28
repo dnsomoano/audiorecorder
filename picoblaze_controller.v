@@ -120,7 +120,7 @@ clk
 		.write_strobe(pb_write_strobe),
 		.out_port(pb_out_port),
 		.interrupt(pb_interrupt),
-		.interrupt_ack(),
+		.interrupt_ack(pb_int_ack),
 		.reset(pb_reset),
 		.clk(clk)
 	);	
