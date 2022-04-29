@@ -167,102 +167,122 @@ cold_start:     LOAD     s0, s0            ; (nop)
                 ; than 25 characters.
 
 		LOAD s0, ascii_W ;W
-		;CALL wait_for_buffer
 		OUTPUT s0, uart_data_tx
 		LOAD s0, ascii_E ;E
-		;CALL wait_for_buffer
 		OUTPUT s0, uart_data_tx
 		LOAD s0, ascii_L ;L
-		;CALL wait_for_buffer
 		OUTPUT s0, uart_data_tx
 		LOAD s0, ascii_C ;C
-		CALL wait_for_buffer
 		OUTPUT s0, uart_data_tx
 		LOAD s0, ascii_O ;O
-		CALL wait_for_buffer
 		OUTPUT s0, uart_data_tx
 		LOAD s0, ascii_M ;M
-		;CALL wait_for_buffer
 		OUTPUT s0, uart_data_tx
 		LOAD s0, ascii_E ;E
-		CALL wait_for_buffer
 		OUTPUT s0, uart_data_tx
+
+		CALL wait_for_buffer
+
+		;LOAD s0, ascii_CR ;CR
+		;OUTPUT s0, uart_data_tx
+
+		; 1) Play Message
+		LOAD s0, ascii_1 ;1
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_RPAREN ;RPAREN
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_P ;P
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_l ;l
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_a ;a
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_y ;y
+		OUTPUT s0, uart_data_tx
+
+		CALL wait_for_buffer
+
 		LOAD s0, ascii_SPACE ;
-		CALL wait_for_buffer
 		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_T ;T
-		CALL wait_for_buffer
+		LOAD s0, ascii_M ;M
 		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_O ;O
-		CALL wait_for_buffer
+		LOAD s0, ascii_e ;e
 		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_SPACE ;
-		CALL wait_for_buffer
+		LOAD s0, ascii_s ;s
 		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_O ;O
-		CALL wait_for_buffer
+		LOAD s0, ascii_s ;s
 		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_U ;U
+		LOAD s0, ascii_a ;a
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_g ;g
+		OUTPUT s0, uart_data_tx
+
 		CALL wait_for_buffer
+
+		LOAD s0, ascii_e ;e
+		OUTPUT s0, uart_data_tx
+		;LOAD s0, ascii_CR ;CR
+		;OUTPUT s0, uart_data_tx
+
+		; 2) Record
+		LOAD s0, ascii_2 ;2
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_RPAREN ;RPAREN
 		OUTPUT s0, uart_data_tx
 		LOAD s0, ascii_R ;R
-		CALL wait_for_buffer
-		LOAD s0, ascii_SPACE ;
-		CALL wait_for_buffer
-		LOAD s0, ascii_A ;A
-		CALL wait_for_buffer
-		LOAD s0, ascii_U ;U
-		CALL wait_for_buffer
-		LOAD s0, ascii_D ;D
-		CALL wait_for_buffer
-		LOAD s0, ascii_I ;I
-		CALL wait_for_buffer
-		LOAD s0, ascii_O ;O
-		CALL wait_for_buffer
-		LOAD s0, ascii_CR ;CR
-		CALL wait_for_buffer
-
-		LOAD s0, ascii_CR ;CR
-		CALL wait_for_buffer
-
-		LOAD s0, ascii_1 ;1
-		CALL wait_for_buffer
-		LOAD s0, ascii_RPAREN ;RPAREN
-		CALL wait_for_buffer
-		LOAD s0, ascii_P ;P
-		CALL wait_for_buffer
-		LOAD s0, ascii_L ;L
-		CALL wait_for_buffer
-		LOAD s0, ascii_A ;A
-		CALL wait_for_buffer
-		LOAD s0, ascii_Y ;Y
-		CALL wait_for_buffer
-		LOAD s0, ascii_SPACE ;
-		CALL wait_for_buffer
-		LOAD s0, ascii_M ;M
-		;CALL wait_for_buffer
-		LOAD s0, ascii_E ;E
-		CALL wait_for_buffer
-		LOAD s0, ascii_S ;S
-		CALL wait_for_buffer
-		LOAD s0, ascii_S ;S
-		CALL wait_for_buffer
-		LOAD s0, ascii_A ;A
-		CALL wait_for_buffer
-		LOAD s0, ascii_G ;G
-		CALL wait_for_buffer
-		LOAD s0, ascii_E ;E
-		CALL wait_for_buffer
-
-		LOAD s0, ascii_EXCLAIM ;!
-		CALL wait_for_buffer
 		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_e ;e
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_c ;c
+		OUTPUT s0, uart_data_tx
+
+		CALL wait_for_buffer
+
+		LOAD s0, ascii_o ;o
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_r ;r
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_d ;d
+		OUTPUT s0, uart_data_tx
+
+		;LOAD s0, ascii_CR ;CR
+		;OUTPUT s0, uart_data_tx
+
+		; 3) Delete
+		LOAD s0, ascii_3 ;3
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_RPAREN ;RPAREN
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_D ;D
+		OUTPUT s0, uart_data_tx
+
+		CALL wait_for_buffer
+
+		LOAD s0, ascii_e ;e
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_l ;l
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_e ;e
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_t ;t
+		OUTPUT s0, uart_data_tx
+		LOAD s0, ascii_e ;e
+		OUTPUT s0, uart_data_tx
+		;CALL wait_for_buffer
+
+		;LOAD s0, ascii_CR ;CR
+		;OUTPUT s0, uart_data_tx
+
+		LOAD s0, ascii_4 ;4
+		OUTPUT s0, uart_data_tx
+
+		CALL wait_for_buffer
+
+		LOAD s0, ascii_RPAREN ;RPAREN
+		OUTPUT s0, uart_data_tx
+
 		JUMP rs232_echo 
 		JUMP led_echo
-
-		
-		
-		;this code prints "Welcome to loop-back!" on the output by loading each character and then storing it
 
 
 led_echo:       LOAD     s0, s0            ; (nop)
