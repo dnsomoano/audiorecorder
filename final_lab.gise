@@ -19,10 +19,18 @@
 
   <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
 
-  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="ram_interface.xise"/>
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="final_lab.xise"/>
 
-  <files xmlns="http://www.xilinx.com/XMLSchema"/>
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="ipcore_dir/coregen.log"/>
+    <file xil_pn:fileType="FILE_USERDOC" xil_pn:name="ipcore_dir/ram_interface_readme.txt"/>
+  </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:name="TRAN_SubProjectAbstractToPreProxy">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+  </transforms>
 
 </generated_project>

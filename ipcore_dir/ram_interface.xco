@@ -1,7 +1,7 @@
 ##############################################################
 #
-# Xilinx Core Generator version 13.4
-# Date: Wed Feb 25 16:10:12 2015
+# Xilinx Core Generator version 14.7
+# Date: Sat Apr 30 23:09:02 2022
 #
 ##############################################################
 #
@@ -12,7 +12,7 @@
 #
 ##############################################################
 #
-#  Generated from component: xilinx.com:ip:mig:3.91
+#  Generated from component: xilinx.com:ip:MIG_Virtex6_and_Spartan6:3.91
 #
 ##############################################################
 #
@@ -36,14 +36,11 @@ SET verilogsim = true
 SET vhdlsim = false
 # END Project Options
 # BEGIN Select
-SELECT MIG_Virtex-6_and_Spartan-6 family Xilinx,_Inc. 3.91
+SELECT MIG_Virtex6_and_Spartan6 xilinx.com:ip:MIG_Virtex6_and_Spartan6:3.91
 # END Select
 # BEGIN Parameters
 CSET component_name=ram_interface
 CSET xml_input_file=./ram_interface/user_design/mig.prj
 # END Parameters
-# BEGIN Extra information
-MISC pkg_timestamp=2012-01-07T15:29:19Z
-# END Extra information
 GENERATE
-# CRC: 1325ac5c
+# CRC: fb31e3f8

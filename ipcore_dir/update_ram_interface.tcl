@@ -1,5 +1,5 @@
 ##
-## Core Generator Run Script, generator for Project Navigator edit command
+## Core Generator Run Script, generator for Project Navigator update command
 ##
 
 proc findRtfPath { relativePath } {
@@ -22,16 +22,16 @@ proc findRtfPath { relativePath } {
 
 source [ findRtfPath "data/projnav/scripts/dpm_cgUtils.tcl" ]
 
-set result [ run_cg_edit "ram_interface" xc6slx45-3csg324 Verilog ]
+set result [ run_cg_update "ram_interface" xc6slx45-3csg324 Verilog ]
 
 if { $result == 0 } {
-   puts "Core Generator edit command completed successfully."
+   puts "Core Generator update command completed successfully."
 } elseif { $result == 1 } {
-   puts "Core Generator edit command failed."
+   puts "Core Generator update command failed."
 } elseif { $result == 3 || $result == 4 } {
    # convert 'version check' result to real return range, bypassing any messages.
    set result [ expr $result - 3 ]
 } else {
-   puts "Core Generator edit cancelled."
+   puts "Core Generator update cancelled."
 }
 exit $result

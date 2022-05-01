@@ -82,15 +82,9 @@ module picoblaze(
 		.clk(clk)
 	);
 	
-	// program pblaze_rom(
-	// 	.enable(bram_enable),
-	// 	.address(address),
-	// 	.instruction(instruction),
-	// 	.clk(clk)
-	// );
-	mem_interface pblaze_rom(
+	program pblaze_rom(
+		.enable(bram_enable),
 		.address(address),
-		.enableWrite(bram_enable),
 		.instruction(instruction),
 		.clk(clk)
 	);

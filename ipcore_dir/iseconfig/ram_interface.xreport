@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2018-04-24T13:38:22</DateModified>
+  <DateModified>2022-04-28T16:08:50</DateModified>
   <ModuleName>ram_interface</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/challa1/Documents/Talkboy_original_old_board/Talkboy/ipcore_dir/iseconfig/ram_interface.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/challa1/Documents/Talkboy_original_old_board/Talkboy/ipcore_dir</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/sagew/Xilinx/Projects/final_lab/ipcore_dir/iseconfig/ram_interface.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/sagew/Xilinx/Projects/final_lab/ipcore_dir\</ImplementationReportsDirectory>
   <DateInitialized>2018-04-24T13:38:22</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

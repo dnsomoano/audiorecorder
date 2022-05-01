@@ -157,11 +157,11 @@ u_memory_interface (
 	.c3_rst0		        (),
 	
 	// System Inputs
-   .c3_sys_clk           (clk),
-   .c3_sys_rst_i           (reset),                        
+   .c3_sys_clk         (clk),
+   .c3_sys_rst_i       (reset),                        
 
  
-  	.c3_calib_done          (c3_calib_done),	// 1=ready to go!
+  	.c3_calib_done      (c3_calib_done),	// 1=ready to go!
 	
 	
 	// Command Datapath

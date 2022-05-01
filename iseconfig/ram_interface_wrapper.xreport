@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2022-04-25T04:39:57</DateModified>
-  <ModuleName>ram_interface_wrapper</ModuleName>
+  <DateModified>2022-04-30T22:58:00</DateModified>
+  <ModuleName>mem_interface</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Halberd/audiorecorder/iseconfig/ram_interface_wrapper.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Halberd/audiorecorder\</ImplementationReportsDirectory>
-  <DateInitialized>2022-04-23T17:47:03</DateInitialized>
+  <SavedFilePath>C:/Users/sagew/Xilinx/Projects/final_lab/iseconfig/ram_interface_wrapper.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/sagew/Xilinx/Projects/final_lab\</ImplementationReportsDirectory>
+  <DateInitialized>2022-04-30T21:32:48</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>
