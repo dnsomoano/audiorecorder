@@ -23,6 +23,9 @@ module picoblaze_controller(
 	input  OSC_100MHz,		// CLOCK 100MHz
 	input	 RST,					// Reset: ACTIVE LOW!!!!!!
 	// TODO: ADD BUTTON CONTROLS
+	input UP,
+	input DOWN,
+	input PAUSE,
 	
 	// Audio Interface IO
 	inout  AUD_ADCLRCK,
@@ -95,6 +98,17 @@ module picoblaze_controller(
 	// UART Data Lines
 	// TX does not need a wire, as it is fed directly by pb_out_port
 	wire  [7:0]	uart_rx_data;
+
+	reg play, pause, record, delete, delete_all;
+	reg pb_state = 8'h00;
+
+	initial begin
+		play <= 0;
+		pause <= 0;
+		record <= 0;
+		delete <=0;
+		delete_all <= 0;
+	end
 	
 	// REMOVED: LED wires (no need for LEDs)
 
@@ -129,7 +143,8 @@ module picoblaze_controller(
 		.read_out(/*<FILL_IN>*/),
 		.addr_in(/*<FILL_IN>*/),
 		.data_in(/*<FILL_IN>*/),
-		.status(/*<FILL_IN>*/)
+		.status(/*<FILL_IN>*/),
+		.pb_state(pb_state)
 	);
 		
 	
@@ -178,6 +193,10 @@ module picoblaze_controller(
 	//
 	// PB expects ACTIVE-HIGH reset
 	assign pb_reset = ~RST;
+	// TODO may need to invert UP & DOWN
+	assign pb_up = UP;
+	assign pb_down = DOWN;
+	assign pb_select = PAUSE;
 	// Disable interrupt by assigning 0 to interrupt
 	assign pb_interrupt = 1'b0;
 	// PB CPU instantiation
@@ -193,6 +212,9 @@ module picoblaze_controller(
 		.interrupt(pb_interrupt),
 		.interrupt_ack(pb_int_ack),
 		.reset(pb_reset),
+		.up(pb_up),
+		.down(pb_down),
+		.select(pb_select),
 		.clk(/*<FILL_IN>*/)	// Clock signal generated from RAM interface
 	);	
 	// PB I/O selection/routing
@@ -226,7 +248,7 @@ module picoblaze_controller(
 		end else begin
 			// Set pb input port to appropriate value
 			case(pb_port_id)
-				8'h00: pb_in_port <= /*<FILL_IN>*/;	// audio data to be written to memory, work in progress
+				//8'h00: pb_in_port <= /*<FILL_IN>*/;	// audio data to be written to memory, work in progress
 				8'h02: pb_in_port <= uart_data_rx;
 				8'h04: pb_in_port <= {7'b0000000,uart_data_present};
 				8'h05: pb_in_port <= {7'b0000000,uart_buffer_full};
@@ -240,6 +262,18 @@ module picoblaze_controller(
 			// signal high for corresponding ports, as needed. Most input
 			// ports will not need this.
 			read_from_uart <= pb_read_strobe & (pb_port_id == 8'h04);
+			if(write_to_leds) begin 
+				record <= (pb_out_port == 8'h01); //use led to check
+				pb_state = record;
+				play <= (pb_out_port == 8'h00);
+				pb_state = play;
+				delete <= (pb_out_port == 8'h02);
+				pb_state = delete;
+				pause <= (pb_out_port == 8'h03);
+				pb_state = pause;
+				delete_all <= (pb_out_port == 8'h04);
+                pb_state = delete_all;
+			end
 		end
 	end
 

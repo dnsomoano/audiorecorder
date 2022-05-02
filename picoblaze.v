@@ -25,7 +25,7 @@ module picoblaze(
 	read_strobe, in_port,
 	write_strobe, out_port,
 	interrupt, interrupt_ack,
-	reset, clk
+	reset, up, down, select, clk
     );
 	 
 	 // Port Specifier
@@ -46,6 +46,9 @@ module picoblaze(
 	 
 	 // global reset and clock
 	 input reset;
+	 input up;
+	 input down;
+	 input select;
 	 input clk;
 	 
 	 // Reset Handling Logic
@@ -78,6 +81,9 @@ module picoblaze(
 		.interrupt(interrupt),
 		.interrupt_ack(interrupt_ack),
 		.reset(cpu_reset),
+		.up(up),
+		.down(down),
+		.select(select),
 		.sleep(pb_sleep),
 		.clk(clk)
 	);

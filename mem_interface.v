@@ -22,7 +22,7 @@ module mem_interface(
 	hw_ram_rasn, hw_ram_casn, hw_ram_wen, hw_ram_ba, hw_ram_udqs_p, 
 	hw_ram_udqs_n, hw_ram_ldqs_p, hw_ram_ldqs_n, hw_ram_udm, hw_ram_ldm, hw_ram_ck, 
 	hw_ram_ckn, hw_ram_cke, hw_ram_odt, hw_ram_ad, hw_ram_dq, hw_rzq_pin, hw_zio_pin,
-	CLK, reset, read_out, addr_in, data_in, status);
+	CLK, reset, read_out, addr_in, data_in, status, pb_state);
 	
 	output 	hw_ram_rasn;
 	output 	hw_ram_casn;
@@ -45,6 +45,7 @@ module mem_interface(
 	
 	input 	CLK, reset;
 	output 	status;
+	input pb_state;
 	
 	// REMOVED: address, data, and read data will be handled from picoBlaze CPU
 	/*
@@ -85,6 +86,18 @@ module mem_interface(
 			state <= stInit;
 		end
 		else
+			case (pb_state)
+				// PLAY state
+				8'h00: begin
+					state <= stMemReadReq;
+				end
+				// RECORD State
+				8'h01: begin
+					state <= stReadFromPorts;
+				end
+				// DELETE STATE
+				8'h02: begin
+					state <= stReadFromPorts;
 			if(rdy) begin // Only if RAM is rdy for read/write
 				
 				case (state)
