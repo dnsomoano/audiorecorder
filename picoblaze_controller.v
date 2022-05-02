@@ -126,13 +126,27 @@ module picoblaze_controller(
 		.hw_zio_pin(),
 		.CLK(OSC_100MHz),
 		.reset(RAM_reset),
-		.read_out(/*<FILL_IN>*/),
-		.addr_in(/*<FILL_IN>*/),
-		.data_in(/*<FILL_IN>*/),
-		.status(/*<FILL_IN>*/)
+		.read_out(/*<FILL_IN>*/),  //RAMout
+		.addr_in(/*<FILL_IN>*/),  //ackRead
+		.data_in(/*<FILL_IN>*/), //RAMin
+		.status(/*<FILL_IN>*/) //.rdy
 	);
-		
 	
+
+	   // CLOCK SYSTEM USED //
+			
+		clk_wiz_v3_6 pll (
+			 .CLK_IN1 (clk_100MHz),
+			 .CLK_OUT1 (//FILL IN),   // 50 MHz
+			 .CLK_OUT2 (//FILL IN),  // 11.2896 MHz
+			 .RESET (//FILL IN),
+			 .LOCKED (//FILL IN)
+		);
+
+        // END OF CLOCK//
+		  
+		  
+		  
 	// Audio Interface
 	//
 	// Audio interface uses ACTIVE-HIGH reset
@@ -193,7 +207,7 @@ module picoblaze_controller(
 		.interrupt(pb_interrupt),
 		.interrupt_ack(pb_int_ack),
 		.reset(pb_reset),
-		.clk(/*<FILL_IN>*/)	// Clock signal generated from RAM interface
+		.clk(/*<FILL_IN>*/)	// Clock signal generated from RAM interface - CLK
 	);	
 	// PB I/O selection/routing
 	//
@@ -226,7 +240,7 @@ module picoblaze_controller(
 		end else begin
 			// Set pb input port to appropriate value
 			case(pb_port_id)
-				8'h00: pb_in_port <= /*<FILL_IN>*/;	// audio data to be written to memory, work in progress
+				8'h00: pb_in_port <= /*<FILL_IN>*/;	// audio data to be written to memory, work in progress //SW**
 				8'h02: pb_in_port <= uart_data_rx;
 				8'h04: pb_in_port <= {7'b0000000,uart_data_present};
 				8'h05: pb_in_port <= {7'b0000000,uart_buffer_full};
@@ -242,6 +256,137 @@ module picoblaze_controller(
 			read_from_uart <= pb_read_strobe & (pb_port_id == 8'h04);
 		end
 	end
+ 
+  
+   // 
+   //             *FSM Controller for the Ramrapper*
+   //
+	//             FSM Registers, wires and Parameter
+	//
+	//
+	
+		reg 	[25:0] address = 0;
+		reg 	[15:0]	RAMin;
+		wire 	[15:0]	RAMout;
+		reg	[7:0] dataOut; 
+		reg 			reqRead;
+		reg 			enableWrite;
+		reg 			ackRead = 0;
+
+		wire rdy, 	dataPresent;
+		wire [25:0]	max_ram_address;
+		
+		reg [3:0]	state=4'b0000;
+		
+		parameter stInit = 4'b0000;
+		parameter stReadFromPorts = 3'b001;
+		parameter stMemWrite = 3'b0010;
+		parameter stMemReadReq  = 3'b0011;
+		parameter stMemReadData = 3'b0100;
+
+// The FSM to read/write to the RAM
+	always @(posedge clk)
+	begin
+		if (reset) begin 
+			address <= 0;
+			state <= stInit;
+		end
+		else
+			if(rdy) begin // Will proceed with states when Ram is rdy
+				
+				case (state)
+
+				  // Initialization state
+				  stInit: begin 
+				   ackRead <= 1'b0;
+					enableWrite <= 1'b0;
+					if(switches[2]) begin  //resets the address back to 0
+						address <= 0;
+					end
+					else begin
+						address <= address;
+					end
+					
+					
+					if(!switches[0] & switches[1] & !switches[2]) begin 						
+					if (address == max_ram_address) begin
+
+						end
+						else begin
+							address <= address + 1'b1;
+							
+						end
+						state <= stReadFromPorts;
+					end
+					else if (switches[0] & switches[1] & !switches[2]) begin //playback
+						if (address == max_ram_address) begin
+						
+						end
+						else begin
+							address <= address + 1'b1;
+							
+						end
+						state <= stMemReadReq;
+					end
+					else begin
+						state <= stInit;
+					end
+					end
+				  
+				  // Read from the ports
+				  // switches are read and used as address
+				  // dip_switches are read and used as data to be written into RAM
+				  stReadFromPorts: begin
+					if(sample_end) begin
+//				   address <= {18'b00_0000_0000_0000_0000, switches};
+					RAMin <= audio_input_sample;
+					state <= stMemWrite;
+					end
+					else begin
+						state <= stReadFromPorts;
+					end
+				  end
+				  
+				  // Write cycle, raise write enable
+				  stMemWrite: begin
+				   enableWrite <= 1'b1;
+//					state <= stMemReadReq;
+					state <= stInit;
+				  end
+				  
+				  // Read cycle 1, pull down write enable, raise read request
+				  stMemReadReq: begin
+				  if(sample_end) begin
+//				  if(sample_req) begin
+					enableWrite <= 1'b0;
+					reqRead <= 1'b1;
+					state <= stMemReadData;
+				  end
+				  else begin
+						state <= stMemReadReq;
+					end
+				end
+				  
+				  // Read cycle 2
+				  // Waite until data is valid i.e., when dataPresent is 1
+				  stMemReadData: begin
+					reqRead <= 1'b0;
+					if(dataPresent) begin // data is present, read to dataOut register
+						audio_output_sample = RAMout;
+						ackRead <= 1'b1;	 // acknowledge the read
+						
+						state <= stInit;
+					end
+					else begin				  // stay in the same state until data is valid
+						state <= stMemReadData;
+					end
+				  end
+			 
+			 endcase 
+			end // end of the rdy state
+		end
+
+
 
 
 endmodule
