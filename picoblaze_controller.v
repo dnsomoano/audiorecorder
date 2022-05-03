@@ -22,10 +22,8 @@ module picoblaze_controller(
 	// Control - clk, rst, buttons
 	input  OSC_100MHz,		// CLOCK 100MHz
 	input	 RST,					// Reset: ACTIVE LOW!!!!!!
-	// TODO: ADD BUTTON CONTROLS
-	input UP,
-	input DOWN,
-	input PAUSE,
+	input [3:0] KYPD_COL,
+	input	[3:0] KYPD_ROW,
 	
 	// Audio Interface IO
 	inout  AUD_ADCLRCK,
@@ -70,7 +68,7 @@ module picoblaze_controller(
 	output		[7:0]	leds;
 	*/
 	
-	// Wires and Register Declarations
+	// Wires and Register Declarations for modules
 	//
 	// PicoBlaze Data Lines
 	wire			[7:0]	pb_port_id;
@@ -98,17 +96,6 @@ module picoblaze_controller(
 	// UART Data Lines
 	// TX does not need a wire, as it is fed directly by pb_out_port
 	wire  [7:0]	uart_rx_data;
-
-	reg play, pause, record, delete, delete_all;
-	reg pb_state = 8'h00;
-
-	initial begin
-		play <= 0;
-		pause <= 0;
-		record <= 0;
-		delete <=0;
-		delete_all <= 0;
-	end
 	
 	// REMOVED: LED wires (no need for LEDs)
 
@@ -140,42 +127,20 @@ module picoblaze_controller(
 		.hw_zio_pin(),
 		.CLK(OSC_100MHz),
 		.reset(RAM_reset),
-<<<<<<< HEAD
 		.read_out(/*<FILL_IN>*/),
 		.addr_in(/*<FILL_IN>*/),
 		.data_in(/*<FILL_IN>*/),
-		.status(/*<FILL_IN>*/),
-		.pb_state(pb_state)
-=======
-		.read_out(/*<FILL_IN>*/),  //RAMout
-		.addr_in(/*<FILL_IN>*/),  //ackRead
-		.data_in(/*<FILL_IN>*/), //RAMin
-		.status(/*<FILL_IN>*/) //.rdy
->>>>>>> e1e5cc3fc28fa74133fa16428cf38abe32343712
+		.status(RAM_status)
 	);
+		
 	
-
-	   // CLOCK SYSTEM USED //
-			
-		clk_wiz_v3_6 pll (
-			 .CLK_IN1 (clk_100MHz),
-			 .CLK_OUT1 (//FILL IN),   // 50 MHz
-			 .CLK_OUT2 (//FILL IN),  // 11.2896 MHz
-			 .RESET (//FILL IN),
-			 .LOCKED (//FILL IN)
-		);
-
-        // END OF CLOCK//
-		  
-		  
-		  
 	// Audio Interface
 	//
 	// Audio interface uses ACTIVE-HIGH reset
 	assign aud_reset = ~RST;
 	// Audio Interface instantiation
 	sockit_top audio_interface(
-		.OSC_100MHz(OSC_100MHz),
+		.OSC_100MHz(/*<FILL_IN>*/),	// 100 mhz clock from clock wiz
 		.AUD_ADCLRCK(AUD_ADCLRCK),
 		.AUD_ADCDAT(AUD_ADCDAT),
 		.AUD_DACLRCK(AUD_DACLRCK),
@@ -207,17 +172,13 @@ module picoblaze_controller(
 		.rs232_tx(rs232_tx),
 		.rs232_rx(rs232_rx),
 		.reset(uart_reset),
-		.clk(/*<FILL_IN>*/)	// Clock signal generated from RAM interface
-	);	
+		.clk(/*<FILL_IN>*/)	// 100MHz clock from clock wiz	
+	);
 	
 	// PicoBlaze and control logic
 	//
 	// PB expects ACTIVE-HIGH reset
 	assign pb_reset = ~RST;
-	// TODO may need to invert UP & DOWN
-	assign pb_up = UP;
-	assign pb_down = DOWN;
-	assign pb_select = PAUSE;
 	// Disable interrupt by assigning 0 to interrupt
 	assign pb_interrupt = 1'b0;
 	// PB CPU instantiation
@@ -233,14 +194,7 @@ module picoblaze_controller(
 		.interrupt(pb_interrupt),
 		.interrupt_ack(pb_int_ack),
 		.reset(pb_reset),
-<<<<<<< HEAD
-		.up(pb_up),
-		.down(pb_down),
-		.select(pb_select),
 		.clk(/*<FILL_IN>*/)	// Clock signal generated from RAM interface
-=======
-		.clk(/*<FILL_IN>*/)	// Clock signal generated from RAM interface - CLK
->>>>>>> e1e5cc3fc28fa74133fa16428cf38abe32343712
 	);	
 	// PB I/O selection/routing
 	//
@@ -273,14 +227,7 @@ module picoblaze_controller(
 		end else begin
 			// Set pb input port to appropriate value
 			case(pb_port_id)
-<<<<<<< HEAD
-				//8'h00: pb_in_port <= /*<FILL_IN>*/;	// audio data to be written to memory, work in progress
-=======
-				8'h00: pb_in_port <= /*<FILL_IN>*/;	// audio data to be written to memory, work in progress //SW**
->>>>>>> e1e5cc3fc28fa74133fa16428cf38abe32343712
-				8'h02: pb_in_port <= uart_data_rx;
-				8'h04: pb_in_port <= {7'b0000000,uart_data_present};
-				8'h05: pb_in_port <= {7'b0000000,uart_buffer_full};
+				// TODO: INTERFACE PICOBLAZE PORTS
 				default: pb_in_port <= 8'h00;
 			endcase
 			// Set up acknowledge/enable signals.
@@ -291,151 +238,33 @@ module picoblaze_controller(
 			// signal high for corresponding ports, as needed. Most input
 			// ports will not need this.
 			read_from_uart <= pb_read_strobe & (pb_port_id == 8'h04);
-			if(write_to_leds) begin 
-				record <= (pb_out_port == 8'h01); //use led to check
-				pb_state = record;
-				play <= (pb_out_port == 8'h00);
-				pb_state = play;
-				delete <= (pb_out_port == 8'h02);
-				pb_state = delete;
-				pause <= (pb_out_port == 8'h03);
-				pb_state = pause;
-				delete_all <= (pb_out_port == 8'h04);
-                pb_state = delete_all;
-			end
 		end
 	end
- 
-  
-   // 
-   //             *FSM Controller for the Ramrapper*
-   //
-	//             FSM Registers, wires and Parameter
+
+	// Debouncers for keypad rows and cols (comment this block out if debouncers are not needed)
 	//
+	// Wires for debounced inputs
+	wire kypd_row0, kypd_row1, kypd_row2, kypd_row3;
+	wire kypd_col0, kypd_col1, kypd_col2, kypd_col3;
 	//
+	// Clock Divider for debouncer input
+	wire clk_div;
+	clock_divider divider (.clk(OSC_100MHz), .rst(pb_reset), .clk_div(clk_div));
+	//
+	// Debouncer instantiations for key pads
+	debouncer row0 (.clk(OSC_100MHz), .clk_div(clk_div), .in(KYPD_ROW[0]), .out(kypd_row0));
+	debouncer row1 (.clk(OSC_100MHz), .clk_div(clk_div), .in(KYPD_ROW[1]), .out(kypd_row1));
+	debouncer row2 (.clk(OSC_100MHz), .clk_div(clk_div), .in(KYPD_ROW[2]), .out(kypd_row2));
+	debouncer row3 (.clk(OSC_100MHz), .clk_div(clk_div), .in(KYPD_ROW[3]), .out(kypd_row3));
+	debouncer col0 (.clk(OSC_100MHz), .clk_div(clk_div), .in(KYPD_COL[0]), .out(kypd_col0));
+	debouncer col1 (.clk(OSC_100MHz), .clk_div(clk_div), .in(KYPD_COL[1]), .out(kypd_col1));
+	debouncer col2 (.clk(OSC_100MHz), .clk_div(clk_div), .in(KYPD_COL[2]), .out(kypd_col2));
+	debouncer col3 (.clk(OSC_100MHz), .clk_div(clk_div), .in(KYPD_COL[3]), .out(kypd_col3));
 	
-		reg 	[25:0] address = 0;
-		reg 	[15:0]	RAMin;
-		wire 	[15:0]	RAMout;
-		reg	[7:0] dataOut; 
-		reg 			reqRead;
-		reg 			enableWrite;
-		reg 			ackRead = 0;
-
-		wire rdy, 	dataPresent;
-		wire [25:0]	max_ram_address;
-		
-		reg [3:0]	state=4'b0000;
-		
-		parameter stInit = 4'b0000;
-		parameter stReadFromPorts = 3'b001;
-		parameter stMemWrite = 3'b0010;
-		parameter stMemReadReq  = 3'b0011;
-		parameter stMemReadData = 3'b0100;
-
-// The FSM to read/write to the RAM
-	always @(posedge clk)
-	begin
-		if (reset) begin 
-			address <= 0;
-			state <= stInit;
-		end
-		else
-			if(rdy) begin // Will proceed with states when Ram is rdy
-				
-				case (state)
-
-				  // Initialization state
-				  stInit: begin 
-				   ackRead <= 1'b0;
-					enableWrite <= 1'b0;
-					if(switches[2]) begin  //resets the address back to 0
-						address <= 0;
-					end
-					else begin
-						address <= address;
-					end
-					
-					
-					if(!switches[0] & switches[1] & !switches[2]) begin 						
-					if (address == max_ram_address) begin
-
-						end
-						else begin
-							address <= address + 1'b1;
-							
-						end
-						state <= stReadFromPorts;
-					end
-					else if (switches[0] & switches[1] & !switches[2]) begin //playback
-						if (address == max_ram_address) begin
-						
-						end
-						else begin
-							address <= address + 1'b1;
-							
-						end
-						state <= stMemReadReq;
-					end
-					else begin
-						state <= stInit;
-					end
-					end
-				  
-				  // Read from the ports
-				  // switches are read and used as address
-				  // dip_switches are read and used as data to be written into RAM
-				  stReadFromPorts: begin
-					if(sample_end) begin
-//				   address <= {18'b00_0000_0000_0000_0000, switches};
-					RAMin <= audio_input_sample;
-					state <= stMemWrite;
-					end
-					else begin
-						state <= stReadFromPorts;
-					end
-				  end
-				  
-				  // Write cycle, raise write enable
-				  stMemWrite: begin
-				   enableWrite <= 1'b1;
-//					state <= stMemReadReq;
-					state <= stInit;
-				  end
-				  
-				  // Read cycle 1, pull down write enable, raise read request
-				  stMemReadReq: begin
-				  if(sample_end) begin
-//				  if(sample_req) begin
-					enableWrite <= 1'b0;
-					reqRead <= 1'b1;
-					state <= stMemReadData;
-				  end
-				  else begin
-						state <= stMemReadReq;
-					end
-				end
-				  
-				  // Read cycle 2
-				  // Waite until data is valid i.e., when dataPresent is 1
-				  stMemReadData: begin
-					reqRead <= 1'b0;
-					if(dataPresent) begin // data is present, read to dataOut register
-						audio_output_sample = RAMout;
-						ackRead <= 1'b1;	 // acknowledge the read
-						
-						state <= stInit;
-					end
-					else begin				  // stay in the same state until data is valid
-						state <= stMemReadData;
-					end
-				  end
-			 
-			 endcase 
-			end // end of the rdy state
-		end
-
-
-
-
+	// FSM code block for menu controls and module interfacing
+	//
+	// Wires and Registers for state functions
+	wire	RAM_status;		// 1 if RAM is ready for R/W
+	
+	
 endmodule

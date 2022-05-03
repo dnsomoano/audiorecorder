@@ -8,15 +8,7 @@ TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100000 kHz;
 
 NET OSC_100MHz LOC=D11 |	IOSTANDARD = "LVCMOS33";
 
-## Buttons
-# RESET/START/PLAY Button
 NET RST 	LOC=E6; 
-# SCROLL/VOLUME UP Button - BTN[1]
-NET UP	LOC = D5		|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L82N_3,	Sch name = BTN1
-# SCROLL/VOLUME DOWN Button - BTN[2]
-NET DOWN	LOC = A3		|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L83P_3,	Sch name = BTN2
-# SELECT/PAUSE Button - BTN[3]
-NET PAUSE	LOC = AB9	|	IOSTANDARD=LVCMOS33;
 
 ## AUDIO
 NET AUD_DACDAT		LOC=A5	| IOSTANDARD=LVCMOS33; 	#Bank = 0, pin name = IO_L2N_0,	Sch name = AC-PBDAT
@@ -32,6 +24,17 @@ NET AUD_I2C_SDAT LOC=C5 |	PULLUP	|	IOSTANDARD=LVCMOS33;		#Bank = 0, pin name = I
 NET AUD_I2C_SCLK LOC=A4 |	PULLUP	|	IOSTANDARD=LVCMOS33;		#Bank = 0, pin name = IO_L2P_0,			Sch name = SDA;
 
 NET PLL_LOCKED  LOC=AB4;
+
+## Key Pad
+NET "KYPD_COL[0]"	LOC = H8	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L58P_3,	Sch name = COL1
+NET "KYPD_COL[1]"	LOC = J7	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L58N_3,	Sch name = COL2
+NET "KYPD_COL[2]"	LOC = K8	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L59P_3,	Sch name = COL3
+NET "KYPD_COL[3]"	LOC = K7	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L59N_3,	Sch name = COL4
+	
+NET "KYPD_ROW[0]"	LOC = E4	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L60P_3,	Sch name = ROW1
+NET "KYPD_ROW[1]"	LOC = F3	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L60N_3,	Sch name = ROW2
+NET "KYPD_ROW[2]"	LOC = G8	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L73P_3,	Sch name = ROW3
+NET "KYPD_ROW[3]"	LOC = G7	|	IOSTANDARD=LVCMOS18; 	#Bank = 3, pin name = IO_L73N_3,	Sch name = ROW4
 
 ## Switches
 NET "switches[0]"	LOC= V5	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L13N_3,	Sch name = SW0
