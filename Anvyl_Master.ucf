@@ -3,10 +3,10 @@
 ## - uncomment the lines corresponding to used pins
 ## - rename the used signals according to the project
 
-NET OSC_100MHz TNM_NET = sys_clk_pin;
+## Clock Signal
+NET CLK	LOC=D11; |	IOSTANDARD = "LVCMOS33";
+NET "CLK" TNM_NET = sys_clk_pin;
 TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100000 kHz;
-
-NET OSC_100MHz LOC=D11 |	IOSTANDARD = "LVCMOS33";
 
 NET RST 	LOC=E6; 
 

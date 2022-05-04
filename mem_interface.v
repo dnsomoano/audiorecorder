@@ -22,12 +22,12 @@ module mem_interface(
 	hw_ram_rasn, hw_ram_casn, hw_ram_wen, hw_ram_ba, hw_ram_udqs_p, 
 	hw_ram_udqs_n, hw_ram_ldqs_p, hw_ram_ldqs_n, hw_ram_udm, hw_ram_ldm, hw_ram_ck, 
 	hw_ram_ckn, hw_ram_cke, hw_ram_odt, hw_ram_ad, hw_ram_dq, hw_rzq_pin, hw_zio_pin,
-	CLK, reset, read_out, addr_in, data_in, status, pb_state);
+	CLK, reset, read_out, addr_in, data_in, systemCLK, status);
 	
 	output 	hw_ram_rasn;
 	output 	hw_ram_casn;
 	output 	hw_ram_wen;
-	output[2:0] hw_ram_ba;
+	output   [2:0] hw_ram_ba;
 	inout 	hw_ram_udqs_p;
 	inout 	hw_ram_udqs_n;
 	inout 	hw_ram_ldqs_p;
@@ -38,34 +38,33 @@ module mem_interface(
 	output 	hw_ram_ckn;
 	output 	hw_ram_cke;
 	output 	hw_ram_odt;
-	output[12:0] hw_ram_ad;
-	inout [15:0] hw_ram_dq;
+	output   [12:0] hw_ram_ad;
+	inout    [15:0] hw_ram_dq;
 	inout 	hw_rzq_pin;
 	inout 	hw_zio_pin;
 	
 	input 	CLK, reset;
-	output 	status;
-	input pb_state;
+	output 	systemCLK, status;
 	
 	// REMOVED: address, data, and read data will be handled from picoBlaze CPU
 	/*
 	input  [7:0]	switches; 		// address
 	input	 [7:0]	dip_switches; 	// data to be written into RAM
-	output [7:0]	leds;			// data read out of RAM
+	output [7:0]	leds;				// data read out of RAM
 	*/
 	
-	input  [25:0] addr_in;	// address
-	input  [7:0]  data_in;	// data to be written into RAM
-	output [7:0]  read_out;	// data read out of RAM
+	input  [25:0] addr_in;		// address
+	input  [15:0]  data_in;		// data to be written into RAM
+	output [15:0]  read_out;	// data read out of RAM
 	
 	reg 	[25:0] address = 0;
-	reg 	[7:0]	RAMin;
-	wire 	[7:0]	RAMout;
-	reg	[7:0] dataOut; 
-	reg 			reqRead;
-	reg 			enableWrite;
-	reg 			ackRead = 0;
-	wire 			systemCLK;
+	reg 	[15:0] RAMin;
+	wire 	[15:0] RAMout;
+	reg	[15:0] dataOut; 
+	reg 			 reqRead;
+	reg 			 enableWrite;
+	reg 			 ackRead = 0;
+	wire 			 systemCLK;
 	
 	wire rdy, 	dataPresent;
 	wire [25:0]	max_ram_address;
@@ -86,18 +85,6 @@ module mem_interface(
 			state <= stInit;
 		end
 		else
-			case (pb_state)
-				// PLAY state
-				8'h00: begin
-					state <= stMemReadReq;
-				end
-				// RECORD State
-				8'h01: begin
-					state <= stReadFromPorts;
-				end
-				// DELETE STATE
-				8'h02: begin
-					state <= stReadFromPorts;
 			if(rdy) begin // Only if RAM is rdy for read/write
 				
 				case (state)

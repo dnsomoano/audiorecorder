@@ -20,10 +20,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 module picoblaze_controller(
 	// Control - clk, rst, buttons
-	input  OSC_100MHz,		// CLOCK 100MHz
+	input  CLK,					// CLOCK 100MHz
 	input	 RST,					// Reset: ACTIVE LOW!!!!!!
-	input [3:0] KYPD_COL,
-	input	[3:0] KYPD_ROW,
+	input  [3:0] KYPD_COL,
+	input	 [3:0] KYPD_ROW,
+	output [3:0] leds,
 	
 	// Audio Interface IO
 	inout  AUD_ADCLRCK,
@@ -88,7 +89,9 @@ module picoblaze_controller(
 	wire			[15:0] audio_data;
 	
 	// RAM Interface wires
+	wire			RAM_status;		// 1 if RAM is ready for R/W
 	wire			RAM_reset;
+	wire			sysCLK;
 	reg			[25:0] max_RAM_address;
 	
 	// Audio Interface wires
@@ -132,14 +135,27 @@ module picoblaze_controller(
 		.hw_ram_dq(HW_RAM_DQ),
 		.hw_rzq_pin(),
 		.hw_zio_pin(),
-		.CLK(OSC_100MHz),
+		.CLK(CLK),
 		.reset(RAM_reset),
 		.read_out(/*<FILL_IN>*/),
 		.addr_in(/*<FILL_IN>*/),
 		.data_in(/*<FILL_IN>*/),
+		.systemCLK(sysCLK),
 		.status(RAM_status)
 	);
-		
+	
+	// Clock generator
+	//
+	// Wires for output clocks from generator
+	wire audio_clk;
+	wire pb_clk;
+	//
+	// Takes 37.5MHz clock from ram interface and outputs two 100MHz clocks
+	clk_gen clock_generator(
+		.CLK_IN1(sysCLK),
+		.CLK_OUT1(audio_clk),
+		.CLK_OUT2(pb_clk)
+	);
 	
 	// Audio Interface
 	//
@@ -147,7 +163,7 @@ module picoblaze_controller(
 	assign aud_reset = ~RST;
 	// Audio Interface instantiation
 	sockit_top audio_interface(
-		.OSC_100MHz(/*<FILL_IN>*/),	// 100 mhz clock from clock wiz
+		.OSC_100MHz(audio_clk),	// 100 mhz clock from clock wiz
 		.AUD_ADCLRCK(AUD_ADCLRCK),
 		.AUD_ADCDAT(AUD_ADCDAT),
 		.AUD_DACLRCK(AUD_DACLRCK),
@@ -179,7 +195,7 @@ module picoblaze_controller(
 		.rs232_tx(rs232_tx),
 		.rs232_rx(rs232_rx),
 		.reset(uart_reset),
-		.clk(/*<FILL_IN>*/)	// 100MHz clock from clock wiz	
+		.clk(pb_clk)	// 100MHz clock from clock wiz	
 	);
 	
 	// PicoBlaze and control logic
@@ -201,7 +217,7 @@ module picoblaze_controller(
 		.interrupt(pb_interrupt),
 		.interrupt_ack(pb_int_ack),
 		.reset(pb_reset),
-		.clk(/*<FILL_IN>*/)	// Clock signal generated from RAM interface
+		.clk(pb_clk)	// Clock signal generated from RAM interface
 	);	
 	// PB I/O selection/routing
 	//
@@ -226,7 +242,7 @@ module picoblaze_controller(
 	// This process block gets the value of the requested input port device
 	// and passes it to PBs in_port. When PB is not requestng data from
 	// a valid input port, set the input to static 0.
-	always @(posedge clk or posedge pb_reset)
+	always @(posedge pb_clk or posedge pb_reset)
 	begin
 		if(pb_reset) begin
 			pb_in_port <= 0;
@@ -256,22 +272,21 @@ module picoblaze_controller(
 	//
 	// Clock Divider for debouncer input
 	wire clk_div;
-	clock_divider divider (.clk(OSC_100MHz), .rst(pb_reset), .clk_div(clk_div));
+	clock_divider divider (.clk(pb_clk), .rst(pb_reset), .clk_div(clk_div));
 	//
 	// Debouncer instantiations for key pads
-	debouncer row0 (.clk(OSC_100MHz), .clock_div(clk_div), .in(KYPD_ROW[0]), .out(kypd_row0));
-	debouncer row1 (.clk(OSC_100MHz), .clock_div(clk_div), .in(KYPD_ROW[1]), .out(kypd_row1));
-	debouncer row2 (.clk(OSC_100MHz), .clock_div(clk_div), .in(KYPD_ROW[2]), .out(kypd_row2));
-	debouncer row3 (.clk(OSC_100MHz), .clock_div(clk_div), .in(KYPD_ROW[3]), .out(kypd_row3));
-	debouncer col0 (.clk(OSC_100MHz), .clock_div(clk_div), .in(KYPD_COL[0]), .out(kypd_col0));
-	debouncer col1 (.clk(OSC_100MHz), .clock_div(clk_div), .in(KYPD_COL[1]), .out(kypd_col1));
-	debouncer col2 (.clk(OSC_100MHz), .clock_div(clk_div), .in(KYPD_COL[2]), .out(kypd_col2));
-	debouncer col3 (.clk(OSC_100MHz), .clock_div(clk_div), .in(KYPD_COL[3]), .out(kypd_col3));
+	debouncer row0 (.clk(pb_clk), .clock_div(clk_div), .in(KYPD_ROW[0]), .out(kypd_row0));
+	debouncer row1 (.clk(pb_clk), .clock_div(clk_div), .in(KYPD_ROW[1]), .out(kypd_row1));
+	debouncer row2 (.clk(pb_clk), .clock_div(clk_div), .in(KYPD_ROW[2]), .out(kypd_row2));
+	debouncer row3 (.clk(pb_clk), .clock_div(clk_div), .in(KYPD_ROW[3]), .out(kypd_row3));
+	debouncer col0 (.clk(pb_clk), .clock_div(clk_div), .in(KYPD_COL[0]), .out(kypd_col0));
+	debouncer col1 (.clk(pb_clk), .clock_div(clk_div), .in(KYPD_COL[1]), .out(kypd_col1));
+	debouncer col2 (.clk(pb_clk), .clock_div(clk_div), .in(KYPD_COL[2]), .out(kypd_col2));
+	debouncer col3 (.clk(pb_clk), .clock_div(clk_div), .in(KYPD_COL[3]), .out(kypd_col3));
 	
 	// FSM code block for menu controls and module interfacing
 	//
 	// Wires and Registers for state functions
-	wire	RAM_status;		// 1 if RAM is ready for R/W
 	wire  audio_ready;
 	wire  data_ready;
 	reg   write_en;
@@ -292,15 +307,15 @@ module picoblaze_controller(
 	//
 	// Keypad controls
 	wire kypd1, kypd2, kypd3, kypd4, kypd5, kypd6, kypd0, kypdA, kypdB;
-	assign kypd1 = (row0 & col0);
-	assign kypd2 = (row0 & col1);
-	assign kypd3 = (row0 & col2);
-	assign kypdA = (row0 & col3);
-	assign kypd4 = (row1 & col0);
-	assign kypd5 = (row1 & col1);
-	assign kypd6 = (row1 & col2);
-	assign kypdB = (row1 & col3);
-	assign kypd0 = (row3 & col0);
+	assign kypd1 = (kypd_row0 & kypd_col0);
+	assign kypd2 = (kypd_row0 & kypd_col1);
+	assign kypd3 = (kypd_row0 & kypd_col2);
+	assign kypdA = (kypd_row0 & kypd_col3);
+	assign kypd4 = (kypd_row1 & kypd_col0);
+	assign kypd5 = (kypd_row1 & kypd_col1);
+	assign kypd6 = (kypd_row1 & kypd_col2);
+	assign kypdB = (kypd_row1 & kypd_col3);
+	assign kypd0 = (kypd_row3 & kypd_col0);
 	//
 	// State encoding
 	parameter init_state			=	4'b0000;
@@ -320,7 +335,7 @@ module picoblaze_controller(
 	reg [3:0] state = init_state;
 	//
 	// FSM logic
-	always@ (posedge OSC_100MHz) begin
+	always@ (posedge pb_clk) begin
 		// Reset case
 		if (pb_reset) begin
 			write_en 	<= 0;
@@ -488,5 +503,7 @@ module picoblaze_controller(
 			endcase
 		end
 	end
+	
+	assign leds = state;
 	
 endmodule
