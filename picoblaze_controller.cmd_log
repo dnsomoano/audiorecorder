@@ -1,2 +1,23 @@
-xst -intstyle ise -ifn "D:/audiorecorder/picoblaze_controller.xst" -ofn "D:/audiorecorder/picoblaze_controller.syr" 
-xst -intstyle ise -ifn "C:/Users/Halberd/audiorecorder/picoblaze_controller.xst" -ofn "C:/Users/Halberd/audiorecorder/picoblaze_controller.syr" 
+xst -intstyle ise -ifn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.xst" -ofn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.syr" 
+xst -intstyle ise -ifn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.xst" -ofn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.syr" 
+xst -intstyle ise -ifn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.xst" -ofn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.syr" 
+xst -intstyle ise -ifn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.xst" -ofn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.syr" 
+xst -intstyle ise -ifn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.xst" -ofn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.syr" 
+xst -intstyle ise -ifn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.xst" -ofn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.syr" 
+xst -intstyle ise -ifn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.xst" -ofn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.syr" 
+xst -intstyle ise -ifn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.xst" -ofn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.syr" 
+xst -intstyle ise -ifn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.xst" -ofn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.syr" 
+xst -intstyle ise -ifn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.xst" -ofn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc Anvyl_Master.ucf -p xc6slx45-csg484-3 picoblaze_controller.ngc picoblaze_controller.ngd  
+map -intstyle ise -p xc6slx45-csg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o picoblaze_controller_map.ncd picoblaze_controller.ngd picoblaze_controller.pcf 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc Anvyl_Master.ucf -p xc6slx45-csg484-3 picoblaze_controller.ngc picoblaze_controller.ngd  
+map -intstyle ise -p xc6slx45-csg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o picoblaze_controller_map.ncd picoblaze_controller.ngd picoblaze_controller.pcf 
+par -w -intstyle ise -ol high -mt off picoblaze_controller_map.ncd picoblaze_controller.ncd picoblaze_controller.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml picoblaze_controller.twx picoblaze_controller.ncd -o picoblaze_controller.twr picoblaze_controller.pcf -ucf Anvyl_Master.ucf 
+bitgen -intstyle ise -f picoblaze_controller.ut picoblaze_controller.ncd 
+xst -intstyle ise -ifn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.xst" -ofn "C:/Users/sagew/Xilinx/Projects/final_lab/picoblaze_controller.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc Anvyl_Master.ucf -p xc6slx45-csg484-3 picoblaze_controller.ngc picoblaze_controller.ngd  
+map -intstyle ise -p xc6slx45-csg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o picoblaze_controller_map.ncd picoblaze_controller.ngd picoblaze_controller.pcf 
+par -w -intstyle ise -ol high -mt off picoblaze_controller_map.ncd picoblaze_controller.ncd picoblaze_controller.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml picoblaze_controller.twx picoblaze_controller.ncd -o picoblaze_controller.twr picoblaze_controller.pcf -ucf Anvyl_Master.ucf 
+bitgen -intstyle ise -f picoblaze_controller.ut picoblaze_controller.ncd 

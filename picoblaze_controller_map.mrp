@@ -1,0 +1,645 @@
+Release 14.7 Map P.20131013 (nt64)
+Xilinx Mapping Report File for Design 'picoblaze_controller'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc6slx45-csg484-3 -w -logic_opt off -ol
+high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off
+-pr off -lc off -power off -o picoblaze_controller_map.ncd
+picoblaze_controller.ngd picoblaze_controller.pcf 
+Target Device  : xc6slx45
+Target Package : csg484
+Target Speed   : -3
+Mapper Version : spartan6 -- $Revision: 1.55 $
+Mapped Date    : Wed May 04 17:27:49 2022
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    4
+Slice Logic Utilization:
+  Number of Slice Registers:                   551 out of  54,576    1%
+    Number used as Flip Flops:                 551
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                        714 out of  27,288    2%
+    Number used as logic:                      676 out of  27,288    2%
+      Number using O6 output only:             386
+      Number using O5 output only:              55
+      Number using O5 and O6:                  235
+      Number used as ROM:                        0
+    Number used as Memory:                      32 out of   6,408    1%
+      Number used as Dual Port RAM:              8
+        Number using O6 output only:             0
+        Number using O5 output only:             0
+        Number using O5 and O6:                  8
+      Number used as Single Port RAM:           16
+        Number using O6 output only:             8
+        Number using O5 output only:             0
+        Number using O5 and O6:                  8
+      Number used as Shift Register:             8
+        Number using O6 output only:             1
+        Number using O5 output only:             0
+        Number using O5 and O6:                  7
+    Number used exclusively as route-thrus:      6
+      Number with same-slice register load:      1
+      Number with same-slice carry load:         5
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                   262 out of   6,822    3%
+  Number of MUXCYs used:                       168 out of  13,644    1%
+  Number of LUT Flip Flop pairs used:          796
+    Number with an unused Flip Flop:           320 out of     796   40%
+    Number with an unused LUT:                  82 out of     796   10%
+    Number of fully used LUT-FF pairs:         394 out of     796   49%
+    Number of unique control sets:              52
+    Number of slice register sites lost
+      to control set restrictions:             146 out of  54,576    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        72 out of     320   22%
+    Number of LOCed IOBs:                       70 out of      72   97%
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                         4 out of     116    3%
+  Number of RAMB8BWERs:                          0 out of     232    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 1 out of      32    3%
+    Number used as BUFIO2s:                      1
+    Number used as BUFIO2_2CLKs:                 0
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                       9 out of      16   56%
+    Number used as BUFGs:                        8
+    Number used as BUFGMUX:                      1
+  Number of DCM/DCM_CLKGENs:                     1 out of       8   12%
+    Number used as DCMs:                         1
+    Number used as DCM_CLKGENs:                  0
+  Number of ILOGIC2/ISERDES2s:                   0 out of     376    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:        24 out of     376    6%
+    Number used as IODELAY2s:                    0
+    Number used as IODRP2s:                      2
+    Number used as IODRP2_MCBs:                 22
+  Number of OLOGIC2/OSERDES2s:                  45 out of     376   11%
+    Number used as OLOGIC2s:                     0
+    Number used as OSERDES2s:                   45
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     256    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         1 out of       4   25%
+  Number of DSP48A1s:                            0 out of      58    0%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                1 out of       2   50%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            2 out of       4   50%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+Average Fanout of Non-Clock Nets:                3.30
+
+Peak Memory Usage:  4655 MB
+Total REAL time to MAP completion:  37 secs 
+Total CPU time to MAP completion:   37 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:MapLib:701 - Signal RS232_Uart_RX connected to top level port
+   RS232_Uart_RX has been removed.
+WARNING:Place:1137 - This design is not guaranteed to be routable! This design
+   contains a global buffer instance, <clock_generator/clkout1_buf>, driving the
+   net, <audio_clk>, that is driving the following (first 30) non-clock load
+   pins.
+   < PIN: audio_interface/pll/clkin1_buf.I0; >
+   This is not a recommended design practice in Spartan-6 due to limitations in
+   the global routing that may cause excessive delay, skew or unroutable
+   situations.  It is recommended to only use a BUFG resource to drive clock
+   loads. Please pay extra attention to the timing and routing of this path to
+   ensure the design goals are met. This is normally an ERROR but the
+   CLOCK_DEDICATED_ROUTE constraint was applied on COMP.PIN
+   <clock_generator/clkout1_buf.O> allowing your design to continue. This
+   constraint disables all clock placer rules related to the specified COMP.PIN.
+WARNING:Place:1137 - This design is not guaranteed to be routable! This design
+   contains a global buffer instance,
+   <memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/U_BU
+   FG_CLK0>, driving the net, <sysCLK>, that is driving the following (first 30)
+   non-clock load pins.
+   < PIN: clock_generator/clkin1_buf.I0; >
+   This is not a recommended design practice in Spartan-6 due to limitations in
+   the global routing that may cause excessive delay, skew or unroutable
+   situations.  It is recommended to only use a BUFG resource to drive clock
+   loads. Please pay extra attention to the timing and routing of this path to
+   ensure the design goals are met. This is normally an ERROR but the
+   CLOCK_DEDICATED_ROUTE constraint was applied on COMP.PIN
+   <memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/U_BU
+   FG_CLK0.O> allowing your design to continue. This constraint disables all
+   clock placer rules related to the specified COMP.PIN.
+WARNING:PhysDesignRules:781 - PULLUP on an active net. PULLUP of comp
+   AUD_I2C_SCLK_PULLUP is set but the tri state is not configured. 
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network
+   memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_
+   sync_r<24> has no load.
+INFO:LIT:395 - The above info message is repeated 6 more times for the following
+   (max. 5 shown):
+   N180,
+   N182,
+   HW_RZQ_PIN,
+   HW_ZIO_PIN,
+   KYPD_ROW<2>_IBUF
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
+   1.260 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Place:834 - Only a subset of IOs are locked. Out of 72 IOs, 70 are locked
+   and 2 are not locked. If you would like to print the names of these IOs,
+   please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
+INFO:Pack:1650 - Map created a placed design.
+INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM comp
+   clock_generator/dcm_sp_inst, consult the device Data Sheet.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+  83 block(s) removed
+   5 block(s) optimized away
+  88 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<24>" is loadless and has been removed.
+ Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_24" (FF) removed.
+  The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<23>" is loadless and has been removed.
+   Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_23" (FF) removed.
+    The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<22>" is loadless and has been removed.
+     Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_22" (FF) removed.
+      The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<21>" is loadless and has been removed.
+       Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_21" (FF) removed.
+        The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<20>" is loadless and has been removed.
+         Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_20" (FF) removed.
+          The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<19>" is loadless and has been removed.
+           Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_19" (FF) removed.
+            The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<18>" is loadless and has been removed.
+             Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_18" (FF) removed.
+              The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<17>" is loadless and has been removed.
+               Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_17" (FF) removed.
+                The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<16>" is loadless and has been removed.
+                 Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_16" (FF) removed.
+                  The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<15>" is loadless and has been removed.
+                   Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_15" (FF) removed.
+                    The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<14>" is loadless and has been removed.
+                     Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_14" (FF) removed.
+                      The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<13>" is loadless and has been removed.
+                       Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_13" (FF) removed.
+                        The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<12>" is loadless and has been removed.
+                         Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_12" (FF) removed.
+                          The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<11>" is loadless and has been removed.
+                           Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_11" (FF) removed.
+                            The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<10>" is loadless and has been removed.
+                             Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_10" (FF) removed.
+                              The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<9>" is loadless and has been removed.
+                               Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_9" (FF) removed.
+                                The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<8>" is loadless and has been removed.
+                                 Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_8" (FF) removed.
+                                  The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<7>" is loadless and has been removed.
+                                   Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_7" (FF) removed.
+                                    The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<6>" is loadless and has been removed.
+                                     Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_6" (FF) removed.
+                                      The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<5>" is loadless and has been removed.
+                                       Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_5" (FF) removed.
+                                        The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<4>" is loadless and has been removed.
+                                         Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_4" (FF) removed.
+                                          The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<3>" is loadless and has been removed.
+                                           Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_3" (FF) removed.
+                                            The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<2>" is loadless and has been removed.
+                                             Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_2" (FF) removed.
+                                              The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<1>" is loadless and has been removed.
+                                               Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_1" (FF) removed.
+                                                The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r<0>" is loadless and has been removed.
+                                                 Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst0_sy
+nc_r_0" (FF) removed.
+*The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst_tmp
+" is loadless and has been removed.
+* Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/rst_tmp
+1" (ROM) removed.
+*  The signal
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/syn_clk
+0_powerup_pll_locked" is loadless and has been removed.
+*   Loadless block
+"memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/syn_clk
+0_powerup_pll_locked" (FF) removed.
+Loadless block "CPU/pblaze_cpu/interrupt_ack_flop" (FF) removed.
+Loadless block "CPU/pblaze_cpu/k_write_strobe_flop" (SFF) removed.
+ The signal "CPU/pblaze_cpu/k_write_strobe_value" is loadless and has been
+removed.
+Loadless block "UART/receiver/data_width_loop[0].storage_srl" (SRL16E) removed.
+ The signal "UART/receiver/pointer<0>" is loadless and has been removed.
+  Loadless block "UART/receiver/pointer0_flop" (SFF) removed.
+   The signal "UART/receiver/pointer_value<0>" is loadless and has been removed.
+ The signal "UART/receiver/pointer<1>" is loadless and has been removed.
+  Loadless block "UART/receiver/pointer1_flop" (SFF) removed.
+   The signal "UART/receiver/pointer_value<1>" is loadless and has been removed.
+ The signal "UART/receiver/pointer<2>" is loadless and has been removed.
+  Loadless block "UART/receiver/pointer2_flop" (SFF) removed.
+   The signal "UART/receiver/pointer_value<2>" is loadless and has been removed.
+    Loadless block "UART/receiver/pointer2_lut" (ROM) removed.
+     The signal "UART/receiver/pointer<3>" is loadless and has been removed.
+      Loadless block "UART/receiver/pointer3_flop" (SFF) removed.
+       The signal "UART/receiver/pointer_value<3>" is loadless and has been removed.
+        Loadless block "UART/receiver/pointer3_lut" (ROM) removed.
+         The signal "UART/receiver/buffer_write" is loadless and has been removed.
+          Loadless block "UART/receiver/buffer_write_flop" (FF) removed.
+           The signal "UART/receiver/buffer_write_value" is loadless and has been removed.
+         The signal "read_from_uart" is loadless and has been removed.
+          Loadless block "read_from_uart" (FF) removed.
+           The signal "pb_read_strobe_pb_port_id[7]_AND_56_o" is loadless and has been
+removed.
+            Loadless block "pb_read_strobe_pb_port_id[7]_AND_56_o1" (ROM) removed.
+             The signal "pb_read_strobe" is loadless and has been removed.
+              Loadless block "CPU/pblaze_cpu/read_strobe_flop" (SFF) removed.
+               The signal "CPU/pblaze_cpu/read_strobe_value" is loadless and has been removed.
+ The signal "UART/receiver/data<0>" is loadless and has been removed.
+  Loadless block "UART/receiver/data0_flop" (FF) removed.
+   The signal "UART/receiver/data_value<0>" is loadless and has been removed.
+Loadless block "UART/receiver/data_width_loop[1].storage_srl" (SRL16E) removed.
+ The signal "UART/receiver/data<1>" is loadless and has been removed.
+  Loadless block "UART/receiver/data1_flop" (FF) removed.
+   The signal "UART/receiver/data_value<1>" is loadless and has been removed.
+Loadless block "UART/receiver/data_width_loop[2].storage_srl" (SRL16E) removed.
+ The signal "UART/receiver/data<2>" is loadless and has been removed.
+  Loadless block "UART/receiver/data2_flop" (FF) removed.
+   The signal "UART/receiver/data_value<2>" is loadless and has been removed.
+Loadless block "UART/receiver/data_width_loop[3].storage_srl" (SRL16E) removed.
+ The signal "UART/receiver/data<3>" is loadless and has been removed.
+  Loadless block "UART/receiver/data3_flop" (FF) removed.
+   The signal "UART/receiver/data_value<3>" is loadless and has been removed.
+Loadless block "UART/receiver/data_width_loop[4].storage_srl" (SRL16E) removed.
+ The signal "UART/receiver/data<4>" is loadless and has been removed.
+  Loadless block "UART/receiver/data4_flop" (FF) removed.
+   The signal "UART/receiver/data_value<4>" is loadless and has been removed.
+Loadless block "UART/receiver/data_width_loop[5].storage_srl" (SRL16E) removed.
+ The signal "UART/receiver/data<5>" is loadless and has been removed.
+  Loadless block "UART/receiver/data5_flop" (FF) removed.
+   The signal "UART/receiver/data_value<5>" is loadless and has been removed.
+Loadless block "UART/receiver/data_width_loop[6].storage_srl" (SRL16E) removed.
+ The signal "UART/receiver/data<6>" is loadless and has been removed.
+  Loadless block "UART/receiver/data6_flop" (FF) removed.
+   The signal "UART/receiver/data_value<6>" is loadless and has been removed.
+Loadless block "UART/receiver/data_width_loop[7].storage_srl" (SRL16E) removed.
+ The signal "UART/receiver/data<7>" is loadless and has been removed.
+  Loadless block "UART/receiver/data7_flop" (FF) removed.
+   The signal "UART/receiver/data_value<7>" is loadless and has been removed.
+Loadless block "audio_interface/pll/clkout3_buf" (CKBUF) removed.
+ The signal "audio_interface/pll/clkout2" is loadless and has been removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "RS232_Uart_RX_IBUF" is unused and has been removed.
+ Unused block "RS232_Uart_RX_IBUF" (BUF) removed.
+  The signal "RS232_Uart_RX" is unused and has been removed.
+   Unused block "RS232_Uart_RX" (PAD) removed.
+The signal "UART/receiver/start_bit_value" is unused and has been removed.
+ Unused block "UART/receiver/start_bit_lut" (ROM) removed.
+  The signal "UART/receiver/start_bit" is unused and has been removed.
+   Unused block "UART/receiver/start_bit_flop" (FF) removed.
+  The signal "UART/receiver/sample_input" is unused and has been removed.
+   Unused block "UART/receiver/sample_input_flop" (FF) removed.
+    The signal "UART/receiver/sample_input_value" is unused and has been removed.
+  The signal "UART/receiver/sample_dly" is unused and has been removed.
+   Unused block "UART/receiver/sample_dly_flop" (FF) removed.
+    The signal "UART/receiver/sample_dly_value" is unused and has been removed.
+  The signal "UART/receiver/sample" is unused and has been removed.
+   Unused block "UART/receiver/sample_flop" (FF) removed.
+    The signal "UART/receiver/sample_value" is unused and has been removed.
+  The signal "UART/receiver/run" is unused and has been removed.
+   Unused block "UART/receiver/run_flop" (FF) removed.
+    The signal "UART/receiver/run_value" is unused and has been removed.
+     Unused block "UART/receiver/run_lut" (ROM) removed.
+The signal "UART/receiver/stop_bit_value" is unused and has been removed.
+The signal "UART/receiver/zero" is unused and has been removed.
+The signal "UART/receiver/full_int" is unused and has been removed.
+The signal "UART/receiver/div<3>" is unused and has been removed.
+ Unused block "UART/receiver/div3_flop" (FF) removed.
+  The signal "UART/receiver/div_value<3>" is unused and has been removed.
+The signal "UART/receiver/div<2>" is unused and has been removed.
+ Unused block "UART/receiver/div2_flop" (FF) removed.
+  The signal "UART/receiver/div_value<2>" is unused and has been removed.
+The signal "UART/receiver/div<1>" is unused and has been removed.
+ Unused block "UART/receiver/div1_flop" (FF) removed.
+  The signal "UART/receiver/div_value<1>" is unused and has been removed.
+The signal "UART/receiver/div<0>" is unused and has been removed.
+ Unused block "UART/receiver/div0_flop" (FF) removed.
+  The signal "UART/receiver/div_value<0>" is unused and has been removed.
+The signal "UART/receiver/stop_bit" is unused and has been removed.
+ Unused block "UART/receiver/stop_bit_flop" (FF) removed.
+The signal "UART/receiver/data_present_int" is unused and has been removed.
+ Unused block "UART/receiver/data_present_flop" (SFF) removed.
+  The signal "UART/receiver/data_present_value" is unused and has been removed.
+The signal "UART/receiver/en_pointer" is unused and has been removed.
+The signal "UART/receiver/div_carry" is unused and has been removed.
+The signal "CPU/pblaze_cpu/active_interrupt_value" is unused and has been
+removed.
+Unused block "UART/receiver/data01_lut" (LUT6_2) removed.
+Unused block "UART/receiver/data23_lut" (LUT6_2) removed.
+Unused block "UART/receiver/data45_lut" (LUT6_2) removed.
+Unused block "UART/receiver/data67_lut" (LUT6_2) removed.
+Unused block "UART/receiver/data_present_lut" (LUT6_2) removed.
+Unused block "UART/receiver/div01_lut" (LUT6_2) removed.
+Unused block "UART/receiver/div23_lut" (LUT6_2) removed.
+Unused block "UART/receiver/full_lut" (LUT6_2) removed.
+Unused block "UART/receiver/pointer01_lut" (LUT6_2) removed.
+Unused block "UART/receiver/sample_input_lut" (LUT6_2) removed.
+Unused block "UART/receiver/sample_lut" (LUT6_2) removed.
+Unused block "UART/receiver/stop_bit_lut" (LUT6_2) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+FD 		CPU/pblaze_cpu/sync_interrupt_flop
+   optimized to 0
+FD 		CPU/pblaze_cpu/sync_sleep_flop
+   optimized to 0
+GND 		XST_GND
+VCC 		XST_VCC
+FD 		CPU/pblaze_cpu/active_interrupt_flop
+   optimized to 0
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| AUD_ADCDAT                         | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| AUD_ADCLRCK                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| AUD_BCLK                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| AUD_DACDAT                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| AUD_DACLRCK                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| AUD_I2C_SCLK                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              | PULLUP   |          |
+| AUD_I2C_SDAT                       | IOB              | BIDIR     | LVCMOS33             |       | 12       | SLOW |              | PULLUP   |          |
+| AUD_MUTE                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| AUD_XCK                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| CLK                                | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| HW_RAM_AD<0>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_AD<1>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_AD<2>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_AD<3>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_AD<4>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_AD<5>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_AD<6>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_AD<7>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_AD<8>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_AD<9>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_AD<10>                      | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_AD<11>                      | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_AD<12>                      | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_BA<0>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_BA<1>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_BA<2>                       | IOB              | OUTPUT    | SSTL2_II             |       |          |      | OSERDES      |          |          |
+| HW_RAM_CASN                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OSERDES      |          |          |
+| HW_RAM_CK                          | IOB              | OUTPUT    | DIFF_SSTL2_II        |       |          |      | OSERDES      |          |          |
+| HW_RAM_CKE                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OSERDES      |          |          |
+| HW_RAM_CKN                         | IOB              | OUTPUT    | DIFF_SSTL2_II        |       |          |      | OSERDES      |          |          |
+| HW_RAM_DQ<0>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_DQ<1>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_DQ<2>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_DQ<3>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_DQ<4>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_DQ<5>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_DQ<6>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_DQ<7>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_DQ<8>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_DQ<9>                       | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_DQ<10>                      | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_DQ<11>                      | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_DQ<12>                      | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_DQ<13>                      | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_DQ<14>                      | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_DQ<15>                      | IOB              | BIDIR     | SSTL2_II             |       |          |      |              |          |          |
+| HW_RAM_LDM                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| HW_RAM_LDQS_N                      | IOB              | BIDIR     | DIFF_SSTL2_II        |       |          |      |              | PULLUP   |          |
+| HW_RAM_LDQS_P                      | IOB              | BIDIR     | DIFF_SSTL2_II        |       |          |      |              | PULLDOWN |          |
+| HW_RAM_ODT                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OSERDES      |          |          |
+| HW_RAM_RASN                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OSERDES      |          |          |
+| HW_RAM_UDM                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| HW_RAM_UDQS_N                      | IOB              | BIDIR     | DIFF_SSTL2_II        |       |          |      |              | PULLUP   |          |
+| HW_RAM_UDQS_P                      | IOB              | BIDIR     | DIFF_SSTL2_II        |       |          |      |              | PULLDOWN |          |
+| HW_RAM_WEN                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW | OSERDES      |          |          |
+| IO                                 | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          | DEFAULT  |
+| IO_x                               | IOB              | BIDIR     | LVCMOS25             |       | 12       | SLOW |              |          | DEFAULT  |
+| KYPD_COL<0>                        | IOB              | INPUT     | LVCMOS18             |       |          |      |              |          |          |
+| KYPD_COL<1>                        | IOB              | INPUT     | LVCMOS18             |       |          |      |              |          |          |
+| KYPD_COL<2>                        | IOB              | INPUT     | LVCMOS18             |       |          |      |              |          |          |
+| KYPD_COL<3>                        | IOB              | INPUT     | LVCMOS18             |       |          |      |              |          |          |
+| KYPD_ROW<0>                        | IOB              | INPUT     | LVCMOS18             |       |          |      |              |          |          |
+| KYPD_ROW<1>                        | IOB              | INPUT     | LVCMOS18             |       |          |      |              |          |          |
+| KYPD_ROW<2>                        | IOB              | INPUT     | LVCMOS18             |       |          |      |              |          |          |
+| KYPD_ROW<3>                        | IOB              | INPUT     | LVCMOS18             |       |          |      |              |          |          |
+| PLL_LOCKED                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| RS232_Uart_TX                      | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RST                                | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| leds<0>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| leds<1>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| leds<2>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| leds<3>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+Use the "-detail" map option to print out Control Set Information.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

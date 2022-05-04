@@ -4,7 +4,7 @@ run
 -ifn picoblaze_controller.prj
 -ofn picoblaze_controller
 -ofmt NGC
--p xc6slx45-3-csg324
+-p xc6slx45-3-csg484
 -top picoblaze_controller
 -opt_mode Speed
 -opt_level 1
