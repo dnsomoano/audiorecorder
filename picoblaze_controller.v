@@ -192,8 +192,8 @@ module picoblaze_controller(
 		.rx_data_out(uart_data_rx),
 		.read_rx_data_ack(read_from_uart),
 		.rx_data_present(uart_data_present),
-		.rs232_tx(rs232_tx),
-		.rs232_rx(rs232_rx),
+		.rs232_tx(RS232_Uart_TX),
+		.rs232_rx(RS232_Uart_RX),
 		.reset(uart_reset),
 		.clk(pb_clk)	// 100MHz clock from clock wiz	
 	);

@@ -3,8 +3,12 @@
 ## - uncomment the lines corresponding to used pins
 ## - rename the used signals according to the project
 
+## Clock pins
+PIN "clock_generator/clkout1_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
+PIN "memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/U_BUFG_CLK0.O" CLOCK_DEDICATED_ROUTE = FALSE;
+
 ## Clock Signal
-NET CLK	LOC=D11; |	IOSTANDARD = "LVCMOS33";
+NET CLK	LOC=D11 |	IOSTANDARD = "LVCMOS33";
 NET "CLK" TNM_NET = sys_clk_pin;
 TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100000 kHz;
 
@@ -37,34 +41,34 @@ NET "KYPD_ROW[2]"	LOC = G8	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L73P
 NET "KYPD_ROW[3]"	LOC = G7	|	IOSTANDARD=LVCMOS18; 	#Bank = 3, pin name = IO_L73N_3,	Sch name = ROW4
 
 ## Switches
-NET "switches[0]"	LOC= V5	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L13N_3,	Sch name = SW0
-NET "switches[1]"	LOC= U4	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L18P_3,	Sch name = SW1
-NET "switches[2]"	LOC= V3	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L18N_3,	Sch name = SW2
-NET "switches[3]"	LOC= P4	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L21P_3,	Sch name = SW3
-NET "switches[4]"	LOC= R4	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L21N_3,	Sch name = SW4
-NET "switches[5]"	LOC= P6	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L22P_3,	Sch name = SW5
-NET "switches[6]"	LOC= P5	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L22N_3,	Sch name = SW6
-NET "switches[7]"	LOC= P8	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L23P_3,	Sch name = SW7
+#NET "switches[0]"	LOC= V5	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L13N_3,	Sch name = SW0
+#NET "switches[1]"	LOC= U4	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L18P_3,	Sch name = SW1
+#NET "switches[2]"	LOC= V3	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L18N_3,	Sch name = SW2
+#NET "switches[3]"	LOC= P4	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L21P_3,	Sch name = SW3
+#NET "switches[4]"	LOC= R4	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L21N_3,	Sch name = SW4
+#NET "switches[5]"	LOC= P6	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L22P_3,	Sch name = SW5
+#NET "switches[6]"	LOC= P5	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L22N_3,	Sch name = SW6
+#NET "switches[7]"	LOC= P8	|	IOSTANDARD=LVCMOS18;		#Bank = 3, pin name = IO_L23P_3,	Sch name = SW7
 
 ## LEDs
 NET "leds[0]"	LOC=W3 ;
 NET "leds[1]"	LOC=Y4 ;
 NET "leds[2]"	LOC=Y1 ;	
 NET "leds[3]"	LOC=Y3 ;	
-NET "leds[4]"	LOC=AB4;	
-NET "leds[5]"	LOC=W1;	
-NET "leds[6]"	LOC=AB3;	
-NET "leds[7]"	LOC=AA4;
+#NET "leds[4]"	LOC=AB4;	
+#NET "leds[5]"	LOC=W1;	
+#NET "leds[6]"	LOC=AB3;	
+#NET "leds[7]"	LOC=AA4;
 
 ## Dip Switches
-NET "dip_switches[0]"	LOC = G6	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L74P_3,	Sch name = DIPA-1
-NET "dip_switches[1]"	LOC = G4	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L74N_3,	Sch name = DIPA-2
-NET "dip_switches[2]"	LOC = F5	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L75P_3,	Sch name = DIPA-3
-NET "dip_switches[3]"	LOC = E5	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L75N_3,	Sch name = DIPA-4
-NET "dip_switches[4]"	LOC = F8	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L80P_3,	Sch name = DIPB-1
-NET "dip_switches[5]"	LOC = F7	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L80N_3,	Sch name = DIPB-2
-NET "dip_switches[6]"	LOC = C4	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L81P_3,	Sch name = DIPB-3
-NET "dip_switches[7]"	LOC = D3	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L81N_3,	Sch name = DIPB-4
+#NET "dip_switches[0]"	LOC = G6	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L74P_3,	Sch name = DIPA-1
+#NET "dip_switches[1]"	LOC = G4	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L74N_3,	Sch name = DIPA-2
+#NET "dip_switches[2]"	LOC = F5	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L75P_3,	Sch name = DIPA-3
+#NET "dip_switches[3]"	LOC = E5	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L75N_3,	Sch name = DIPA-4
+#NET "dip_switches[4]"	LOC = F8	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L80P_3,	Sch name = DIPB-1
+#NET "dip_switches[5]"	LOC = F7	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L80N_3,	Sch name = DIPB-2
+#NET "dip_switches[6]"	LOC = C4	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L81P_3,	Sch name = DIPB-3
+#NET "dip_switches[7]"	LOC = D3	|	IOSTANDARD=LVCMOS18; 		#Bank = 3, pin name = IO_L81N_3,	Sch name = DIPB-4
 
 # RS232
 NET "RS232_Uart_TX"	LOC =T19		| 	IOSTANDARD = "LVCMOS33";
