@@ -61,7 +61,10 @@ module picoblaze_controller(
 	input  RS232_Uart_RX,
 	output RS232_Uart_TX 
 );
-	
+
+	wire clk37;
+	wire clk100mhz;
+	wire clk100mhz_2;
 	// REMOVED: data read from/to audio, not switches/LEDs
 	/*
 	input			[7:0]	switches;
@@ -118,6 +121,13 @@ module picoblaze_controller(
 	reg vol_up, vol_down;
 
 	wire [15:0] audio_out;
+
+	myclock wizard
+  	(
+    	.CLK_IN1(clk37), 
+    	.CLK_OUT1(clk100mhz),
+	 	.CLK_OUT2(clk100mhz_2)
+	);
 
 	initial begin
 		play <= 0;
@@ -179,7 +189,7 @@ module picoblaze_controller(
 	assign aud_reset = ~RST;
 	// Audio Interface instantiation
 	sockit_top audio_interface(
-		.OSC_100MHz(/*<FILL_IN>*/),	// 100 mhz clock from clock wiz
+		.OSC_100MHz(clk100mhz_2),	// 100 mhz clock from clock wiz
 		.AUD_ADCLRCK(AUD_ADCLRCK),
 		.AUD_ADCDAT(AUD_ADCDAT),
 		.AUD_DACLRCK(AUD_DACLRCK),
@@ -233,7 +243,7 @@ module picoblaze_controller(
 		.interrupt(pb_interrupt),
 		.interrupt_ack(pb_int_ack),
 		.reset(pb_reset),
-		.clk(/*<FILL_IN>*/)	// Clock signal generated from RAM interface
+		.clk(clk100mhz)	// Clock signal generated from RAM interface
 	);	
 	// PB I/O selection/routing
 	//

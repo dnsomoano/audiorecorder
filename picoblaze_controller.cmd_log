@@ -1,1 +1,2 @@
 xst -intstyle ise -ifn "D:/audiorecorder/picoblaze_controller.xst" -ofn "D:/audiorecorder/picoblaze_controller.syr" 
+xst -intstyle ise -ifn "C:/Users/Halberd/audiorecorder/picoblaze_controller.xst" -ofn "C:/Users/Halberd/audiorecorder/picoblaze_controller.syr" 

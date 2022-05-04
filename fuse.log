@@ -1,0 +1,21 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/Halberd/audiorecorder/picoblaze_controller_tb_isim_beh.exe -prj C:/Users/Halberd/audiorecorder/picoblaze_controller_tb_beh.prj work.picoblaze_controller_tb work.glbl 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Analyzing Verilog file "C:/Users/Halberd/audiorecorder/ipcore_dir/myclock.v" into library work
+Analyzing Verilog file "C:/Users/Halberd/audiorecorder/i2c_controller.v" into library work
+Analyzing Verilog file "C:/Users/Halberd/audiorecorder/uart_tx6.v" into library work
+Analyzing Verilog file "C:/Users/Halberd/audiorecorder/uart_rx6.v" into library work
+Analyzing Verilog file "C:/Users/Halberd/audiorecorder/program.v" into library work
+Analyzing Verilog file "C:/Users/Halberd/audiorecorder/kcpsm6.v" into library work
+Analyzing Verilog file "C:/Users/Halberd/audiorecorder/i2c_av_config.v" into library work
+Analyzing Verilog file "C:/Users/Halberd/audiorecorder/audio_effects.v" into library work
+Analyzing Verilog file "C:/Users/Halberd/audiorecorder/audio_codec.v" into library work
+Analyzing Verilog file "C:/Users/Halberd/audiorecorder/sockit_top.v" into library work
+Analyzing Verilog file "C:/Users/Halberd/audiorecorder/rs232_uart.v" into library work
+Analyzing Verilog file "C:/Users/Halberd/audiorecorder/picoblaze.v" into library work
+Analyzing Verilog file "C:/Users/Halberd/audiorecorder/mem_interface.v" into library work
+ERROR:HDLCompiler:806 - "C:/Users/Halberd/audiorecorder/mem_interface.v" Line 152: Syntax error near "RAMRapper".
+WARNING:HDLCompiler:1563 - "C:/Users/Halberd/audiorecorder/mem_interface.v" Line 152: Empty item in case item list violates IEEE 1364 syntax
+Verilog file C:/Users/Halberd/audiorecorder/mem_interface.v ignored due to errors

@@ -5,22 +5,16 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="coreutil" num="928" delta="old" >Unable to find &apos;<arg fmt="%s" index="1">xilinx.com:ip:MIG_Virtex6_and_Spartan6:3.91</arg>&apos; within repository.
-</msg>
-
-<msg type="warning" file="coreutil" num="928" delta="old" >Unable to find &apos;<arg fmt="%s" index="1">xilinx.com:ip:MIG_Virtex6_and_Spartan6:3.91</arg>&apos; within repository.
-</msg>
-
-<msg type="warning" file="sim" num="0" delta="new" >The IP MIG Virtex6 and Spartan6 3.91 does not exist within the repository, and cannot be recustomized or regenerated. It is not available in CoreGen 14.7, and may have been removed or replaced. To generate MIG Virtex6 and Spartan6 3.91 please use a previous version of ISE in which this IP is available, or add the user repository which contains this IP.
-</msg>
-
 <msg type="info" file="sim" num="172" delta="old" >Generating IP...
 </msg>
 
-<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">The chosen IP does not support an SYM schematic symbol.</arg>
+<msg type="warning" file="sim" num="0" delta="new" ><arg fmt="%s" index="1">Component clk_wiz_v3_6 does not have a valid model name for Verilog synthesis</arg>
 </msg>
 
-<msg type="info" file="sim" num="948" delta="old" >Finished FLIST file generation.
+<msg type="info" file="sim" num="949" delta="new" >Finished generation of ASY schematic symbol.
+</msg>
+
+<msg type="info" file="sim" num="948" delta="new" >Finished FLIST file generation.
 </msg>
 
 </messages>

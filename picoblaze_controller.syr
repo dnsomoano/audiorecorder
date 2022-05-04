@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.15 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.15 secs
  
 --> Reading design: picoblaze_controller.prj
 
@@ -108,60 +108,38 @@ Cores Search Directories           : {"ipcore_dir"  }
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "D:\audiorecorder\ipcore_dir\ram_interface\user_design\rtl\mcb_controller\iodrp_mcb_controller.v" into library work
-Parsing module <iodrp_mcb_controller>.
-Analyzing Verilog file "D:\audiorecorder\ipcore_dir\ram_interface\user_design\rtl\mcb_controller\iodrp_controller.v" into library work
-Parsing module <iodrp_controller>.
-Analyzing Verilog file "D:\audiorecorder\ipcore_dir\ram_interface\user_design\rtl\mcb_controller\mcb_soft_calibration.v" into library work
-Parsing module <mcb_soft_calibration>.
-Analyzing Verilog file "D:\audiorecorder\ipcore_dir\ram_interface\user_design\rtl\mcb_controller\mcb_soft_calibration_top.v" into library work
-Parsing module <mcb_soft_calibration_top>.
-Analyzing Verilog file "D:\audiorecorder\ipcore_dir\ram_interface\user_design\rtl\mcb_controller\mcb_raw_wrapper.v" into library work
-Parsing module <mcb_raw_wrapper>.
-Analyzing Verilog file "D:\audiorecorder\ipcore_dir\ram_interface\user_design\rtl\mcb_controller\mcb_ui_top.v" into library work
-Parsing module <mcb_ui_top>.
-Analyzing Verilog file "D:\audiorecorder\ipcore_dir\ram_interface\user_design\rtl\memc_wrapper.v" into library work
-Parsing module <memc_wrapper>.
-Analyzing Verilog file "D:\audiorecorder\ipcore_dir\ram_interface\user_design\rtl\infrastructure.v" into library work
-Parsing module <infrastructure>.
-Analyzing Verilog file "D:\audiorecorder\ipcore_dir\ram_interface\user_design\rtl\ram_interface.v" into library work
-Parsing module <ram_interface>.
-Analyzing Verilog file "D:\audiorecorder\i2c_controller.v" into library work
+Analyzing Verilog file "C:\Users\Halberd\audiorecorder\i2c_controller.v" into library work
 Parsing module <i2c_controller>.
-Analyzing Verilog file "D:\audiorecorder\uart_tx6.v" into library work
+Analyzing Verilog file "C:\Users\Halberd\audiorecorder\uart_tx6.v" into library work
 Parsing module <uart_tx6>.
-Analyzing Verilog file "D:\audiorecorder\uart_rx6.v" into library work
+Analyzing Verilog file "C:\Users\Halberd\audiorecorder\uart_rx6.v" into library work
 Parsing module <uart_rx6>.
-Analyzing Verilog file "D:\audiorecorder\ram_interface_wrapper.v" into library work
-Parsing module <ram_interface_wrapper>.
-Analyzing Verilog file "D:\audiorecorder\program.v" into library work
+Analyzing Verilog file "C:\Users\Halberd\audiorecorder\program.v" into library work
 Parsing module <program>.
-Analyzing Verilog file "D:\audiorecorder\kcpsm6.v" into library work
+Analyzing Verilog file "C:\Users\Halberd\audiorecorder\kcpsm6.v" into library work
 Parsing module <kcpsm6>.
-Analyzing Verilog file "D:\audiorecorder\i2c_av_config.v" into library work
+Analyzing Verilog file "C:\Users\Halberd\audiorecorder\i2c_av_config.v" into library work
 Parsing module <i2c_av_config>.
-Analyzing Verilog file "D:\audiorecorder\audio_effects.v" into library work
+Analyzing Verilog file "C:\Users\Halberd\audiorecorder\audio_effects.v" into library work
 Parsing module <audio_effects>.
-Analyzing Verilog file "D:\audiorecorder\audio_codec.v" into library work
+Analyzing Verilog file "C:\Users\Halberd\audiorecorder\audio_codec.v" into library work
 Parsing module <audio_codec>.
-Analyzing Verilog file "D:\audiorecorder\sockit_top.v" into library work
+Analyzing Verilog file "C:\Users\Halberd\audiorecorder\sockit_top.v" into library work
 Parsing module <sockit_top>.
-Analyzing Verilog file "D:\audiorecorder\rs232_uart.v" into library work
+Analyzing Verilog file "C:\Users\Halberd\audiorecorder\rs232_uart.v" into library work
 Parsing module <rs232_uart>.
-Analyzing Verilog file "D:\audiorecorder\picoblaze.v" into library work
+Analyzing Verilog file "C:\Users\Halberd\audiorecorder\picoblaze.v" into library work
 Parsing module <picoblaze>.
-Analyzing Verilog file "D:\audiorecorder\mem_interface.v" into library work
+Analyzing Verilog file "C:\Users\Halberd\audiorecorder\mem_interface.v" into library work
 Parsing module <mem_interface>.
-Analyzing Verilog file "D:\audiorecorder\picoblaze_controller.v" into library work
-Parsing module <picoblaze_controller>.
-ERROR:HDLCompiler:69 - "D:\audiorecorder\picoblaze_controller.v" Line 238: <clk> is not declared.
-ERROR:HDLCompiler:598 - "D:\audiorecorder\picoblaze_controller.v" Line 21: Module <picoblaze_controller> ignored due to previous errors.
-Verilog file D:\audiorecorder\picoblaze_controller.v ignored due to errors
+ERROR:HDLCompiler:806 - "C:\Users\Halberd\audiorecorder\mem_interface.v" Line 152: Syntax error near "RAMRapper".
+WARNING:HDLCompiler:1563 - "C:\Users\Halberd\audiorecorder\mem_interface.v" Line 152: Empty item in case item list violates IEEE 1364 syntax
+Verilog file C:\Users\Halberd\audiorecorder\mem_interface.v ignored due to errors
 --> 
 
-Total memory usage is 4466100 kilobytes
+Total memory usage is 4449692 kilobytes
 
-Number of errors   :    2 (   0 filtered)
-Number of warnings :    0 (   0 filtered)
+Number of errors   :    1 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

@@ -1,0 +1,2 @@
+verilog work ../../myclock.v
+verilog work ../example_design/myclock_exdes.v
