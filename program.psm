@@ -188,7 +188,7 @@ start:
     store cur_char, 07
     load cur_char, ascii_SPACE
     store cur_char, 08
-    load cur_char, ascii_A
+    load cur_char, ascii_a
     store cur_char, 09
     load cur_char, ascii_SPACE
     store cur_char, 0A
