@@ -5,7 +5,7 @@
 
 ## Clock pins
 PIN "clock_generator/clkout1_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
-PIN "memory_interface/RAMRapper/u_memory_interface/memc3_infrastructure_inst/U_BUFG_CLK0.O" CLOCK_DEDICATED_ROUTE = FALSE;
+PIN "RAMRapper/u_memory_interface/memc3_infrastructure_inst/U_BUFG_CLK0.O" CLOCK_DEDICATED_ROUTE = FALSE;
 
 ## Clock Signal
 NET CLK	LOC=D11 |	IOSTANDARD = "LVCMOS33";
@@ -139,10 +139,10 @@ NET "HW_RAM_BA[2]" LOC = "D1";
 NET "HW_RAM_BA[*]" IOSTANDARD = SSTL2_II;
 
 # Uncomment next FOUR lines if NOT using ram black box
-NET "*/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/selfrefresh_mcb_mode" TIG;
-NET "*/c3_pll_lock" TIG;
-INST "*/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DONE_SOFTANDHARD_CAL*" TIG;
-NET "*/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/CKE_Train" TIG; ##This path exists for DDR2 only
+#NET "*/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/selfrefresh_mcb_mode" TIG;
+#NET "*/c?_pll_lock" TIG;
+#INST "*/memc?_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DONE_SOFTANDHARD_CAL*" TIG;
+#NET "*/memc?_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/CKE_Train" TIG; ##This path exists for DDR2 only
 
 #Please uncomment the below TIG if used in a design which enables self-refresh mode
 #NET "memc?_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/SELFREFRESH_MCB_REQ" TIG;

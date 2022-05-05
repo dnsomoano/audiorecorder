@@ -4,7 +4,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Parameter xsthdpdir set to xst
 
@@ -673,24 +673,6 @@ WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\ram_interfa
 WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\ram_interface_wrapper.v" Line 202: Assignment to c3_p0_rd_overflow ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\ram_interface_wrapper.v" Line 203: Assignment to c3_p0_rd_error ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 141: Assignment to RAMout ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 144: Assignment to hw_ram_rasn ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 145: Assignment to hw_ram_casn ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 146: Assignment to hw_ram_wen ignored, since the identifier is never used
-WARNING:HDLCompiler:189 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 147: Size mismatch in connection of port <hw_ram_ba>. Formal port size is 3-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 147: Assignment to hw_ram_ba ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 148: Assignment to hw_ram_udqs_p ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 149: Assignment to hw_ram_udqs_n ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 150: Assignment to hw_ram_ldqs_p ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 151: Assignment to hw_ram_ldqs_n ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 152: Assignment to hw_ram_udm ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 153: Assignment to hw_ram_ldm ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 154: Assignment to hw_ram_ck ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 155: Assignment to hw_ram_ckn ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 156: Assignment to hw_ram_cke ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 157: Assignment to hw_ram_odt ignored, since the identifier is never used
-WARNING:HDLCompiler:189 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 158: Size mismatch in connection of port <hw_ram_ad>. Formal port size is 13-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 158: Assignment to hw_ram_ad ignored, since the identifier is never used
-WARNING:HDLCompiler:189 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 159: Size mismatch in connection of port <hw_ram_dq>. Formal port size is 16-bit while actual signal size is 1-bit.
 WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 165: Assignment to dataPresent ignored, since the identifier is never used
 
 Elaborating module <clk_gen>.
@@ -919,21 +901,6 @@ Synthesizing Unit <picoblaze_controller>.
         record_state = 6'b001101
         end_recording = 6'b001110
 INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <data_out> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_ba> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_ad> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_rasn> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_casn> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_wen> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_udqs_p> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_udqs_n> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_ldqs_p> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_ldqs_n> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_udm> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_ldm> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_ck> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_ckn> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_cke> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_odt> of the instance <RAMRapper> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <rd_data_pres> of the instance <RAMRapper> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <ledRAM> of the instance <RAMRapper> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 187: Output port <audio_in> of the instance <audio_interface> is unconnected or connected to loadless signal.
@@ -3278,8 +3245,6 @@ Optimizing unit <program> ...
 
 Optimizing unit <picoblaze_controller> ...
 
-Optimizing unit <mcb_raw_wrapper> ...
-
 Optimizing unit <mcb_soft_calibration_top> ...
 
 Optimizing unit <mcb_soft_calibration> ...
@@ -3474,7 +3439,7 @@ Slice Logic Distribution:
 
 IO Utilization: 
  Number of IOs:                          73
- Number of bonded IOBs:                  24  out of    320     7%  
+ Number of bonded IOBs:                  71  out of    320    22%  
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:                4  out of    116     3%  
@@ -3634,7 +3599,7 @@ Delay:               2.729ns (Levels of Logic = 0)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
-  Total number of paths / destination ports: 292 / 243
+  Total number of paths / destination ports: 294 / 245
 -------------------------------------------------------------------------
 Offset:              7.637ns (Levels of Logic = 4)
   Source:            RST (PAD)
@@ -3755,7 +3720,7 @@ Offset:              4.619ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 691 / 641
+  Total number of paths / destination ports: 801 / 706
 -------------------------------------------------------------------------
 Delay:               6.526ns (Levels of Logic = 4)
   Source:            RST (PAD)
@@ -3815,13 +3780,13 @@ audio_interface/pll/pll_base_inst/CLKOUT1|    1.818|         |         |        
 
 
 Total REAL time to Xst completion: 22.00 secs
-Total CPU time to Xst completion: 21.34 secs
+Total CPU time to Xst completion: 21.92 secs
  
 --> 
 
-Total memory usage is 4553168 kilobytes
+Total memory usage is 4553152 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 1188 (   0 filtered)
-Number of infos    :  211 (   0 filtered)
+Number of warnings : 1170 (   0 filtered)
+Number of infos    :  196 (   0 filtered)
 

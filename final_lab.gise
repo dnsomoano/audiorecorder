@@ -115,10 +115,12 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1651714772" xil_pn:in_ck="-7803903019384539075" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="1195617956659452088" xil_pn:start_ts="1651714747">
+    <transform xil_pn:end_ts="1651715527" xil_pn:in_ck="-7803903019384539075" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="1195617956659452088" xil_pn:start_ts="1651715502">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="picoblaze_controller.lso"/>
       <outfile xil_pn:name="picoblaze_controller.ngc"/>
@@ -131,67 +133,72 @@
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1651699540" xil_pn:in_ck="4277051588391680210" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="7435765892552443646" xil_pn:start_ts="1651699540">
+    <transform xil_pn:end_ts="1651715735" xil_pn:in_ck="4277051588391680210" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="7435765892552443646" xil_pn:start_ts="1651715735">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1651699668" xil_pn:in_ck="-3351258731161629213" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="3378943917137571818" xil_pn:start_ts="1651699662">
+    <transform xil_pn:end_ts="1651715741" xil_pn:in_ck="-3351258731161629213" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="3378943917137571818" xil_pn:start_ts="1651715735">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="picoblaze_controller.bld"/>
+      <outfile xil_pn:name="picoblaze_controller.ngd"/>
+      <outfile xil_pn:name="picoblaze_controller_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1651699709" xil_pn:in_ck="-3351258731161629212" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-8453867640889462296" xil_pn:start_ts="1651699668">
+    <transform xil_pn:end_ts="1651715781" xil_pn:in_ck="-3351258731161629212" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-8453867640889462296" xil_pn:start_ts="1651715741">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="picoblaze_controller.pcf"/>
+      <outfile xil_pn:name="picoblaze_controller_map.map"/>
+      <outfile xil_pn:name="picoblaze_controller_map.mrp"/>
+      <outfile xil_pn:name="picoblaze_controller_map.ncd"/>
+      <outfile xil_pn:name="picoblaze_controller_map.ngm"/>
+      <outfile xil_pn:name="picoblaze_controller_map.xrpt"/>
+      <outfile xil_pn:name="picoblaze_controller_summary.xml"/>
+      <outfile xil_pn:name="picoblaze_controller_usage.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1651699730" xil_pn:in_ck="4458220805502824189" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-3829590541433901613" xil_pn:start_ts="1651699709">
+    <transform xil_pn:end_ts="1651715819" xil_pn:in_ck="4458220805502824189" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-3829590541433901613" xil_pn:start_ts="1651715781">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="picoblaze_controller.ncd"/>
+      <outfile xil_pn:name="picoblaze_controller.pad"/>
+      <outfile xil_pn:name="picoblaze_controller.par"/>
+      <outfile xil_pn:name="picoblaze_controller.ptwx"/>
+      <outfile xil_pn:name="picoblaze_controller.unroutes"/>
+      <outfile xil_pn:name="picoblaze_controller.xpi"/>
+      <outfile xil_pn:name="picoblaze_controller_pad.csv"/>
+      <outfile xil_pn:name="picoblaze_controller_pad.txt"/>
+      <outfile xil_pn:name="picoblaze_controller_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1651699765" xil_pn:in_ck="-9125275315841756417" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1651699730">
+    <transform xil_pn:end_ts="1651715854" xil_pn:in_ck="-9125275315841756417" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1651715819">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="picoblaze_controller.bgn"/>
+      <outfile xil_pn:name="picoblaze_controller.bit"/>
+      <outfile xil_pn:name="picoblaze_controller.drc"/>
+      <outfile xil_pn:name="picoblaze_controller.ut"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1651699768" xil_pn:in_ck="-9125275315841769271" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="8482462020707587906" xil_pn:start_ts="1651699765">
+    <transform xil_pn:end_ts="1651715857" xil_pn:in_ck="-9125275315841769271" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="8482462020707587906" xil_pn:start_ts="1651715854">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1651699730" xil_pn:in_ck="-3351258731161629344" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1651699723">
+    <transform xil_pn:end_ts="1651715819" xil_pn:in_ck="-3351258731161629344" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1651715812">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="picoblaze_controller.twr"/>
+      <outfile xil_pn:name="picoblaze_controller.twx"/>
     </transform>
   </transforms>
 
