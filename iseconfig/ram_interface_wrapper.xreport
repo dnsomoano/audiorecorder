@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2022-05-04T13:23:16</DateModified>
+  <DateModified>2022-05-04T20:23:00</DateModified>
   <ModuleName>picoblaze_controller</ModuleName>
-  <SummaryTimeStamp>2022-05-02T10:55:15</SummaryTimeStamp>
+  <SummaryTimeStamp>2022-05-04T17:29:25</SummaryTimeStamp>
   <SavedFilePath>C:/Users/sagew/Xilinx/Projects/final_lab/iseconfig/ram_interface_wrapper.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Users/sagew/Xilinx/Projects/final_lab\</ImplementationReportsDirectory>
   <DateInitialized>2022-05-04T13:23:15</DateInitialized>

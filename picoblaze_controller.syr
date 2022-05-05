@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Reading design: picoblaze_controller.prj
 
@@ -134,26 +134,22 @@ Analyzing Verilog file "C:\Users\sagew\Xilinx\Projects\final_lab\uart_tx6.v" int
 Parsing module <uart_tx6>.
 Analyzing Verilog file "C:\Users\sagew\Xilinx\Projects\final_lab\uart_rx6.v" into library work
 Parsing module <uart_rx6>.
-Analyzing Verilog file "C:\Users\sagew\Xilinx\Projects\final_lab\ram_interface_wrapper.v" into library work
-Parsing module <ram_interface_wrapper>.
 Analyzing Verilog file "C:\Users\sagew\Xilinx\Projects\final_lab\program.v" into library work
 Parsing module <program>.
 Analyzing Verilog file "C:\Users\sagew\Xilinx\Projects\final_lab\kcpsm6.v" into library work
 Parsing module <kcpsm6>.
 Analyzing Verilog file "C:\Users\sagew\Xilinx\Projects\final_lab\i2c_av_config.v" into library work
 Parsing module <i2c_av_config>.
-Analyzing Verilog file "C:\Users\sagew\Xilinx\Projects\final_lab\audio_effects.v" into library work
-Parsing module <audio_effects>.
 Analyzing Verilog file "C:\Users\sagew\Xilinx\Projects\final_lab\audio_codec.v" into library work
 Parsing module <audio_codec>.
 Analyzing Verilog file "C:\Users\sagew\Xilinx\Projects\final_lab\sockit_top.v" into library work
 Parsing module <sockit_top>.
 Analyzing Verilog file "C:\Users\sagew\Xilinx\Projects\final_lab\rs232_uart.v" into library work
 Parsing module <rs232_uart>.
+Analyzing Verilog file "C:\Users\sagew\Xilinx\Projects\final_lab\ram_interface_wrapper.v" into library work
+Parsing module <ram_interface_wrapper>.
 Analyzing Verilog file "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze.v" into library work
 Parsing module <picoblaze>.
-Analyzing Verilog file "C:\Users\sagew\Xilinx\Projects\final_lab\mem_interface.v" into library work
-Parsing module <mem_interface>.
 Analyzing Verilog file "C:\Users\sagew\Xilinx\Projects\final_lab\debouncer.v" into library work
 Parsing module <debouncer>.
 Analyzing Verilog file "C:\Users\sagew\Xilinx\Projects\final_lab\clock_divider.v" into library work
@@ -167,11 +163,9 @@ Parsing architecture <xilinx> of entity <clk_wiz_v3_6>.
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
+WARNING:HDLCompiler:1016 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 135: Port ledRAM is not connected to this instance
 
 Elaborating module <picoblaze_controller>.
-WARNING:HDLCompiler:1016 - "C:\Users\sagew\Xilinx\Projects\final_lab\mem_interface.v" Line 139: Port ledRAM is not connected to this instance
-
-Elaborating module <mem_interface>.
 
 Elaborating module <ram_interface_wrapper>.
 
@@ -678,8 +672,26 @@ WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\ram_interfa
 WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\ram_interface_wrapper.v" Line 200: Assignment to c3_p0_rd_empty ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\ram_interface_wrapper.v" Line 202: Assignment to c3_p0_rd_overflow ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\ram_interface_wrapper.v" Line 203: Assignment to c3_p0_rd_error ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\mem_interface.v" Line 170: Assignment to max_ram_address ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 144: Assignment to RAM_status ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 141: Assignment to RAMout ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 144: Assignment to hw_ram_rasn ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 145: Assignment to hw_ram_casn ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 146: Assignment to hw_ram_wen ignored, since the identifier is never used
+WARNING:HDLCompiler:189 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 147: Size mismatch in connection of port <hw_ram_ba>. Formal port size is 3-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 147: Assignment to hw_ram_ba ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 148: Assignment to hw_ram_udqs_p ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 149: Assignment to hw_ram_udqs_n ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 150: Assignment to hw_ram_ldqs_p ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 151: Assignment to hw_ram_ldqs_n ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 152: Assignment to hw_ram_udm ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 153: Assignment to hw_ram_ldm ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 154: Assignment to hw_ram_ck ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 155: Assignment to hw_ram_ckn ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 156: Assignment to hw_ram_cke ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 157: Assignment to hw_ram_odt ignored, since the identifier is never used
+WARNING:HDLCompiler:189 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 158: Size mismatch in connection of port <hw_ram_ad>. Formal port size is 13-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 158: Assignment to hw_ram_ad ignored, since the identifier is never used
+WARNING:HDLCompiler:189 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 159: Size mismatch in connection of port <hw_ram_dq>. Formal port size is 16-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 165: Assignment to dataPresent ignored, since the identifier is never used
 
 Elaborating module <clk_gen>.
 
@@ -696,14 +708,16 @@ Back to verilog to continue elaboration
 Elaborating module <i2c_av_config>.
 
 Elaborating module <i2c_controller>.
-WARNING:HDLCompiler:189 - "C:\Users\sagew\Xilinx\Projects\final_lab\sockit_top.v" Line 64: Size mismatch in connection of port <status>. Formal port size is 4-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\sockit_top.v" Line 64: Assignment to LED ignored, since the identifier is never used
+WARNING:HDLCompiler:189 - "C:\Users\sagew\Xilinx\Projects\final_lab\sockit_top.v" Line 70: Size mismatch in connection of port <status>. Formal port size is 4-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\sockit_top.v" Line 70: Assignment to LED ignored, since the identifier is never used
 
 Elaborating module <audio_codec>.
-
-Elaborating module <audio_effects>.
-WARNING:HDLCompiler:189 - "C:\Users\sagew\Xilinx\Projects\final_lab\sockit_top.v" Line 97: Size mismatch in connection of port <control>. Formal port size is 4-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:634 - "C:\Users\sagew\Xilinx\Projects\final_lab\sockit_top.v" Line 97: Net <SW> does not have a driver.
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\sockit_top.v" Line 94: Assignment to audio_out ignored, since the identifier is never used
+WARNING:HDLCompiler:634 - "C:\Users\sagew\Xilinx\Projects\final_lab\sockit_top.v" Line 51: Net <audio_output[15]> does not have a driver.
+WARNING:HDLCompiler:189 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 200: Size mismatch in connection of port <audio_in>. Formal port size is 16-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 200: Assignment to audio_in ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 202: Assignment to sample_end ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 203: Assignment to sample_req ignored, since the identifier is never used
 
 Elaborating module <rs232_uart>.
 WARNING:HDLCompiler:413 - "C:\Users\sagew\Xilinx\Projects\final_lab\rs232_uart.v" Line 73: Result of 11-bit expression is truncated to fit in 10-bit target.
@@ -759,10 +773,10 @@ Elaborating module <LUT6(INIT=64'b0100010001000100000000011110000000000000000000
 Elaborating module <LUT6_2(INIT=64'b0110110011001100000000000000000001011010101010100000000000000000)>.
 
 Elaborating module <LUT6_2(INIT=64'b010000000000000000000000010001000100010001000100010001000)>.
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 191: Assignment to uart_buffer_full ignored, since the identifier is never used
-WARNING:HDLCompiler:189 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 192: Size mismatch in connection of port <rx_data_out>. Formal port size is 8-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 192: Assignment to uart_data_rx ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 194: Assignment to uart_data_present ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 262: Assignment to uart_buffer_full ignored, since the identifier is never used
+WARNING:HDLCompiler:189 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 263: Size mismatch in connection of port <rx_data_out>. Formal port size is 8-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 263: Assignment to uart_data_rx ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 265: Assignment to uart_data_present ignored, since the identifier is never used
 
 Elaborating module <picoblaze>.
 
@@ -863,19 +877,22 @@ b0,INIT_3C=256'b0,INIT_3D=256'b0,INIT_3E=256'b0,INIT_3F=256'b0,INITP_00=256'b011
 Elaborating module
 <RAMB16BWER(DATA_WIDTH_A=9,DOA_REG=0,EN_RSTRAM_A="FALSE",INIT_A=32'b0,RST_PRIORITY_A="CE",SRVAL_A=32'b0,WRITE_MODE_A="WRITE_FIRST",DATA_WIDTH_B=9,DOB_REG=0,EN_RSTRAM_B="FALSE",INIT_B=32'b0,RST_PRIORITY_B="CE",SRVAL_B=32'b0,WRITE_MODE_B="WRITE_FIRST",RSTTYPE="SYNC",INIT_FILE="NONE",SIM_COLLISION_CHECK="ALL",SIM_DEVICE="SPARTAN6",INIT_00=256'b0,INIT_01=256'b0,INIT_02=256'b0,INIT_03=256'b0,INIT_04=256'b0,INIT_05=256'b0,INIT_06=256'b0,INIT_07=256'b0,INIT_08=256'b0,INIT_09=256'b0,INIT_0A=256'b0,INIT_0B=256'b0,INIT_0C=256'b0,INIT_0D=256'b0,INIT_0E=256'b0,INIT_0F=256'b0,INIT_10=256'b0,INIT_11=256'b0,INIT_12=256'b0,INIT_13=256'b0,INIT_14=256'b0,INIT_15=256'b0,INIT_16=256'b0,INIT_17=256'b0,INIT_18=256'b0,INIT_19=256'b0,INIT_1A=256'b0,INIT_1B=256'b0,INIT_1C=256'b0,INIT_1D=256'b0,INIT_1E=256'b0,INIT_1F=256'b0,INIT_20=256'b0,INIT_21=256'b0,INIT_22=256'b0,INIT_23=256'b0,INIT_24=256'b0,INIT_25=256'b0,INIT_26=256'b0,INIT_27=256'b0,INIT_28=256'b0,INIT_29=256'b0,INIT_2A=256'b0,INIT_2B=256'b0,INIT_2C=256'b0,INIT_2D=256'b0,INIT
 _2E=256'b0,INIT_2F=256'b0,INIT_30=256'b0,INIT_31=256'b0,INIT_32=256'b0,INIT_33=256'b0,INIT_34=256'b0,INIT_35=256'b0,INIT_36=256'b0,INIT_37=256'b0,INIT_38=256'b0,INIT_39=256'b0,INIT_3A=256'b0,INIT_3B=256'b0,INIT_3C=256'b0,INIT_3D=256'b0,INIT_3E=256'b0,INIT_3F=256'b0,INITP_00=256'b0,INITP_01=256'b0,INITP_02=256'b0,INITP_03=256'b0,INITP_04=256'b0,INITP_05=256'b0,INITP_06=256'b0,INITP_07=256'b0)>.
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 218: Assignment to pb_int_ack ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 232: Assignment to write_to_leds ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 289: Assignment to pb_int_ack ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 303: Assignment to write_to_leds ignored, since the identifier is never used
 
 Elaborating module <clock_divider>.
 
 Elaborating module <debouncer>.
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 280: Assignment to kypd_row2 ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 316: Assignment to kypd6 ignored, since the identifier is never used
-WARNING:HDLCompiler:413 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 492: Result of 4-bit expression is truncated to fit in 3-bit target.
-WARNING:HDLCompiler:413 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 499: Result of 4-bit expression is truncated to fit in 3-bit target.
-WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 338: Assignment to write_en ignored, since the identifier is never used
-WARNING:HDLCompiler:552 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 119: Input port addr_in[25] is not connected on this instance
-WARNING:Xst:2972 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 280. All outputs of instance <row2> of block <debouncer> are unconnected in block <picoblaze_controller>. Underlying logic will be removed.
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 351: Assignment to kypd_row2 ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 379: Assignment to kypd6 ignored, since the identifier is never used
+WARNING:HDLCompiler:413 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 627: Result of 4-bit expression is truncated to fit in 3-bit target.
+WARNING:HDLCompiler:413 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 634: Result of 4-bit expression is truncated to fit in 3-bit target.
+WARNING:HDLCompiler:1127 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 403: Assignment to track_address ignored, since the identifier is never used
+WARNING:HDLCompiler:634 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 97: Net <RAMin[15]> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 101: Net <write> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 102: Net <read> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" Line 114: Net <audio_out[15]> does not have a driver.
+WARNING:Xst:2972 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 351. All outputs of instance <row2> of block <debouncer> are unconnected in block <picoblaze_controller>. Underlying logic will be removed.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -883,36 +900,76 @@ WARNING:Xst:2972 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controlle
 
 Synthesizing Unit <picoblaze_controller>.
     Related source file is "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v".
-        init_state = 4'b0000
-        menu = 4'b0001
-        play_menu = 4'b0010
-        play_state = 4'b0011
-        record_state = 4'b0100
-        delete_menu = 4'b0101
-        delete_state = 4'b0110
-        delete_all = 4'b0111
-        mem_full_state = 4'b1000
-        change_volume = 4'b1001
-        volume_up = 4'b1010
-        volume_down = 4'b1100
-WARNING:Xst:2898 - Port 'addr_in', unconnected in block instance 'memory_interface', is tied to GND.
-WARNING:Xst:2898 - Port 'data_in', unconnected in block instance 'memory_interface', is tied to GND.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 119: Output port <read_out> of the instance <memory_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 119: Output port <status> of the instance <memory_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 188: Output port <rx_data_out> of the instance <UART> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 188: Output port <tx_buffer_full> of the instance <UART> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 188: Output port <rx_data_present> of the instance <UART> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 211: Output port <interrupt_ack> of the instance <CPU> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 280: Output port <out> of the instance <row2> is unconnected or connected to loadless signal.
+        stInit = 4'b0000
+        stMain = 4'b0001
+        stWrite = 4'b0010
+        stRead = 4'b0011
+        init_state = 6'b000000
+        menu = 6'b000001
+        play_menu = 6'b000010
+        play_state = 6'b000011
+        record_init = 6'b000100
+        delete_menu = 6'b000101
+        delete_state = 6'b000110
+        delete_all = 6'b000111
+        mem_full_state = 6'b001000
+        change_volume = 6'b001001
+        volume_up = 6'b001010
+        volume_down = 6'b001100
+        record_state = 6'b001101
+        end_recording = 6'b001110
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <data_out> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_ba> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_ad> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_rasn> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_casn> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_wen> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_udqs_p> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_udqs_n> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_ldqs_p> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_ldqs_n> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_udm> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_ldm> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_ck> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_ckn> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_cke> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <hw_ram_odt> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <rd_data_pres> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 135: Output port <ledRAM> of the instance <RAMRapper> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 187: Output port <audio_in> of the instance <audio_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 187: Output port <s_end> of the instance <audio_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 187: Output port <s_req> of the instance <audio_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 259: Output port <rx_data_out> of the instance <UART> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 259: Output port <tx_buffer_full> of the instance <UART> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 259: Output port <rx_data_present> of the instance <UART> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 282: Output port <interrupt_ack> of the instance <CPU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v" line 351: Output port <out> of the instance <row2> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <RAMin> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <audio_out> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <write> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <read> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 1-bit register for signal <read_from_uart>.
+    Found 1-bit register for signal <ackRead>.
+    Found 1-bit register for signal <enableWrite>.
+    Found 1-bit register for signal <reqRead>.
+    Found 26-bit register for signal <address>.
     Found 4-bit register for signal <leds>.
-    Found 1-bit register for signal <mem_full>.
+    Found 1-bit register for signal <track5<26>>.
+    Found 1-bit register for signal <track4<26>>.
+    Found 1-bit register for signal <track3<26>>.
+    Found 1-bit register for signal <track2<26>>.
+    Found 1-bit register for signal <track1<26>>.
+    Found 3-bit register for signal <track_sel>.
+    Found 26-bit register for signal <max_address>.
+    Found 4-bit register for signal <mem_state>.
+INFO:Xst:1799 - State 1110 is never reached in FSM <state>.
+INFO:Xst:1799 - State 1101 is never reached in FSM <state>.
     Found finite state machine <FSM_0> for signal <state>.
     -----------------------------------------------------------------------
-    | States             | 12                                             |
-    | Transitions        | 45                                             |
-    | Inputs             | 8                                              |
-    | Outputs            | 4                                              |
+    | States             | 14                                             |
+    | Transitions        | 44                                             |
+    | Inputs             | 9                                              |
+    | Outputs            | 9                                              |
     | Clock              | pb_clk (rising_edge)                           |
     | Reset              | aud_reset (positive)                           |
     | Reset type         | synchronous                                    |
@@ -921,47 +978,17 @@ INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.v
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
+    Found 26-bit adder for signal <address[25]_GND_1_o_add_60_OUT> created at line 522.
+    Found 26-bit comparator greater for signal <address[25]_max_address[25]_LessThan_60_o> created at line 521
+    Found 26-bit comparator equal for signal <address[25]_max_address[25]_equal_62_o> created at line 526
     WARNING:Xst:2404 -  FFs/Latches <pb_in_port<1:8>> (without init value) have a constant value of 0 in block <picoblaze_controller>.
     Summary:
-	inferred   2 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  68 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred  21 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <picoblaze_controller> synthesized.
-
-Synthesizing Unit <mem_interface>.
-    Related source file is "C:\Users\sagew\Xilinx\Projects\final_lab\mem_interface.v".
-        stInit = 4'b0000
-        stReadFromPorts = 4'b0001
-        stMemWrite = 4'b0010
-        stMemReadReq = 4'b0011
-        stMemReadData = 4'b0100
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\mem_interface.v" line 139: Output port <max_ram_address> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\mem_interface.v" line 139: Output port <ledRAM> of the instance <RAMRapper> is unconnected or connected to loadless signal.
-    Found 4-bit register for signal <state>.
-    Found 1-bit register for signal <ackRead>.
-    Found 16-bit register for signal <RAMin>.
-    Found 1-bit register for signal <enableWrite>.
-    Found 1-bit register for signal <reqRead>.
-    Found 16-bit register for signal <dataOut>.
-    Found 26-bit register for signal <address>.
-    Found finite state machine <FSM_1> for signal <state>.
-    -----------------------------------------------------------------------
-    | States             | 5                                              |
-    | Transitions        | 11                                             |
-    | Inputs             | 2                                              |
-    | Outputs            | 5                                              |
-    | Clock              | systemCLK (rising_edge)                        |
-    | Reset              | reset (positive)                               |
-    | Reset type         | synchronous                                    |
-    | Reset State        | 0000                                           |
-    | Power Up State     | 0000                                           |
-    | Encoding           | auto                                           |
-    | Implementation     | LUT                                            |
-    -----------------------------------------------------------------------
-    Summary:
-	inferred  35 D-type flip-flop(s).
-	inferred   1 Multiplexer(s).
-	inferred   1 Finite State Machine(s).
-Unit <mem_interface> synthesized.
 
 Synthesizing Unit <ram_interface_wrapper>.
     Related source file is "C:\Users\sagew\Xilinx\Projects\final_lab\ram_interface_wrapper.v".
@@ -2179,7 +2206,7 @@ INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\ipcore_dir\ram_interfa
     Found 1-bit register for signal <DONE_SOFTANDHARD_CAL>.
     Found 1-bit register for signal <RST_reg>.
 INFO:Xst:1799 - State 111010 is never reached in FSM <STATE>.
-    Found finite state machine <FSM_2> for signal <STATE>.
+    Found finite state machine <FSM_1> for signal <STATE>.
     -----------------------------------------------------------------------
     | States             | 59                                             |
     | Transitions        | 135                                            |
@@ -2194,18 +2221,18 @@ INFO:Xst:1799 - State 111010 is never reached in FSM <STATE>.
     -----------------------------------------------------------------------
     Found 8-bit subtractor for signal <Max_Value_Delta_Up> created at line 406.
     Found 8-bit subtractor for signal <Max_Value_Delta_Dn> created at line 408.
-    Found 7-bit subtractor for signal <GND_17_o_GND_17_o_sub_64_OUT> created at line 946.
-    Found 8-bit subtractor for signal <GND_17_o_GND_17_o_sub_99_OUT> created at line 1001.
-    Found 8-bit subtractor for signal <DQS_DELAY[7]_GND_17_o_sub_229_OUT> created at line 1500.
-    Found 16-bit adder for signal <WAIT_200us_COUNTER[15]_GND_17_o_add_12_OUT> created at line 511.
-    Found 10-bit adder for signal <RstCounter[9]_GND_17_o_add_17_OUT> created at line 568.
-    Found 8-bit adder for signal <WaitTimer[7]_GND_17_o_add_38_OUT> created at line 752.
-    Found 6-bit adder for signal <count[5]_GND_17_o_add_47_OUT> created at line 775.
-    Found 6-bit adder for signal <P_Term[5]_GND_17_o_add_62_OUT> created at line 942.
+    Found 7-bit subtractor for signal <GND_16_o_GND_16_o_sub_64_OUT> created at line 946.
+    Found 8-bit subtractor for signal <GND_16_o_GND_16_o_sub_99_OUT> created at line 1001.
+    Found 8-bit subtractor for signal <DQS_DELAY[7]_GND_16_o_sub_229_OUT> created at line 1500.
+    Found 16-bit adder for signal <WAIT_200us_COUNTER[15]_GND_16_o_add_12_OUT> created at line 511.
+    Found 10-bit adder for signal <RstCounter[9]_GND_16_o_add_17_OUT> created at line 568.
+    Found 8-bit adder for signal <WaitTimer[7]_GND_16_o_add_38_OUT> created at line 752.
+    Found 6-bit adder for signal <count[5]_GND_16_o_add_47_OUT> created at line 775.
+    Found 6-bit adder for signal <P_Term[5]_GND_16_o_add_62_OUT> created at line 942.
     Found 10-bit adder for signal <n0705[9:0]> created at line 471.
     Found 11-bit adder for signal <n0708[10:0]> created at line 471.
     Found 12-bit adder for signal <n0711[11:0]> created at line 471.
-    Found 7-bit adder for signal <N_Term[6]_GND_17_o_add_76_OUT> created at line 992.
+    Found 7-bit adder for signal <N_Term[6]_GND_16_o_add_76_OUT> created at line 992.
     Found 8-bit adder for signal <n0731[7:0]> created at line 471.
     Found 9-bit adder for signal <n0734[8:0]> created at line 471.
     Found 10-bit adder for signal <n0737[9:0]> created at line 471.
@@ -2217,22 +2244,22 @@ INFO:Xst:1799 - State 111010 is never reached in FSM <STATE>.
     Found 13-bit adder for signal <n0764[12:0]> created at line 471.
     Found 14-bit adder for signal <n0767[13:0]> created at line 471.
     Found 10-bit adder for signal <n0773> created at line 471.
-    Found 8-bit adder for signal <counter_inc[7]_GND_17_o_add_211_OUT> created at line 1470.
-    Found 8-bit adder for signal <DQS_DELAY[7]_GND_17_o_add_214_OUT> created at line 1475.
-    Found 8-bit adder for signal <counter_dec[7]_GND_17_o_add_225_OUT> created at line 1495.
-    Found 13-bit adder for signal <_n0867> created at line 471.
+    Found 8-bit adder for signal <counter_inc[7]_GND_16_o_add_211_OUT> created at line 1470.
+    Found 8-bit adder for signal <DQS_DELAY[7]_GND_16_o_add_214_OUT> created at line 1475.
+    Found 8-bit adder for signal <counter_dec[7]_GND_16_o_add_225_OUT> created at line 1495.
+    Found 13-bit adder for signal <_n0869> created at line 471.
     Found 13-bit adder for signal <n0466> created at line 471.
     Found 15-bit adder for signal <_n0873> created at line 471.
     Found 15-bit adder for signal <n0476> created at line 471.
     Found 13-bit adder for signal <_n0880> created at line 471.
     Found 13-bit adder for signal <n0484> created at line 471.
     Found 1-bit 3-to-1 multiplexer for signal <IODRP_SDO> created at line 795.
-    Found 10-bit comparator greater for signal <RstCounter[9]_PWR_16_o_LessThan_17_o> created at line 566
+    Found 10-bit comparator greater for signal <RstCounter[9]_PWR_15_o_LessThan_17_o> created at line 566
     Found 8-bit comparator greater for signal <Dec_Flag> created at line 763
     Found 8-bit comparator greater for signal <Inc_Flag> created at line 764
     Found 6-bit comparator equal for signal <n0153> created at line 1008
     Found 7-bit comparator equal for signal <n0162> created at line 1041
-    Found 6-bit comparator greater for signal <count[5]_PWR_16_o_LessThan_189_o> created at line 1412
+    Found 6-bit comparator greater for signal <count[5]_PWR_15_o_LessThan_189_o> created at line 1412
     Found 8-bit comparator greater for signal <Max_Value[7]_Max_Value_Previous[7]_LessThan_195_o> created at line 1444
     Found 8-bit comparator greater for signal <n0242> created at line 1444
     Found 8-bit comparator greater for signal <Max_Value_Previous[7]_Max_Value[7]_LessThan_199_o> created at line 1449
@@ -2265,7 +2292,7 @@ Synthesizing Unit <iodrp_controller>.
     Found 1-bit register for signal <DRP_BKST>.
     Found 3-bit register for signal <state>.
     Found 8-bit register for signal <memcell_addr_reg>.
-    Found finite state machine <FSM_3> for signal <state>.
+    Found finite state machine <FSM_2> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 8                                              |
     | Transitions        | 13                                             |
@@ -2278,7 +2305,7 @@ Synthesizing Unit <iodrp_controller>.
     | Encoding           | one-hot                                        |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 3-bit adder for signal <bit_cnt[2]_GND_18_o_add_15_OUT> created at line 186.
+    Found 3-bit adder for signal <bit_cnt[2]_GND_17_o_add_15_OUT> created at line 186.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  40 D-type flip-flop(s).
@@ -2303,7 +2330,7 @@ WARNING:Xst:647 - Input <drp_ioi_addr> is never used. This port will be preserve
     Found 1-bit register for signal <DRP_BKST>.
     Found 4-bit register for signal <state>.
     Found 8-bit register for signal <memcell_addr_reg>.
-    Found finite state machine <FSM_4> for signal <state>.
+    Found finite state machine <FSM_3> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 10                                             |
     | Transitions        | 15                                             |
@@ -2316,7 +2343,7 @@ WARNING:Xst:647 - Input <drp_ioi_addr> is never used. This port will be preserve
     | Encoding           | GRAY                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 3-bit adder for signal <bit_cnt[2]_GND_19_o_add_16_OUT> created at line 301.
+    Found 3-bit adder for signal <bit_cnt[2]_GND_18_o_add_16_OUT> created at line 301.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  41 D-type flip-flop(s).
@@ -2332,9 +2359,10 @@ Unit <clk_gen> synthesized.
 
 Synthesizing Unit <sockit_top>.
     Related source file is "C:\Users\sagew\Xilinx\Projects\final_lab\sockit_top.v".
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\sockit_top.v" line 50: Output port <CLK_OUT3> of the instance <pll> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\sockit_top.v" line 59: Output port <status> of the instance <av_config> is unconnected or connected to loadless signal.
-WARNING:Xst:653 - Signal <SW> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:647 - Input <audio_out> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\sockit_top.v" line 56: Output port <CLK_OUT3> of the instance <pll> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\sockit_top.v" line 65: Output port <status> of the instance <av_config> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <audio_output> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Summary:
 	no macro.
 Unit <sockit_top> synthesized.
@@ -2352,7 +2380,7 @@ Synthesizing Unit <i2c_av_config>.
     Found 2-bit register for signal <control_state>.
     Found 24-bit register for signal <i2c_data>.
     Found 4-bit register for signal <lut_index>.
-    Found finite state machine <FSM_5> for signal <control_state>.
+    Found finite state machine <FSM_4> for signal <control_state>.
     -----------------------------------------------------------------------
     | States             | 4                                              |
     | Transitions        | 7                                              |
@@ -2366,7 +2394,7 @@ Synthesizing Unit <i2c_av_config>.
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 4-bit adder for signal <lut_index[3]_GND_65_o_add_4_OUT> created at line 73.
+    Found 4-bit adder for signal <lut_index[3]_GND_64_o_add_4_OUT> created at line 73.
     Found 16x24-bit Read Only RAM for signal <n0040>
     Summary:
 	inferred   1 RAM(s).
@@ -2384,8 +2412,8 @@ Synthesizing Unit <i2c_controller>.
     Found 3-bit register for signal <acks>.
     Found 24-bit register for signal <data>.
     Found 7-bit register for signal <sclk_divider>.
-    Found 5-bit adder for signal <stage[4]_GND_66_o_add_6_OUT> created at line 50.
-    Found 7-bit adder for signal <sclk_divider[6]_GND_66_o_add_17_OUT> created at line 63.
+    Found 5-bit adder for signal <stage[4]_GND_65_o_add_6_OUT> created at line 50.
+    Found 7-bit adder for signal <sclk_divider[6]_GND_65_o_add_17_OUT> created at line 63.
     Found 1-bit tristate buffer for signal <i2c_sdat> created at line 28
     Summary:
 	inferred   2 Adder/Subtractor(s).
@@ -2401,28 +2429,13 @@ Synthesizing Unit <audio_codec>.
     Found 16-bit register for signal <shift_in>.
     Found 16-bit register for signal <shift_temp>.
     Found 8-bit register for signal <lrck_divider>.
-    Found 8-bit adder for signal <lrck_divider[7]_GND_68_o_add_1_OUT> created at line 37.
-    Found 2-bit adder for signal <bclk_divider[1]_GND_68_o_add_2_OUT> created at line 38.
+    Found 8-bit adder for signal <lrck_divider[7]_GND_67_o_add_1_OUT> created at line 37.
+    Found 2-bit adder for signal <bclk_divider[1]_GND_67_o_add_2_OUT> created at line 38.
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  58 D-type flip-flop(s).
 	inferred   3 Multiplexer(s).
 Unit <audio_codec> synthesized.
-
-Synthesizing Unit <audio_effects>.
-    Related source file is "C:\Users\sagew\Xilinx\Projects\final_lab\audio_effects.v".
-        SINE = 0
-        FEEDBACK = 1
-WARNING:Xst:647 - Input <control<3:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:2999 - Signal 'romdata', unconnected in block 'audio_effects', is tied to its initial value.
-WARNING:Xst:3035 - Index value(s) does not match array range for signal <romdata>, simulation mismatch.
-    Found 100x16-bit single-port Read Only RAM <Mram_romdata> for signal <romdata>.
-    Found 16-bit register for signal <dat>.
-    Found 7-bit register for signal <index>.
-    Summary:
-	inferred   1 RAM(s).
-	inferred  23 D-type flip-flop(s).
-Unit <audio_effects> synthesized.
 
 Synthesizing Unit <rs232_uart>.
     Related source file is "C:\Users\sagew\Xilinx\Projects\final_lab\rs232_uart.v".
@@ -2433,7 +2446,7 @@ INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\rs232_uart.v" line 93:
 INFO:Xst:3210 - "C:\Users\sagew\Xilinx\Projects\final_lab\rs232_uart.v" line 93: Output port <buffer_full> of the instance <receiver> is unconnected or connected to loadless signal.
     Found 1-bit register for signal <en_16_x_baud>.
     Found 10-bit register for signal <baud_count>.
-    Found 10-bit adder for signal <baud_count[9]_GND_70_o_add_2_OUT> created at line 73.
+    Found 10-bit adder for signal <baud_count[9]_GND_68_o_add_2_OUT> created at line 73.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  11 D-type flip-flop(s).
@@ -2794,7 +2807,7 @@ Synthesizing Unit <clock_divider>.
     Related source file is "C:\Users\sagew\Xilinx\Projects\final_lab\clock_divider.v".
     Found 26-bit register for signal <count>.
     Found 1-bit register for signal <clk_div>.
-    Found 26-bit adder for signal <count[25]_GND_143_o_add_2_OUT> created at line 26.
+    Found 26-bit adder for signal <count[25]_GND_141_o_add_2_OUT> created at line 26.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  27 D-type flip-flop(s).
@@ -2817,10 +2830,9 @@ Unit <debouncer> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 2
- 100x16-bit single-port Read Only RAM                  : 1
+# RAMs                                                 : 1
  16x24-bit single-port Read Only RAM                   : 1
-# Adders/Subtractors                                   : 42
+# Adders/Subtractors                                   : 43
  10-bit adder                                          : 6
  11-bit adder                                          : 3
  12-bit adder                                          : 3
@@ -2829,7 +2841,7 @@ Macro Statistics
  15-bit adder                                          : 2
  16-bit adder                                          : 1
  2-bit adder                                           : 1
- 26-bit adder                                          : 1
+ 26-bit adder                                          : 2
  3-bit adder                                           : 2
  4-bit adder                                           : 1
  5-bit adder                                           : 1
@@ -2840,41 +2852,45 @@ Macro Statistics
  8-bit addsub                                          : 1
  8-bit subtractor                                      : 3
  9-bit adder                                           : 1
-# Registers                                            : 158
- 1-bit register                                        : 106
+# Registers                                            : 162
+ 1-bit register                                        : 110
  10-bit register                                       : 2
- 16-bit register                                       : 7
+ 16-bit register                                       : 4
  2-bit register                                        : 2
  24-bit register                                       : 2
  25-bit register                                       : 1
- 26-bit register                                       : 1
- 3-bit register                                        : 3
- 4-bit register                                        : 2
+ 26-bit register                                       : 3
+ 3-bit register                                        : 4
+ 4-bit register                                        : 3
  5-bit register                                        : 2
  6-bit register                                        : 5
- 7-bit register                                        : 6
+ 7-bit register                                        : 5
  8-bit register                                        : 19
-# Comparators                                          : 15
+# Comparators                                          : 17
  10-bit comparator greater                             : 1
+ 26-bit comparator equal                               : 1
+ 26-bit comparator greater                             : 1
  6-bit comparator equal                                : 1
  6-bit comparator greater                              : 1
  7-bit comparator equal                                : 1
  7-bit comparator greater                              : 1
  8-bit comparator greater                              : 8
  8-bit comparator lessequal                            : 2
-# Multiplexers                                         : 93
- 1-bit 2-to-1 multiplexer                              : 48
+# Multiplexers                                         : 113
+ 1-bit 2-to-1 multiplexer                              : 47
  1-bit 3-to-1 multiplexer                              : 1
  10-bit 2-to-1 multiplexer                             : 2
  16-bit 2-to-1 multiplexer                             : 4
- 26-bit 2-to-1 multiplexer                             : 1
+ 26-bit 2-to-1 multiplexer                             : 10
+ 3-bit 2-to-1 multiplexer                              : 11
+ 4-bit 2-to-1 multiplexer                              : 1
  6-bit 2-to-1 multiplexer                              : 5
  7-bit 2-to-1 multiplexer                              : 4
  8-bit 2-to-1 multiplexer                              : 26
  9-bit 2-to-1 multiplexer                              : 2
 # Tristates                                            : 1
  1-bit tristate buffer                                 : 1
-# FSMs                                                 : 6
+# FSMs                                                 : 5
 
 =========================================================================
 
@@ -2883,63 +2899,33 @@ Macro Statistics
 =========================================================================
 
 INFO:Xst:2261 - The FF/Latch <IODRPCTRLR_MEMCELL_ADDR_2> in Unit <mcb_soft_calibration_inst> is equivalent to the following 3 FFs/Latches, which will be removed : <IODRPCTRLR_MEMCELL_ADDR_4> <IODRPCTRLR_MEMCELL_ADDR_5> <IODRPCTRLR_MEMCELL_ADDR_6> 
-WARNING:Xst:1710 - FF/Latch <RAMin_7> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_8> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_9> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_10> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_11> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_12> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_13> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_14> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_15> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_0> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_1> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_2> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_3> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_4> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_5> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_6> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_7> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_8> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_9> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_10> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_11> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_12> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_13> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_14> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_15> (without init value) has a constant value of 0 in block <ae>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <mem_full> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_2> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_4> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_5> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_6> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_2> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_4> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_5> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_6> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <SELFREFRESH_REQ_R1> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <SELFREFRESH_MCB_REQ> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <WarmEnough> (without init value) has a constant value of 1 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <MCB_UICMD> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_0> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_1> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_2> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_3> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <DQS_DELAY_INITIAL_7> has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ackRead> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <enableWrite> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <reqRead> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <IODRPCTRLR_MEMCELL_ADDR_2> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_0> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_1> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_2> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_3> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_4> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_5> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_6> (without init value) has a constant value of 0 in block <memory_interface>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DQS_DELAY_INITIAL_7> has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_3> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_2> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_1> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <MCB_UIDQCOUNT_0> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <MCB_UICMD> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <WarmEnough> (without init value) has a constant value of 1 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <SELFREFRESH_MCB_REQ> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <SELFREFRESH_REQ_R1> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_6> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_5> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_4> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_2> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_6> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_5> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_4> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_2> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SELFREFRESH_REQ_R2> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SELFREFRESH_REQ_R3> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
 
 Synthesizing (advanced) Unit <audio_codec>.
-The following registers are absorbed into counter <bclk_divider>: 1 register on signal <bclk_divider>.
 The following registers are absorbed into counter <lrck_divider>: 1 register on signal <lrck_divider>.
+The following registers are absorbed into counter <bclk_divider>: 1 register on signal <bclk_divider>.
 Unit <audio_codec> synthesized (advanced).
 
 Synthesizing (advanced) Unit <clock_divider>.
@@ -2983,10 +2969,14 @@ The following registers are absorbed into counter <DQS_DELAY>: 1 register on sig
 The following registers are absorbed into counter <counter_inc>: 1 register on signal <counter_inc>.
 The following registers are absorbed into counter <counter_dec>: 1 register on signal <counter_dec>.
 	The following adders/subtractors are grouped into adder tree <Madd_n0466_Madd1> :
- 	<Madd_n0708[10:0]_Madd> in block <mcb_soft_calibration>, 	<Madd_n0711[11:0]_Madd> in block <mcb_soft_calibration>, 	<Madd__n0867_Madd> in block <mcb_soft_calibration>.
+ 	<Madd_n0708[10:0]_Madd> in block <mcb_soft_calibration>, 	<Madd_n0711[11:0]_Madd> in block <mcb_soft_calibration>, 	<Madd__n0869_Madd> in block <mcb_soft_calibration>.
 	The following adders/subtractors are grouped into adder tree <Madd_n0737[9:0]1> :
  	<Madd_n0731[7:0]> in block <mcb_soft_calibration>, 	<Madd_n0734[8:0]> in block <mcb_soft_calibration>, 	<Madd_n0737[9:0]> in block <mcb_soft_calibration>.
 Unit <mcb_soft_calibration> synthesized (advanced).
+
+Synthesizing (advanced) Unit <picoblaze_controller>.
+The following registers are absorbed into counter <address>: 1 register on signal <address>.
+Unit <picoblaze_controller> synthesized (advanced).
 
 Synthesizing (advanced) Unit <rs232_uart>.
 The following registers are absorbed into counter <baud_count>: 1 register on signal <baud_count>.
@@ -3010,11 +3000,11 @@ Macro Statistics
 # Adder Trees                                          : 2
  10-bit / 4-inputs adder tree                          : 1
  8-bit / 5-inputs adder tree                           : 1
-# Counters                                             : 16
+# Counters                                             : 17
  10-bit up counter                                     : 2
  16-bit up counter                                     : 1
  2-bit up counter                                      : 1
- 26-bit up counter                                     : 1
+ 26-bit up counter                                     : 2
  3-bit up counter                                      : 2
  4-bit up counter                                      : 1
  5-bit up counter                                      : 1
@@ -3022,47 +3012,36 @@ Macro Statistics
  7-bit up counter                                      : 1
  8-bit up counter                                      : 4
  8-bit updown counter                                  : 1
-# Registers                                            : 584
- Flip-Flops                                            : 584
-# Comparators                                          : 15
+# Registers                                            : 573
+ Flip-Flops                                            : 573
+# Comparators                                          : 17
  10-bit comparator greater                             : 1
+ 26-bit comparator equal                               : 1
+ 26-bit comparator greater                             : 1
  6-bit comparator equal                                : 1
  6-bit comparator greater                              : 1
  7-bit comparator equal                                : 1
  7-bit comparator greater                              : 1
  8-bit comparator greater                              : 8
  8-bit comparator lessequal                            : 2
-# Multiplexers                                         : 95
+# Multiplexers                                         : 115
  1-bit 2-to-1 multiplexer                              : 61
  1-bit 3-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 4
+ 26-bit 2-to-1 multiplexer                             : 8
+ 3-bit 2-to-1 multiplexer                              : 11
+ 4-bit 2-to-1 multiplexer                              : 1
  6-bit 2-to-1 multiplexer                              : 4
  7-bit 2-to-1 multiplexer                              : 3
  8-bit 2-to-1 multiplexer                              : 21
  9-bit 2-to-1 multiplexer                              : 1
-# FSMs                                                 : 6
+# FSMs                                                 : 5
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <RAMin_0> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_1> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_2> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_3> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_4> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_5> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_6> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_7> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_8> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_9> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_10> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_11> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_12> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_13> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_14> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RAMin_15> (without init value) has a constant value of 0 in block <mem_interface>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <MCB_UICMD> (without init value) has a constant value of 0 in block <mcb_soft_calibration>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MCB_UIDQCOUNT_0> (without init value) has a constant value of 0 in block <mcb_soft_calibration>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <MCB_UIDQCOUNT_1> (without init value) has a constant value of 0 in block <mcb_soft_calibration>. This FF/Latch will be trimmed during the optimization process.
@@ -3074,23 +3053,13 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <IODRPCTRLR_MEMCELL_
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <IODRPCTRLR_MEMCELL_ADDR_5> (without init value) has a constant value of 0 in block <mcb_soft_calibration>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <IODRPCTRLR_MEMCELL_ADDR_6> (without init value) has a constant value of 0 in block <mcb_soft_calibration>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <DRP_BKST> (without init value) has a constant value of 0 in block <iodrp_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <dat_0> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dat_1> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dat_2> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dat_3> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dat_4> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dat_5> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dat_6> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dat_7> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dat_8> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dat_9> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dat_10> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dat_11> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dat_12> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dat_13> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dat_14> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dat_15> (without init value) has a constant value of 0 in block <audio_effects>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <mem_full> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ackRead> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <enableWrite> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <reqRead> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <mem_state_0> of sequential type is unconnected in block <picoblaze_controller>.
+WARNING:Xst:2677 - Node <mem_state_1> of sequential type is unconnected in block <picoblaze_controller>.
+WARNING:Xst:2677 - Node <mem_state_2> of sequential type is unconnected in block <picoblaze_controller>.
+WARNING:Xst:2677 - Node <mem_state_3> of sequential type is unconnected in block <picoblaze_controller>.
 INFO:Xst:2261 - The FF/Latch <memcell_addr_reg_2> in Unit <iodrp_controller> is equivalent to the following 3 FFs/Latches, which will be removed : <memcell_addr_reg_4> <memcell_addr_reg_5> <memcell_addr_reg_6> 
 INFO:Xst:2261 - The FF/Latch <memcell_addr_reg_2> in Unit <iodrp_mcb_controller> is equivalent to the following 3 FFs/Latches, which will be removed : <memcell_addr_reg_4> <memcell_addr_reg_5> <memcell_addr_reg_6> 
 WARNING:Xst:1710 - FF/Latch <SELFREFRESH_REQ_R1> (without init value) has a constant value of 0 in block <mcb_soft_calibration>. This FF/Latch will be trimmed during the optimization process.
@@ -3123,20 +3092,11 @@ Optimizing FSM <FSM_0> on signal <state[1:4]> with user encoding.
  0110  | 0110
  1100  | 1100
  1010  | 1010
+ 1110  | unreached
+ 1101  | unreached
 -------------------
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <memory_interface/FSM_1> on signal <state[1:3]> with gray encoding.
--------------------
- State | Encoding
--------------------
- 0000  | 000
- 0001  | 001
- 0010  | 011
- 0011  | 010
- 0100  | 110
--------------------
-Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/FSM_2> on signal <STATE[1:58]> with one-hot encoding.
+Optimizing FSM <RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/FSM_1> on signal <STATE[1:58]> with one-hot encoding.
 ----------------------------------------------------------------------
  State  | Encoding
 ----------------------------------------------------------------------
@@ -3200,7 +3160,7 @@ Optimizing FSM <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst
  110111 | 1000000000000000000000000000000000000000000000000000000000
  111010 | unreached
 ----------------------------------------------------------------------
-Optimizing FSM <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/FSM_3> on signal <state[1:8]> with one-hot encoding.
+Optimizing FSM <RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/FSM_2> on signal <state[1:8]> with one-hot encoding.
 -------------------
  State | Encoding
 -------------------
@@ -3213,7 +3173,7 @@ Optimizing FSM <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst
  101   | 01000000
  110   | 10000000
 -------------------
-Optimizing FSM <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/FSM_4> on signal <state[1:4]> with GRAY encoding.
+Optimizing FSM <RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/FSM_3> on signal <state[1:4]> with GRAY encoding.
 -------------------
  State | Encoding
 -------------------
@@ -3230,7 +3190,7 @@ Optimizing FSM <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst
 -------------------
 INFO:Xst:2146 - In block <audio_codec>, Counter <lrck_divider> <bclk_divider> are equivalent, XST will keep only <lrck_divider>.
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <audio_interface/av_config/FSM_5> on signal <control_state[1:2]> with user encoding.
+Optimizing FSM <audio_interface/av_config/FSM_4> on signal <control_state[1:2]> with user encoding.
 -------------------
  State | Encoding
 -------------------
@@ -3285,8 +3245,14 @@ WARNING:Xst:1710 - FF/Latch <shift_out_12> (without init value) has a constant v
 WARNING:Xst:1710 - FF/Latch <shift_out_13> (without init value) has a constant value of 0 in block <audio_codec>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <shift_out_14> (without init value) has a constant value of 0 in block <audio_codec>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <shift_out_15> (without init value) has a constant value of 0 in block <audio_codec>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <max_address_24> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <max_address_25> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:1901 - Instance U_BUFG_CLK1 in unit infrastructure of type BUFGCE has been replaced by BUFGMUX
 INFO:Xst:1901 - Instance audio_interface/pll/pll_base_inst in unit audio_interface/pll/pll_base_inst of type PLL_BASE has been replaced by PLL_ADV
+INFO:Xst:2261 - The FF/Latch <max_address_0> in Unit <picoblaze_controller> is equivalent to the following 5 FFs/Latches, which will be removed : <max_address_6> <max_address_10> <max_address_14> <max_address_18> <max_address_22> 
+INFO:Xst:2261 - The FF/Latch <max_address_4> in Unit <picoblaze_controller> is equivalent to the following 4 FFs/Latches, which will be removed : <max_address_8> <max_address_12> <max_address_16> <max_address_20> 
+INFO:Xst:2261 - The FF/Latch <max_address_5> in Unit <picoblaze_controller> is equivalent to the following 4 FFs/Latches, which will be removed : <max_address_9> <max_address_13> <max_address_17> <max_address_21> 
+INFO:Xst:2261 - The FF/Latch <max_address_3> in Unit <picoblaze_controller> is equivalent to the following 5 FFs/Latches, which will be removed : <max_address_7> <max_address_11> <max_address_15> <max_address_19> <max_address_23> 
 INFO:Xst:2261 - The FF/Latch <MCB_UIADDR_2> in Unit <mcb_soft_calibration> is equivalent to the following 2 FFs/Latches, which will be removed : <MCB_UIADDR_3> <MCB_UIADDR_4> 
 WARNING:Xst:1710 - FF/Latch <audio_interface/av_config/control/data_23> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <audio_interface/av_config/control/data_22> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
@@ -3300,22 +3266,6 @@ WARNING:Xst:1710 - FF/Latch <audio_interface/av_config/control/data_15> (without
 WARNING:Xst:1710 - FF/Latch <audio_interface/av_config/control/data_14> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <audio_interface/av_config/control/data_13> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <audio_interface/av_config/control/data_8> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_15> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_14> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_13> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_12> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_11> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_10> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_9> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_8> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_7> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_6> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_5> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_4> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_3> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_2> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_1> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/dataOut_0> of sequential type is unconnected in block <picoblaze_controller>.
 INFO:Xst:2261 - The FF/Latch <row3/clock_div_prev> in Unit <picoblaze_controller> is equivalent to the following 6 FFs/Latches, which will be removed : <row1/clock_div_prev> <row0/clock_div_prev> <col3/clock_div_prev> <col2/clock_div_prev> <col1/clock_div_prev> <col0/clock_div_prev> 
 
 Optimizing unit <uart_tx6> ...
@@ -3328,6 +3278,8 @@ Optimizing unit <program> ...
 
 Optimizing unit <picoblaze_controller> ...
 
+Optimizing unit <mcb_raw_wrapper> ...
+
 Optimizing unit <mcb_soft_calibration_top> ...
 
 Optimizing unit <mcb_soft_calibration> ...
@@ -3339,16 +3291,17 @@ Optimizing unit <iodrp_mcb_controller> ...
 Optimizing unit <infrastructure> ...
 
 Optimizing unit <audio_codec> ...
-WARNING:Xst:1710 - FF/Latch <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/data_reg_7> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/data_reg_7> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_7> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_6> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_5> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_4> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_3> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_2> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_1> of sequential type is unconnected in block <picoblaze_controller>.
-WARNING:Xst:2677 - Node <memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_0> of sequential type is unconnected in block <picoblaze_controller>.
+WARNING:Xst:1710 - FF/Latch <RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/data_reg_7> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/data_reg_7> (without init value) has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DONE_SOFTANDHARD_CAL> of sequential type is unconnected in block <picoblaze_controller>.
+WARNING:Xst:2677 - Node <RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_7> of sequential type is unconnected in block <picoblaze_controller>.
+WARNING:Xst:2677 - Node <RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_6> of sequential type is unconnected in block <picoblaze_controller>.
+WARNING:Xst:2677 - Node <RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_5> of sequential type is unconnected in block <picoblaze_controller>.
+WARNING:Xst:2677 - Node <RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_4> of sequential type is unconnected in block <picoblaze_controller>.
+WARNING:Xst:2677 - Node <RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_3> of sequential type is unconnected in block <picoblaze_controller>.
+WARNING:Xst:2677 - Node <RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_2> of sequential type is unconnected in block <picoblaze_controller>.
+WARNING:Xst:2677 - Node <RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_1> of sequential type is unconnected in block <picoblaze_controller>.
+WARNING:Xst:2677 - Node <RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/read_data_0> of sequential type is unconnected in block <picoblaze_controller>.
 WARNING:Xst:2677 - Node <audio_interface/ac/shift_in_15> of sequential type is unconnected in block <picoblaze_controller>.
 WARNING:Xst:2677 - Node <audio_interface/ac/shift_in_14> of sequential type is unconnected in block <picoblaze_controller>.
 WARNING:Xst:2677 - Node <audio_interface/ac/shift_in_13> of sequential type is unconnected in block <picoblaze_controller>.
@@ -3365,8 +3318,9 @@ WARNING:Xst:2677 - Node <audio_interface/ac/shift_in_3> of sequential type is un
 WARNING:Xst:2677 - Node <audio_interface/ac/shift_in_2> of sequential type is unconnected in block <picoblaze_controller>.
 WARNING:Xst:2677 - Node <audio_interface/ac/shift_in_1> of sequential type is unconnected in block <picoblaze_controller>.
 WARNING:Xst:2677 - Node <audio_interface/ac/shift_in_0> of sequential type is unconnected in block <picoblaze_controller>.
+WARNING:Xst:1293 - FF/Latch <address_24> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <address_25> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <divider/count_25> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
@@ -3376,24 +3330,25 @@ WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant 
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
-WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block picoblaze_controller, actual ratio is 4.
-INFO:Xst:2260 - The FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> in Unit <picoblaze_controller> is equivalent to the following FF/Latch : <CPU/pblaze_cpu/sync_sleep_flop> 
-WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2260 - The FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> in Unit <picoblaze_controller> is equivalent to the following FF/Latch : <CPU/pblaze_cpu/sync_interrupt_flop> 
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
-FlipFlop memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Pre_SYSRST has been replicated 2 time(s)
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+FlipFlop RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Pre_SYSRST has been replicated 2 time(s)
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 
 Final Macro Processing ...
 
@@ -3411,16 +3366,16 @@ Unit <picoblaze_controller> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 601
- Flip-Flops                                            : 601
+# Registers                                            : 632
+ Flip-Flops                                            : 632
 # Shift Registers                                      : 7
  2-bit shift register                                  : 7
 
 =========================================================================
-WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_sleep_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <CPU/pblaze_cpu/sync_interrupt_flop> has a constant value of 0 in block <picoblaze_controller>. This FF/Latch will be trimmed during the optimization process.
 
 =========================================================================
 *                           Partition Report                            *
@@ -3441,29 +3396,29 @@ Top Level Output File Name         : picoblaze_controller.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1132
+# BELS                             : 1269
 #      GND                         : 1
-#      INV                         : 17
+#      INV                         : 18
 #      LUT1                        : 60
-#      LUT2                        : 132
-#      LUT3                        : 104
-#      LUT4                        : 99
-#      LUT5                        : 92
-#      LUT6                        : 259
+#      LUT2                        : 136
+#      LUT3                        : 117
+#      LUT4                        : 124
+#      LUT5                        : 103
+#      LUT6                        : 282
 #      LUT6_2                      : 78
 #      MULT_AND                    : 7
-#      MUXCY                       : 135
+#      MUXCY                       : 171
 #      MUXF7                       : 2
 #      VCC                         : 1
-#      XORCY                       : 145
-# FlipFlops/Latches                : 608
-#      FD                          : 124
+#      XORCY                       : 169
+# FlipFlops/Latches                : 639
+#      FD                          : 128
 #      FDC                         : 37
 #      FDCE                        : 28
-#      FDE                         : 59
+#      FDE                         : 65
 #      FDP                         : 26
-#      FDR                         : 165
-#      FDRE                        : 150
+#      FDR                         : 162
+#      FDRE                        : 174
 #      FDS                         : 16
 #      FDSE                        : 3
 # RAMS                             : 10
@@ -3503,23 +3458,23 @@ Selected Device : 6slx45csg484-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             608  out of  54576     1%  
- Number of Slice LUTs:                  888  out of  27288     3%  
-    Number used as Logic:               841  out of  27288     3%  
+ Number of Slice Registers:             639  out of  54576     1%  
+ Number of Slice LUTs:                  965  out of  27288     3%  
+    Number used as Logic:               918  out of  27288     3%  
     Number used as Memory:               47  out of   6408     0%  
        Number used as RAM:               24
        Number used as SRL:               23
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1045
-   Number with an unused Flip Flop:     437  out of   1045    41%  
-   Number with an unused LUT:           157  out of   1045    15%  
-   Number of fully used LUT-FF pairs:   451  out of   1045    43%  
-   Number of unique control sets:        52
+ Number of LUT Flip Flop pairs used:   1123
+   Number with an unused Flip Flop:     484  out of   1123    43%  
+   Number with an unused LUT:           158  out of   1123    14%  
+   Number of fully used LUT-FF pairs:   481  out of   1123    42%  
+   Number of unique control sets:        53
 
 IO Utilization: 
  Number of IOs:                          73
- Number of bonded IOBs:                  69  out of    320    21%  
+ Number of bonded IOBs:                  24  out of    320     7%  
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:                4  out of    116     3%  
@@ -3545,16 +3500,16 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
-------------------------------------------+----------------------------------------+-------+
-Clock Signal                              | Clock buffer(FF name)                  | Load  |
-------------------------------------------+----------------------------------------+-------+
-CLK                                       | PLL_ADV:CLKOUT2+DCM_SP:CLKFX           | 235   |
-CLK                                       | PLL_ADV:CLKOUT2                        | 32    |
-audio_interface/pll/pll_base_inst/CLKOUT0 | BUFG                                   | 48    |
-CLK                                       | PLL_ADV:CLKOUT3                        | 318   |
-audio_interface/pll/pll_base_inst/CLKOUT1 | NONE(audio_interface/ac/lrck_divider_7)| 8     |
-audio_interface/av_config/control/data<13>| NONE(CPU/pblaze_rom/kcpsm6_rom_hh)     | 4     |
-------------------------------------------+----------------------------------------+-------+
+---------------------------------------------------------+----------------------------------------+-------+
+Clock Signal                                             | Clock buffer(FF name)                  | Load  |
+---------------------------------------------------------+----------------------------------------+-------+
+CLK                                                      | PLL_ADV:CLKOUT2+DCM_SP:CLKFX           | 273   |
+audio_interface/pll/pll_base_inst/CLKOUT0                | BUFG                                   | 48    |
+CLK                                                      | PLL_ADV:CLKOUT3                        | 317   |
+CLK                                                      | PLL_ADV:CLKOUT2                        | 26    |
+audio_interface/pll/pll_base_inst/CLKOUT1                | NONE(audio_interface/ac/lrck_divider_7)| 8     |
+Mcompar_address[25]_max_address[25]_LessThan_60_o_lutdi12| NONE(CPU/pblaze_rom/kcpsm6_rom_hh)     | 4     |
+---------------------------------------------------------+----------------------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
@@ -3566,9 +3521,9 @@ Timing Summary:
 Speed Grade: -3
 
    Minimum period: 9.406ns (Maximum Frequency: 106.320MHz)
-   Minimum input arrival time before clock: 7.272ns
-   Maximum output required time after clock: 4.587ns
-   Maximum combinational path delay: 6.161ns
+   Minimum input arrival time before clock: 7.637ns
+   Maximum output required time after clock: 4.619ns
+   Maximum combinational path delay: 6.526ns
 
 Timing Details:
 ---------------
@@ -3577,7 +3532,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
   Clock period: 9.406ns (frequency: 106.320MHz)
-  Total number of paths / destination ports: 57748 / 1296
+  Total number of paths / destination ports: 62435 / 1357
 -------------------------------------------------------------------------
 Delay:               9.406ns (Levels of Logic = 6)
   Source:            CPU/pblaze_rom/kcpsm6_rom_lh (RAM)
@@ -3592,7 +3547,7 @@ Delay:               9.406ns (Levels of Logic = 6)
      RAMB16BWER:CLKA->DOA3    1   1.850   0.579  CPU/pblaze_rom/kcpsm6_rom_lh (CPU/pblaze_rom/n0015<3>)
      LUT6_2:I0->O5        16   0.568   1.004  CPU/pblaze_rom/s6_4k_mux12_lut (CPU/instruction<12>)
      LUT6_2:I4->O5        10   0.568   1.085  CPU/pblaze_cpu/data_path_loop[4].output_data.sy_kk_mux_lut (pb_port_id<4>)
-     LUT5:I2->O            2   0.205   0.617  pb_read_strobe_pb_port_id[7]_AND_56_o11 (pb_read_strobe_pb_port_id[7]_AND_56_o1)
+     LUT5:I2->O            2   0.205   0.617  pb_read_strobe_pb_port_id[7]_AND_61_o11 (pb_read_strobe_pb_port_id[7]_AND_61_o1)
      LUT5:I4->O           12   0.205   0.908  write_to_uart1 (write_to_uart)
      LUT6_2:I2->O5         1   0.568   0.579  UART/transmitter/data_present_lut (UART/transmitter/en_pointer)
      LUT6_2:I2->O6         1   0.568   0.000  UART/transmitter/pointer01_lut (UART/transmitter/pointer_value<1>)
@@ -3603,27 +3558,29 @@ Delay:               9.406ns (Levels of Logic = 6)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'audio_interface/pll/pll_base_inst/CLKOUT0'
-  Clock period: 4.953ns (frequency: 201.918MHz)
-  Total number of paths / destination ports: 405 / 102
+  Clock period: 4.118ns (frequency: 242.860MHz)
+  Total number of paths / destination ports: 401 / 102
 -------------------------------------------------------------------------
-Delay:               4.953ns (Levels of Logic = 3)
-  Source:            audio_interface/av_config/control/stage_0 (FF)
-  Destination:       audio_interface/av_config/lut_index_3 (FF)
+Delay:               4.118ns (Levels of Logic = 5)
+  Source:            audio_interface/av_config/control/stage_1 (FF)
+  Destination:       audio_interface/av_config/control/sdat (FF)
   Source Clock:      audio_interface/pll/pll_base_inst/CLKOUT0 rising
   Destination Clock: audio_interface/pll/pll_base_inst/CLKOUT0 rising
 
-  Data Path: audio_interface/av_config/control/stage_0 to audio_interface/av_config/lut_index_3
+  Data Path: audio_interface/av_config/control/stage_1 to audio_interface/av_config/control/sdat
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q            16   0.447   1.005  audio_interface/av_config/control/stage_0 (audio_interface/av_config/control/stage_0)
-     LUT4:I3->O            1   0.205   0.924  audio_interface/av_config/control_state_FSM_FFd2-In1_SW0 (N10)
-     LUT6:I1->O            2   0.203   0.961  audio_interface/av_config/control_state_FSM_FFd2-In1 (audio_interface/av_config/control_state_FSM_FFd2-In1)
-     LUT6:I1->O            4   0.203   0.683  audio_interface/av_config/_n0068_inv1 (audio_interface/av_config/_n0068_inv)
-     FDRE:CE                   0.322          audio_interface/av_config/lut_index_0
+     FDRE:C->Q            18   0.447   1.414  audio_interface/av_config/control/stage_1 (audio_interface/av_config/control/stage_1)
+     LUT6:I0->O            1   0.203   0.000  audio_interface/av_config/control/Mmux_stage[4]_sdat_Mux_21_o_7 (audio_interface/av_config/control/Mmux_stage[4]_sdat_Mux_21_o_7)
+     MUXF7:I1->O           1   0.140   0.684  audio_interface/av_config/control/Mmux_stage[4]_sdat_Mux_21_o_6_f7 (audio_interface/av_config/control/Mmux_stage[4]_sdat_Mux_21_o_6_f7)
+     LUT3:I1->O            1   0.203   0.000  audio_interface/av_config/control/Mmux_stage[4]_sdat_Mux_21_o_3 (audio_interface/av_config/control/Mmux_stage[4]_sdat_Mux_21_o_3)
+     MUXF7:I1->O           1   0.140   0.580  audio_interface/av_config/control/Mmux_stage[4]_sdat_Mux_21_o_2_f7 (audio_interface/av_config/control/stage[4]_sdat_Mux_21_o)
+     LUT3:I2->O            1   0.205   0.000  audio_interface/av_config/control/sdat_rstpot (audio_interface/av_config/control/sdat_rstpot)
+     FDS:D                     0.102          audio_interface/av_config/control/sdat
     ----------------------------------------
-    Total                      4.953ns (1.380ns logic, 3.572ns route)
-                                       (27.9% logic, 72.1% route)
+    Total                      4.118ns (1.440ns logic, 2.678ns route)
+                                       (35.0% logic, 65.0% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'audio_interface/pll/pll_base_inst/CLKOUT1'
@@ -3655,15 +3612,15 @@ Delay:               1.818ns (Levels of Logic = 8)
                                        (66.1% logic, 33.9% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'audio_interface/av_config/control/data<13>'
+Timing constraint: Default period analysis for Clock 'Mcompar_address[25]_max_address[25]_LessThan_60_o_lutdi12'
   Clock period: 2.729ns (frequency: 366.455MHz)
   Total number of paths / destination ports: 36 / 36
 -------------------------------------------------------------------------
 Delay:               2.729ns (Levels of Logic = 0)
   Source:            CPU/pblaze_rom/kcpsm6_rom_hh (RAM)
   Destination:       CPU/pblaze_rom/kcpsm6_rom_hh (RAM)
-  Source Clock:      audio_interface/av_config/control/data<13> rising
-  Destination Clock: audio_interface/av_config/control/data<13> rising
+  Source Clock:      Mcompar_address[25]_max_address[25]_LessThan_60_o_lutdi12 rising
+  Destination Clock: Mcompar_address[25]_max_address[25]_LessThan_60_o_lutdi12 rising
 
   Data Path: CPU/pblaze_rom/kcpsm6_rom_hh to CPU/pblaze_rom/kcpsm6_rom_hh
                                 Gate     Net
@@ -3677,52 +3634,51 @@ Delay:               2.729ns (Levels of Logic = 0)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
-  Total number of paths / destination ports: 282 / 215
+  Total number of paths / destination ports: 292 / 243
 -------------------------------------------------------------------------
-Offset:              7.272ns (Levels of Logic = 4)
+Offset:              7.637ns (Levels of Logic = 4)
   Source:            RST (PAD)
-  Destination:       memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg (FF)
+  Destination:       RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg (FF)
   Destination Clock: CLK rising 0.8X
 
-  Data Path: RST to memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg
+  Data Path: RST to RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   1.222   0.616  RST_IBUF (RST_IBUF)
-     INV:I->O             77   0.206   1.954  RST_inv1_INV_0 (RST_inv)
-     LUT5:I2->O           81   0.205   1.856  memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/int_sys_rst1 (memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/int_sys_rst)
-     LUT2:I0->O            1   0.203   0.579  memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/non_violating_rst1 (memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/non_violating_rst)
-     FDP:PRE                   0.430          memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg
+     IBUF:I->O            10   1.222   0.856  RST_IBUF (RST_IBUF)
+     INV:I->O             96   0.206   2.079  RST_inv11_INV_0 (RST_inv)
+     LUT5:I2->O           81   0.205   1.856  RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/int_sys_rst1 (RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/int_sys_rst)
+     LUT2:I0->O            1   0.203   0.579  RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/non_violating_rst1 (RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/non_violating_rst)
+     FDP:PRE                   0.430          RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg
     ----------------------------------------
-    Total                      7.272ns (2.266ns logic, 5.006ns route)
-                                       (31.2% logic, 68.8% route)
+    Total                      7.637ns (2.266ns logic, 5.371ns route)
+                                       (29.7% logic, 70.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'audio_interface/pll/pll_base_inst/CLKOUT0'
   Total number of paths / destination ports: 22 / 22
 -------------------------------------------------------------------------
-Offset:              5.433ns (Levels of Logic = 3)
+Offset:              4.564ns (Levels of Logic = 2)
   Source:            RST (PAD)
-  Destination:       audio_interface/av_config/i2c_data_12 (FF)
+  Destination:       audio_interface/av_config/control_state_FSM_FFd1 (FF)
   Destination Clock: audio_interface/pll/pll_base_inst/CLKOUT0 rising
 
-  Data Path: RST to audio_interface/av_config/i2c_data_12
+  Data Path: RST to audio_interface/av_config/control_state_FSM_FFd1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   1.222   0.616  RST_IBUF (RST_IBUF)
-     INV:I->O             77   0.206   1.954  RST_inv1_INV_0 (RST_inv)
-     LUT3:I0->O           12   0.205   0.908  audio_interface/av_config/_n0054_inv1 (audio_interface/av_config/_n0054_inv)
-     FDE:CE                    0.322          audio_interface/av_config/i2c_data_0
+     IBUF:I->O            10   1.222   0.856  RST_IBUF (RST_IBUF)
+     INV:I->O             96   0.206   1.850  RST_inv11_INV_0 (RST_inv)
+     FDRE:R                    0.430          audio_interface/av_config/lut_index_0
     ----------------------------------------
-    Total                      5.433ns (1.955ns logic, 3.478ns route)
-                                       (36.0% logic, 64.0% route)
+    Total                      4.564ns (1.858ns logic, 2.706ns route)
+                                       (40.7% logic, 59.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'audio_interface/pll/pll_base_inst/CLKOUT1'
   Total number of paths / destination ports: 8 / 8
 -------------------------------------------------------------------------
-Offset:              4.199ns (Levels of Logic = 2)
+Offset:              4.564ns (Levels of Logic = 2)
   Source:            RST (PAD)
   Destination:       audio_interface/ac/lrck_divider_7 (FF)
   Destination Clock: audio_interface/pll/pll_base_inst/CLKOUT1 rising
@@ -3731,31 +3687,31 @@ Offset:              4.199ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   1.222   0.616  RST_IBUF (RST_IBUF)
-     INV:I->O             77   0.206   1.725  RST_inv1_INV_0 (RST_inv)
+     IBUF:I->O            10   1.222   0.856  RST_IBUF (RST_IBUF)
+     INV:I->O             96   0.206   1.850  RST_inv11_INV_0 (RST_inv)
      FDS:S                     0.430          audio_interface/ac/lrck_divider_0
     ----------------------------------------
-    Total                      4.199ns (1.858ns logic, 2.341ns route)
-                                       (44.2% logic, 55.8% route)
+    Total                      4.564ns (1.858ns logic, 2.706ns route)
+                                       (40.7% logic, 59.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
-  Total number of paths / destination ports: 180 / 80
+  Total number of paths / destination ports: 202 / 103
 -------------------------------------------------------------------------
-Offset:              3.926ns (Levels of Logic = 1)
-  Source:            state_FSM_FFd3 (FF)
-  Destination:       leds<1> (PAD)
+Offset:              4.537ns (Levels of Logic = 1)
+  Source:            state_FSM_FFd1 (FF)
+  Destination:       leds<3> (PAD)
   Source Clock:      CLK rising
 
-  Data Path: state_FSM_FFd3 to leds<1>
+  Data Path: state_FSM_FFd1 to leds<3>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             12   0.447   0.908  state_FSM_FFd3 (state_FSM_FFd3)
-     OBUF:I->O                 2.571          leds_1_OBUF (leds<1>)
+     FDR:C->Q             48   0.447   1.519  state_FSM_FFd1 (state_FSM_FFd1)
+     OBUF:I->O                 2.571          leds_3_OBUF (leds<3>)
     ----------------------------------------
-    Total                      3.926ns (3.018ns logic, 0.908ns route)
-                                       (76.9% logic, 23.1% route)
+    Total                      4.537ns (3.018ns logic, 1.519ns route)
+                                       (66.5% logic, 33.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'audio_interface/pll/pll_base_inst/CLKOUT1'
@@ -3781,7 +3737,7 @@ Offset:              4.457ns (Levels of Logic = 2)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'audio_interface/pll/pll_base_inst/CLKOUT0'
   Total number of paths / destination ports: 3 / 2
 -------------------------------------------------------------------------
-Offset:              4.587ns (Levels of Logic = 2)
+Offset:              4.619ns (Levels of Logic = 2)
   Source:            audio_interface/av_config/control/sclk_divider_6 (FF)
   Destination:       AUD_I2C_SCLK (PAD)
   Source Clock:      audio_interface/pll/pll_base_inst/CLKOUT0 rising
@@ -3790,33 +3746,33 @@ Offset:              4.587ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              4   0.447   0.788  audio_interface/av_config/control/sclk_divider_6 (audio_interface/av_config/control/sclk_divider_6)
+     FDR:C->Q              5   0.447   0.819  audio_interface/av_config/control/sclk_divider_6 (audio_interface/av_config/control/sclk_divider_6)
      LUT2:I0->O            1   0.203   0.579  audio_interface/av_config/control/i2c_sclk1 (AUD_I2C_SCLK_OBUF)
      OBUF:I->O                 2.571          AUD_I2C_SCLK_OBUF (AUD_I2C_SCLK)
     ----------------------------------------
-    Total                      4.587ns (3.221ns logic, 1.366ns route)
-                                       (70.2% logic, 29.8% route)
+    Total                      4.619ns (3.221ns logic, 1.398ns route)
+                                       (69.7% logic, 30.3% route)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 795 / 702
+  Total number of paths / destination ports: 691 / 641
 -------------------------------------------------------------------------
-Delay:               6.161ns (Levels of Logic = 4)
+Delay:               6.526ns (Levels of Logic = 4)
   Source:            RST (PAD)
-  Destination:       memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/gen_zio.IODRP2_ZIO:T (PAD)
+  Destination:       RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/gen_zio.IODRP2_ZIO:T (PAD)
 
-  Data Path: RST to memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/gen_zio.IODRP2_ZIO:T
+  Data Path: RST to RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/gen_zio.IODRP2_ZIO:T
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   1.222   0.616  RST_IBUF (RST_IBUF)
-     INV:I->O             77   0.206   1.954  RST_inv1_INV_0 (RST_inv)
-     LUT5:I2->O           81   0.205   1.751  memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/int_sys_rst1 (memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/int_sys_rst)
-     INV:I->O              0   0.206   0.000  memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/RZQ_ZIO_ODATAIN1_INV_0 (memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/RZQ_ZIO_ODATAIN)
-    IODRP2:ODATAIN             0.000          memory_interface/RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/IODRP2_RZQ
+     IBUF:I->O            10   1.222   0.856  RST_IBUF (RST_IBUF)
+     INV:I->O             96   0.206   2.079  RST_inv11_INV_0 (RST_inv)
+     LUT5:I2->O           81   0.205   1.751  RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/int_sys_rst1 (RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/int_sys_rst)
+     INV:I->O              0   0.206   0.000  RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/RZQ_ZIO_ODATAIN1_INV_0 (RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/RZQ_ZIO_ODATAIN)
+    IODRP2:ODATAIN             0.000          RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/IODRP2_RZQ
     ----------------------------------------
-    Total                      6.161ns (1.839ns logic, 4.322ns route)
-                                       (29.8% logic, 70.2% route)
+    Total                      6.526ns (1.839ns logic, 4.687ns route)
+                                       (28.2% logic, 71.8% route)
 
 =========================================================================
 
@@ -3831,20 +3787,20 @@ Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 CLK            |    9.406|         |         |         |
 ---------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock audio_interface/av_config/control/data<13>
-------------------------------------------+---------+---------+---------+---------+
-                                          | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                              |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
-------------------------------------------+---------+---------+---------+---------+
-audio_interface/av_config/control/data<13>|    2.729|         |         |         |
-------------------------------------------+---------+---------+---------+---------+
+Clock to Setup on destination clock Mcompar_address[25]_max_address[25]_LessThan_60_o_lutdi12
+---------------------------------------------------------+---------+---------+---------+---------+
+                                                         | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                                             |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------------------------------------------------+---------+---------+---------+---------+
+Mcompar_address[25]_max_address[25]_LessThan_60_o_lutdi12|    2.729|         |         |         |
+---------------------------------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock audio_interface/pll/pll_base_inst/CLKOUT0
 -----------------------------------------+---------+---------+---------+---------+
                                          | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                             |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -----------------------------------------+---------+---------+---------+---------+
-audio_interface/pll/pll_base_inst/CLKOUT0|    4.953|         |         |         |
+audio_interface/pll/pll_base_inst/CLKOUT0|    4.118|         |         |         |
 -----------------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock audio_interface/pll/pll_base_inst/CLKOUT1
@@ -3858,14 +3814,14 @@ audio_interface/pll/pll_base_inst/CLKOUT1|    1.818|         |         |        
 =========================================================================
 
 
-Total REAL time to Xst completion: 21.00 secs
-Total CPU time to Xst completion: 21.31 secs
+Total REAL time to Xst completion: 22.00 secs
+Total CPU time to Xst completion: 21.34 secs
  
 --> 
 
-Total memory usage is 4553200 kilobytes
+Total memory usage is 4553168 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 1230 (   0 filtered)
-Number of infos    :  188 (   0 filtered)
+Number of warnings : 1188 (   0 filtered)
+Number of infos    :  211 (   0 filtered)
 

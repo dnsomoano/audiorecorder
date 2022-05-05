@@ -83,19 +83,35 @@ module picoblaze_controller(
 	wire			pb_int_ack;
 	
 	// Data wires and registers
-	reg			[25:0] address;
+	reg			mem_full;
+	reg			[25:0] address = 0;
 	reg			[25:0] max_address;
+	reg			[25:0] track_address;
 	wire			[15:0] read_out;
 	wire			[15:0] audio_data;
+	wire  		data_ready;
 	
 	// RAM Interface wires
-	wire			RAM_status;		// 1 if RAM is ready for R/W
+	wire			RAM_rdy;			// 1 if RAM is ready for R/W
+	wire			dataPresent;
+	reg			[15:0] RAMin;
+	wire			[15:0] RAMout;
+	reg			[15:0] dataOut;
+	wire			[25:0] max_RAM_address;
+	reg			write;
+	reg			read;
+	reg   		reqRead;
+	reg   		enableWrite;
+	reg			ackRead;
 	wire			RAM_reset;
-	wire			sysCLK;
-	reg			[25:0] max_RAM_address;
+	wire			systemCLK;
 	
 	// Audio Interface wires
 	wire			aud_reset;
+	wire  		[1:0] sample_end;
+	wire			[1:0] sample_req;
+	reg  			[2:0] track_sel = 3'b000;
+	reg			[15:0] audio_out;
 	
 	// UART wires
 	wire			write_to_uart;
@@ -116,32 +132,38 @@ module picoblaze_controller(
 	// RAM interface uses ACTIVE-HIGH reset
 	assign RAM_reset = ~RST;
 	// RAM Interface instantiation
-	mem_interface memory_interface(
-		.hw_ram_rasn(HW_RAM_RASN),
-		.hw_ram_casn(HW_RAM_CASN),
-		.hw_ram_wen(HW_RAM_WEN),
-		.hw_ram_ba(HW_RAM_BA),
-		.hw_ram_udqs_p(HW_RAM_UDQS_P),
-		.hw_ram_udqs_n(HW_RAM_UDQS_N),
-		.hw_ram_ldqs_p(HW_RAM_LDQS_P),
-		.hw_ram_ldqs_n(HW_RAM_LDQS_N),
-		.hw_ram_udm(HW_RAM_UDM),
-		.hw_ram_ldm(HW_RAM_LDM),
-		.hw_ram_ck(HW_RAM_CK),
-		.hw_ram_ckn(HW_RAM_CKN),
-		.hw_ram_cke(HW_RAM_CKE),
-		.hw_ram_odt(HW_RAM_ODT),
-		.hw_ram_ad(HW_RAM_AD),
-		.hw_ram_dq(HW_RAM_DQ),
-		.hw_rzq_pin(),
-		.hw_zio_pin(),
-		.CLK(CLK),
-		.reset(RAM_reset),
-		.read_out(/*<FILL_IN>*/),
-		.addr_in(/*<FILL_IN>*/),
-		.data_in(/*<FILL_IN>*/),
-		.systemCLK(sysCLK),
-		.status(RAM_status)
+	ram_interface_wrapper RAMRapper (
+		.address(address),				// input 
+		.data_in(RAMin), 					// input
+		.write_enable(enableWrite), 	//	input
+		.read_request(reqRead), 		//	input
+		.read_ack(ackRead), 
+		.data_out(RAMout), 				// output from ram to wire
+		.reset(RAM_reset), 
+		.clk(CLK), 
+		.hw_ram_rasn(hw_ram_rasn), 
+		.hw_ram_casn(hw_ram_casn),
+		.hw_ram_wen(hw_ram_wen), 
+		.hw_ram_ba(hw_ram_ba), 
+		.hw_ram_udqs_p(hw_ram_udqs_p), 
+		.hw_ram_udqs_n(hw_ram_udqs_n), 
+		.hw_ram_ldqs_p(hw_ram_ldqs_p), 
+		.hw_ram_ldqs_n(hw_ram_ldqs_n), 
+		.hw_ram_udm(hw_ram_udm), 
+		.hw_ram_ldm(hw_ram_ldm), 
+		.hw_ram_ck(hw_ram_ck), 
+		.hw_ram_ckn(hw_ram_ckn), 
+		.hw_ram_cke(hw_ram_cke), 
+		.hw_ram_odt(hw_ram_odt),
+		.hw_ram_ad(hw_ram_ad), 
+		.hw_ram_dq(hw_ram_dq), 
+		.hw_rzq_pin(hw_rzq_pin), 
+		.hw_zio_pin(hw_zio_pin), 
+		.clkout(systemCLK), 
+		.sys_clk(systemCLK), 
+		.rdy(RAM_rdy), 
+		.rd_data_pres(dataPresent),
+		.max_ram_address(max_RAM_address)
 	);
 	
 	// Clock generator
@@ -152,7 +174,7 @@ module picoblaze_controller(
 	//
 	// Takes 37.5MHz clock from ram interface and outputs two 100MHz clocks
 	clk_gen clock_generator(
-		.CLK_IN1(sysCLK),
+		.CLK_IN1(systemCLK),
 		.CLK_OUT1(audio_clk),
 		.CLK_OUT2(pb_clk)
 	);
@@ -174,8 +196,57 @@ module picoblaze_controller(
 		.AUD_I2C_SDAT(AUD_I2C_SDAT),
 		.AUD_MUTE(AUD_MUTE),
 		.PLL_LOCKED(PLL_LOCKED),
-		.reset(aud_reset)
+		.reset(aud_reset),
+		.audio_in(audio_in),
+		.audio_out(audio_out),
+		.s_end(sample_end),
+		.s_req(sample_req)
 	);
+	
+	// FSM for memory read/write functions
+	//
+	// State Encoding
+	parameter stInit		=	4'b0000;
+	parameter stMain		=	4'b0001;
+	parameter stWrite		=	4'b0010;
+	parameter stRead		=	4'b0011;
+	//
+	// Memory state register
+	reg [3:0] mem_state	=	stInit;
+	//
+	// FSM
+	always @(posedge systemCLK) begin
+		// Reset for RAM module and FSM
+		if (RAM_reset) begin
+			mem_state <= stInit;
+		end
+		// Begin FSM if RAM indicates it's ready
+		if (RAM_rdy) begin
+			case (mem_state)
+				// Initial state
+				stInit: begin
+					ackRead 	 <= 1'b0;
+					mem_state <= stMain;
+				end
+				// Main state, waiting for read/write signal
+				stMain: begin
+					if (write)
+						mem_state <= stWrite;
+					else if (read)
+						mem_state <= stRead;
+					else
+						mem_state <= stMain;
+				end
+				// Write state - write data to memory
+				stWrite: begin
+					// TODO: WRITE TO MEMORY LOGIC
+				end
+				stRead: begin
+					// TODO: READ FROM MEMORY LOGIC
+				end
+			endcase
+		end
+	end
 	
 	// UART and control logic
 	//
@@ -287,15 +358,8 @@ module picoblaze_controller(
 	// FSM code block for menu controls and module interfacing
 	//
 	// Wires and Registers for state functions
-	wire  audio_ready;
-	wire  data_ready;
-	reg   write_en;
-	reg   write_req;
-	wire  write_ack;
-	reg   read_req;
-	reg   read_ack;
 	reg   [2:0] volume;
-	reg   mem_full;
+	reg	track_full;
 	//
 	// Registers for tracks (track[26] is valid bit)
 	reg  [26:0] track1;
@@ -303,7 +367,6 @@ module picoblaze_controller(
 	reg  [26:0] track3;
 	reg  [26:0] track4;
 	reg  [26:0] track5;
-	reg  [2:0] track_sel;
 	//
 	// Keypad controls
 	wire kypd1, kypd2, kypd3, kypd4, kypd5, kypd6, kypd0, kypdA, kypdB;
@@ -318,18 +381,20 @@ module picoblaze_controller(
 	assign kypd0 = (kypd_row3 & kypd_col0);
 	//
 	// State encoding
-	parameter init_state			=	4'b0000;
-	parameter menu					=	4'b0001;
-	parameter play_menu			=	4'b0010;
-	parameter play_state			=	4'b0011;
-	parameter record_state		=	4'b0100;
-	parameter delete_menu		=	4'b0101;
-	parameter delete_state		=	4'b0110;
-	parameter delete_all			=	4'b0111;
-	parameter mem_full_state	=	4'b1000;
-	parameter change_volume		=	4'b1001;
-	parameter volume_up			=	4'b1010;
-	parameter volume_down		=	4'b1100;
+	parameter init_state			=	6'b000000;
+	parameter menu					=	6'b000001;
+	parameter play_menu			=	6'b000010;
+	parameter play_state			=	6'b000011;
+	parameter record_init		=	6'b000100;
+	parameter delete_menu		=	6'b000101;
+	parameter delete_state		=	6'b000110;
+	parameter delete_all			=	6'b000111;
+	parameter mem_full_state	=	6'b001000;
+	parameter change_volume		=	6'b001001;
+	parameter volume_up			=	6'b001010;
+	parameter volume_down		=	6'b001100;
+	parameter record_state		=  6'b001101;
+	parameter end_recording		=  6'b001110;
 	//
 	// State register
 	reg [3:0] state = init_state;
@@ -338,10 +403,9 @@ module picoblaze_controller(
 	always@ (posedge pb_clk) begin
 		// Reset case
 		if (pb_reset) begin
-			write_en 	<= 0;
-			write_req 	<= 0;
-			read_req 	<= 0;
-			read_ack 	<= 0;
+			enableWrite <= 0;
+			//write_req 	<= 0;
+			reqRead	 	<= 0;
 			volume 		<= 0;
 			address 		<= 0;
 			state 		<= init_state;
@@ -352,10 +416,9 @@ module picoblaze_controller(
 			case (state)
 				// Initialization state
 				init_state: begin
-					write_en 	<= 0;
-					write_req 	<= 0;
-					read_req 	<= 0;
-					read_ack 	<= 0;
+					enableWrite <= 0;
+					//write_req 	<= 0;
+					reqRead	 	<= 0;
 					volume 		<= 0;
 					address 		<= 0;
 					mem_full 	<= 0;
@@ -371,7 +434,7 @@ module picoblaze_controller(
 					if (kypd1)					// Play message
 						state <= play_menu;
 					else if (kypd2)			// Record message
-						state <= record_state;
+						state <= record_init;
 					else if (kypd3)			// Delete message
 						state <= delete_menu;
 					else if (kypd4)			// Delete all messages
@@ -412,13 +475,83 @@ module picoblaze_controller(
 				play_state: begin
 					// TODO: AUDIO PLAYBACK LOGIC
 				end
-				// Record state
-				record_state: begin
-					// TODO: RECORD AUDIO LOGIC
-					if (mem_full)
-						state <= mem_full_state;
+				// Record intializaion state - logic for checking for a free track to record on
+				record_init: begin
+					if (track1[26] == 1'b0) begin
+						address 		<= 0;
+						max_address <= 26'h333332;
+						track_sel	<= 3'b001;
+						track1[26] 	<= 1'b1;
+						state			<= record_state;
+					end
+					else if (track2[26] == 1'b0) begin
+						address		<= 26'h333333;
+						max_address	<= 26'h666665;
+						track_sel	<= 3'b010;
+						track2[26]	<= 1'b1;
+						state			<= record_state;
+					end
+					else if (track3[26] == 1'b0) begin
+						address		<= 26'h666666;
+						max_address	<= 26'h999998;
+						track_sel	<= 3'b011;
+						track3[26]	<= 1'b1;
+						state			<= record_state;
+					end
+					else if (track4[26] == 1'b0) begin
+						address		<= 26'h999999;
+						max_address	<= 26'hCCCCCB;
+						track_sel	<= 3'b100;
+						track4[26]	<=	1'b1;
+						state			<= record_state;
+					end
+					else if (track5[26] == 1'b0) begin
+						address		<= 26'hCCCCCC;
+						max_address <= max_RAM_address;
+						track_sel	<= 3'b101;
+						track5[26]	<= 1'b1;
+						state			<= record_state;
+					end
 					else
-						state <= menu;
+						mem_full <= 1'b1;
+						state 	<= mem_full_state;
+				end
+				// Record state - record a message on the selected track
+				record_state: begin
+					if (address < max_address) begin
+						address 		<= address + 1'b1;
+						//enableWrite	<= 1'b1;		Not sure if this goes here or not
+						state 		<= record_state;
+					end
+					else if (kypd0 || address == max_address) begin	// Stop button to stop recording
+						state 		<= end_recording;
+					end
+				end
+				// End Recording state - assign end address to corresponding track
+				end_recording: begin
+					case (track_sel)
+						3'b001: begin
+							track1[25:0]	<= address;
+							track_address	<= 0;
+						end
+						3'b010: begin
+							track2[25:0]	<= address;
+							track_address	<= 26'h333333;
+						end
+						3'b011: begin
+							track3[25:0]	<= address;
+							track_address	<= 26'h666666;
+						end
+						3'b100: begin
+							track4[25:0]	<= address;
+							track_address	<= 26'h999999;
+						end
+						3'b101: begin
+							track5[25:0]	<= address;
+							track_address	<= 26'hCCCCCC;
+						end
+					endcase
+					state <= menu;
 				end
 				// Delete menu - select a track to delete
 				delete_menu: begin
@@ -459,7 +592,8 @@ module picoblaze_controller(
 						track4[26] <= 1'b0;
 					else if (track_sel == 3'b101)
 						track5[26] <= 1'b0;
-					state <= menu;				// Return to main menu after delete is performed
+					mem_full <= 1'b0;
+					state 	<= menu;				// Return to main menu after delete is performed
 				end
 				// Delete all state - sets every track's valid bit to 0
 				delete_all: begin
@@ -468,11 +602,12 @@ module picoblaze_controller(
 					track3[26] <= 1'b0;
 					track4[26] <= 1'b0;
 					track5[26] <= 1'b0;
+					mem_full	  <= 1'b0;
 					state 	  <= menu;
 				end
 				// Memory full state - displays picoblaze message that memory is full and returns to menu
 				mem_full_state: begin
-					// TODO: INSERT PICOBLAZE PORT
+					// TODO: INSERT PICOBLAZE PORT FOR MEMORY FULL MESSAGE
 					state <= menu;
 				end
 				// Change volume state - select 'up' or 'down' to change volume
