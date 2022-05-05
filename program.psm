@@ -8,10 +8,8 @@ CONSTANT uart_data_rx     , 02    ; UART receive read port
 CONSTANT uart_data_tx     , 03    ; UART transmit write port
 CONSTANT data_present     , 04    ; UART stat read port, lsb
 CONSTANT buffer_full      , 05    ; UART stat read port, lsb
-
-;================================================================
-; Useful constant declarations...
-;================================================================
+CONSTANT fsm              , 06
+CONSTANT deletedall       , 07
 
 CONSTANT all_clear        , 00    ; define all clear
 CONSTANT all_set          , FF    ; define all set
@@ -152,180 +150,575 @@ CONSTANT ascii_RBRACE     , 7D    ; ascii code
 CONSTANT ascii_TILDE      , 7E    ; ascii code
 CONSTANT ascii_DEL        , 7F    ; ascii code
 
-;================================================================
-; Actual assembly program goes here...
-;
-; NOTE: size limit is 4096 lines of actual assembly code
-;       Old documentation says it is 1024. This is now incorrect.
-;================================================================
-
-cold_start:     LOAD     s0, s0            ; (nop)
-
-                ; Code 1
-                ; Write code to output a message to the
-                ; serial port.  The message must be longer
-                ; than 25 characters.
-
-		LOAD s0, ascii_W ;W
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_E ;E
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_L ;L
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_C ;C
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_O ;O
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_M ;M
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_E ;E
-		OUTPUT s0, uart_data_tx
-
-		CALL wait_for_buffer
-
-		;LOAD s0, ascii_CR ;CR
-		;OUTPUT s0, uart_data_tx
-
-		; 1) Play Message
-		LOAD s0, ascii_1 ;1
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_RPAREN ;RPAREN
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_P ;P
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_l ;l
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_a ;a
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_y ;y
-		OUTPUT s0, uart_data_tx
-
-		CALL wait_for_buffer
-
-		LOAD s0, ascii_SPACE ;
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_M ;M
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_e ;e
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_s ;s
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_s ;s
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_a ;a
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_g ;g
-		OUTPUT s0, uart_data_tx
-
-		CALL wait_for_buffer
-
-		LOAD s0, ascii_e ;e
-		OUTPUT s0, uart_data_tx
-		;LOAD s0, ascii_CR ;CR
-		;OUTPUT s0, uart_data_tx
-
-		; 2) Record
-		LOAD s0, ascii_2 ;2
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_RPAREN ;RPAREN
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_R ;R
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_e ;e
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_c ;c
-		OUTPUT s0, uart_data_tx
-
-		CALL wait_for_buffer
-
-		LOAD s0, ascii_o ;o
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_r ;r
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_d ;d
-		OUTPUT s0, uart_data_tx
-
-		;LOAD s0, ascii_CR ;CR
-		;OUTPUT s0, uart_data_tx
-
-		; 3) Delete
-		LOAD s0, ascii_3 ;3
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_RPAREN ;RPAREN
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_D ;D
-		OUTPUT s0, uart_data_tx
-
-		CALL wait_for_buffer
-
-		LOAD s0, ascii_e ;e
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_l ;l
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_e ;e
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_t ;t
-		OUTPUT s0, uart_data_tx
-		LOAD s0, ascii_e ;e
-		OUTPUT s0, uart_data_tx
-		;CALL wait_for_buffer
-
-		;LOAD s0, ascii_CR ;CR
-		;OUTPUT s0, uart_data_tx
-
-		LOAD s0, ascii_4 ;4
-		OUTPUT s0, uart_data_tx
-
-		CALL wait_for_buffer
-
-		LOAD s0, ascii_RPAREN ;RPAREN
-		OUTPUT s0, uart_data_tx
-
-		JUMP rs232_echo 
-		JUMP led_echo
 
 
-led_echo:       LOAD     s0, s0            ; (nop)
+NAMEREG S0, single_char		  
+NAMEREG S1, character_addr	  
+NAMEREG S2, max_char
+NAMEREG S3, full_input_buffer
+NAMEREG S4, rx_input
+NAMEREG S5, present_inp_data
+NAMEREG S6, outputs
+NAMEREG S7, pp
+	  
+;NAMEREG S4, delete_all_ack
+;NAMEREG S5, volume_control
+;NAMEREG S9, track_number
+;NAMEREG SA, playreg
+;NAMEREG SB, substate
 
-                ; Code 2
-                ; Write code to read the switch state and
-                ; write it, inverted, to the LED output port.
-		
-		INPUT s0, switches ;taking the input from switches
-		DISABLE INTERRUPT  ; disabling interrupt
-		XOR s0, FF         ; xoring with FF in hex inverts it
-		OUTPUT s0, leds	   ; the output is produced in the leds
-		ENABLE INTERRUPT   ; enabling interrupt at the end
 
-rs232_echo:     LOAD     s0, s0            ; (nop)
+start:
+    xor single_char, single_char 
+    load single_char, ascii_1        ;"1"
+    store single_char, 00
+    load single_char, ascii_PERIOD   ;"."
+    store single_char, 01
+    load single_char, ascii_RPAREN   ;")"
+    store single_char, 02
+    load single_char, ascii_SPACE    ;" "
+    store single_char, 03
+    load single_char, ascii_P
+    store single_char, 04
+    load single_char, ascii_l
+    store single_char, 05
+    load single_char, ascii_a
+    store single_char, 06
+    load single_char, ascii_y
+    store single_char, 07
+    load single_char, ascii_SPACE
+    store single_char, 08
+    load single_char, ascii_A
+    store single_char, 09
+    load single_char, ascii_SPACE
+    store single_char, 0A
+    load single_char, ascii_m
+    store single_char, 0B
+    load single_char, ascii_e
+    store single_char, 0C
+    load single_char, ascii_s
+    store single_char, 0D
+    load single_char, ascii_s
+    store single_char, 0E
+    load single_char, ascii_a
+    store single_char, 0F
+    load single_char, ascii_g
+    store single_char, 10
+    load single_char, ascii_e
+    store single_char, 11
+    load single_char, ascii_SPACE
+    store single_char, 12
+    load single_char, ascii_CR
+    store single_char, 13
+    load single_char, ascii_LF
+    store single_char, 14
 
-                
-		NAMEREG sF, dr
-		NAMEREG sE, Data
+    load single_char, ascii_2
+    store single_char, 15
+    load single_char, ascii_PERIOD
+    store single_char, 16
+    load single_char, ascii_RPAREN
+    store single_char, 17
+    load single_char, ascii_SPACE
+    store single_char, 18
+    load single_char, ascii_R
+    store single_char, 19
+    load single_char, ascii_e
+    store single_char, 1A
+    load single_char, ascii_c
+    store single_char, 1B
+    load single_char, ascii_o
+    store single_char, 1C
+    load single_char, ascii_r
+    store single_char, 1D
+    load single_char, ascii_d
+    store single_char, 1E
+    load single_char, ascii_SPACE
+    store single_char, 1F
+    load single_char, ascii_a
+    store single_char, 20
+    load single_char, ascii_SPACE
+    store single_char, 21
+    load single_char, ascii_m
+    store single_char, 22
+    load single_char, ascii_e
+    store single_char, 23
+    load single_char, ascii_s
+    store single_char, 24
+    load single_char, ascii_s
+    store single_char, 25
+    load single_char, ascii_a
+    store single_char, 26
+    load single_char, ascii_g
+    store single_char, 27
+    load single_char, ascii_e
+    store single_char, 28
+    load single_char, ascii_SPACE
+    store single_char, 29
+    load single_char, ascii_CR
+    store single_char, 2A
+    load single_char, ascii_LF
+    store single_char, 2B
 
-		BEGIN:
-		INPUT dr, data_present
-		TEST dr, 01             ; testing if the data is present or not
-		;TEST dr, 05				; test for buffer_full
-		CALL C, SEND
-		JUMP BEGIN		; jumping back to loop
+    load max_char, 2C
+    CALL PUSH_MENU
 
-		SEND:
-		INPUT Data, uart_data_rx
-		OUTPUT Data, uart_data_tx   ;takes input and sends to output
+    xor single_char, single_char
+    load single_char, ascii_3       ;
+    store single_char, 00
+    load single_char, ascii_PERIOD   ;
+    store single_char, 01
+    load single_char, ascii_RPAREN   ;
+    store single_char, 02
+    load single_char, ascii_SPACE    ;
+    store single_char, 03
+    load single_char, ascii_D
+    store single_char, 04
+    load single_char, ascii_e
+    store single_char, 05
+    load single_char, ascii_l
+    store single_char, 06
+    load single_char, ascii_e
+    store single_char, 07
+    load single_char, ascii_t
+    store single_char, 08
+    load single_char, ascii_e
+    store single_char, 09
+    load single_char, ascii_SPACE
+    store single_char, 0A
+    load single_char, ascii_a
+    store single_char, 0B
+    load single_char, ascii_SPACE
+    store single_char, 0C
+    load single_char, ascii_m
+    store single_char, 0D
+    load single_char, ascii_e
+    store single_char, 0E
+    load single_char, ascii_s
+    store single_char, 0F
+    load single_char, ascii_s
+    store single_char, 10
+    load single_char, ascii_a
+    store single_char, 11
+    load single_char, ascii_g
+    store single_char, 12
+    load single_char, ascii_e
+    store single_char, 13
+    load single_char, ascii_CR
+    store single_char, 14
+    load single_char, ascii_LF
+    store single_char, 15
 
-                ; Code 3
-                ; Write code to check if a byte has been
-                ; received by the uart.  If so, write it
-                ; back to the uart transmit port.  Then...
+    load single_char, ascii_4
+    store single_char, 16
+    load single_char, ascii_PERIOD
+    store single_char, 17
+    load single_char, ascii_RPAREN
+    store single_char, 18
+    load single_char, ascii_SPACE
+    store single_char, 19
+    load single_char, ascii_D
+    store single_char, 1A
+    load single_char, ascii_e
+    store single_char, 1B
+    load single_char, ascii_l
+    store single_char, 1C
+    load single_char, ascii_e
+    store single_char, 1D
+    load single_char, ascii_t
+    store single_char, 1E
+    load single_char, ascii_e
+    store single_char, 1F
+    load single_char, ascii_SPACE
+    store single_char, 20
+    load single_char, ascii_a
+    store single_char, 21
+    load single_char, ascii_l
+    store single_char, 22
+    load single_char, ascii_l
+    store single_char, 23
+    load single_char, ascii_SPACE
+    store single_char, 24
+    load single_char, ascii_m
+    store single_char, 25
+    load single_char, ascii_e
+    store single_char, 26
+    load single_char, ascii_s
+    store single_char, 27
+    load single_char, ascii_s
+    store single_char, 28
+    load single_char, ascii_a
+    store single_char, 29
+    load single_char, ascii_g
+    store single_char, 2A
+    load single_char, ascii_e
+    store single_char, 2B
+    load single_char, ascii_s
+    store single_char, 2C
+    load single_char, ascii_CR
+    store single_char, 2D
+    load single_char, ascii_LF
+    store single_char, 2E
 
-                
-wait_for_buffer: 
-		INPUT s1, buffer_full 
-		COMPARE s1, 01 
-		JUMP Z, wait_for_buffer 
-		RETURN
+    load max_char, 2F
+    CALL PUSH_MENU
 
-;================================================================
-;
-;================================================================
+    xor single_char, single_char
+    load single_char, ascii_5       ;
+    store single_char, 00
+    load single_char, ascii_PERIOD   ;
+    store single_char, 01
+    load single_char, ascii_RPAREN   ;
+    store single_char, 02
+    load single_char, ascii_SPACE    ;
+    store single_char, 03
+    load single_char, ascii_V
+    store single_char, 04
+    load single_char, ascii_o
+    store single_char, 05
+    load single_char, ascii_l
+    store single_char, 06
+    load single_char, ascii_u
+    store single_char, 07
+    load single_char, ascii_m
+    store single_char, 08
+    load single_char, ascii_e
+    store single_char, 09
+    load single_char, ascii_SPACE
+    store single_char, 0A
+    load single_char, ascii_c
+    store single_char, 0B
+    load single_char, ascii_o
+    store single_char, 0C
+    load single_char, ascii_n
+    store single_char, 0D
+    load single_char, ascii_t
+    store single_char, 0E
+    load single_char, ascii_r
+    store single_char, 0F
+    load single_char, ascii_o
+    store single_char, 10
+    load single_char, ascii_l
+    store single_char, 11
+    load single_char, ascii_CR
+    store single_char, 12
+    load single_char, ascii_LF
+    store single_char, 13
+
+    load max_char, 14
+    CALL PUSH_MENU
+    jump await_input
+
+recording_menu:
+    xor single_char, single_char
+    load single_char, ascii_SPACE
+    store single_char, 00
+    load single_char, ascii_R       
+    store single_char, 01
+    load single_char, ascii_e
+    store single_char, 02
+    load single_char, ascii_c
+    store single_char, 03
+    load single_char, ascii_o
+    store single_char, 04
+    load single_char, ascii_r
+    store single_char, 05
+    load single_char, ascii_d
+    store single_char, 06
+    load single_char, ascii_i
+    store single_char, 07
+    load single_char, ascii_n
+    store single_char, 08
+    load single_char, ascii_g
+    store single_char, 09
+    load single_char, ascii_PERIOD
+    store single_char, 0A
+    load single_char, ascii_CR
+    store single_char, 0B
+    load single_char, ascii_LF
+    store single_char, 0C
+    load single_char, ascii_1
+    store single_char, 0D
+    load single_char, ascii_PERIOD
+    store single_char, 0E
+    load single_char, ascii_RPAREN
+    store single_char, 0F
+    load single_char, ascii_SPACE
+    store single_char, 10
+    load single_char, ascii_S
+    store single_char, 11
+    load single_char, ascii_t
+    store single_char, 12
+    load single_char, ascii_o
+    store single_char, 13
+    load single_char, ascii_p
+    store single_char, 14
+    load single_char, ascii_CR
+    store single_char, 15
+    load single_char, ascii_LF
+    store single_char, 16
+
+    load max_char, 17
+    CALL PUSH_MENU
+    return
+
+
+playback_menu:
+    xor single_char, single_char
+    load single_char, ascii_SPACE     
+    store single_char, 00
+    load single_char, ascii_P       
+    store single_char, 01
+    load single_char, ascii_l
+    store single_char, 02
+    load single_char, ascii_a
+    store single_char, 03
+    load single_char, ascii_y
+    store single_char, 04
+    load single_char, ascii_i
+    store single_char, 05
+    load single_char, ascii_n
+    store single_char, 06
+    load single_char, ascii_g
+    store single_char, 07
+    load single_char, ascii_CR
+    store single_char, 08
+    load single_char, ascii_LF
+    store single_char, 09
+    load single_char, ascii_1
+    store single_char, 0A
+    load single_char, ascii_PERIOD
+    store single_char, 0B
+    load single_char, ascii_RPAREN
+    store single_char, 0C
+    load single_char, ascii_SPACE
+    store single_char, 0D
+    load single_char, ascii_S
+    store single_char, 0E
+    load single_char, ascii_t
+    store single_char, 0F
+    load single_char, ascii_o
+    store single_char, 10
+    load single_char, ascii_p
+    store single_char, 11
+    load single_char, ascii_CR
+    store single_char, 12
+    load single_char, ascii_LF
+    store single_char, 13
+    load single_char, ascii_2
+    store single_char, 14
+    load single_char, ascii_PERIOD
+    store single_char, 15
+    load single_char, ascii_RPAREN
+    store single_char, 16
+    load single_char, ascii_SPACE
+    store single_char, 17
+    load single_char, ascii_P
+    store single_char, 18
+    load single_char, ascii_a
+    store single_char, 19
+    load single_char, ascii_u
+    store single_char, 1A
+    load single_char, ascii_s
+    store single_char, 1B
+    load single_char, ascii_e
+    store single_char, 1C
+    load single_char, ascii_CR
+    store single_char, 1D
+    load single_char, ascii_LF
+    store single_char, 1E
+
+
+    load max_char, 1F
+    CALL PUSH_MENU
+    return
+
+
+delete_all_start:
+    xor single_char, single_char
+    load single_char, ascii_SPACE
+    store single_char, 00
+    load single_char, ascii_D      
+    store single_char, 01
+    load single_char, ascii_e   
+    store single_char, 02
+    load single_char, ascii_l  
+    store single_char, 03
+    load single_char, ascii_e    
+    store single_char, 04
+    load single_char, ascii_t
+    store single_char, 05
+    load single_char, ascii_e
+    store single_char, 06
+    load single_char, ascii_d
+    store single_char, 07
+    load single_char, ascii_SPACE
+    store single_char, 08
+    load single_char, ascii_a
+    store single_char, 09
+    load single_char, ascii_l
+    store single_char, 0A
+    load single_char, ascii_l
+    store single_char, 0B
+    load single_char, ascii_CR
+    store single_char, 0C
+    load single_char, ascii_LF
+    store single_char, 0D
+    load single_char, ascii_CR
+    store single_char, 0E
+    load single_char, ascii_LF
+    store single_char, 0F
+
+    load max_char, 10
+    CALL PUSH_MENU
+    jump start
+
+    await_input:
+        xor rx_input, rx_input
+        xor present_inp_data, present_inp_data
+        input present_inp_data, data_present
+        input rx_input, uart_data_rx
+        compare present_inp_data, 01
+        jump nz, await_input
+
+        compare rx_input, ascii_1
+        jump z, play_message
+        compare rx_input, ascii_2
+        jump z, record_message
+        compare rx_input, ascii_3
+        jump z, delete_message
+        compare rx_input, ascii_4
+        jump z, delete_all_messages
+        compare rx_input, ascii_5
+        jump z, volume
+        jump await_input
+
+    recording_state:
+        xor single_char, single_char
+        xor character_addr, character_addr
+        input present_inp_data, data_present
+        input rx_input, uart_data_rx
+        compare present_inp_data, 01
+        jump nz, recording_state
+
+        compare rx_input, ascii_1
+        jump z, stop_recording
+        jump recording_state
+
+    playing_state:
+        xor single_char, single_char
+        xor character_addr, character_addr
+        input present_inp_data, data_present
+        input rx_input, uart_data_rx
+        compare present_inp_data, 01
+        jump nz, playing_state
+
+        compare rx_input, ascii_1
+        jump z, stop_playing
+        compare rx_input, ascii_2
+        jump z, pause_play
+        jump playing_state
+        
+
+    play_message:
+        load outputs, 00
+        output outputs, fsm
+        CALL CLEAR_MENU
+        CALL playback_menu
+        input pp, 00
+        jump playing_state
+
+
+    record_message:
+        load outputs, 01
+        output outputs, fsm
+        CALL CLEAR_MENU
+        CALL recording_menu
+        jump recording_state
+   
+
+    delete_message:
+        load outputs, 02
+        output outputs, fsm
+        jump await_input
+
+    delete_all_messages:
+        load outputs, 04
+        output outputs, fsm
+        CALL CLEAR_MENU
+        CALL del_all_confirm
+        jump delete_all_start
+
+        
+    volume:
+        load outputs, 05
+        output outputs, fsm
+        jump await_input
+
+
+    stop_playing:
+        load pp, 00
+        load outputs, FF
+        output outputs, fsm
+        CALL CLEAR_MENU
+        jump start
+
+    
+    pause_play:
+        xor pp, FF
+        compare pp, FF
+        jump z, pause_audio
+        jump play_audio
+
+        pause_audio:
+            load outputs, 03
+            output outputs, fsm
+            jump playing_state
+
+        play_audio:
+            load outputs, 00
+            output outputs, fsm
+            jump playing_state
+
+    stop_recording:
+        load outputs, FF
+        output outputs, fsm
+        CALL CLEAR_MENU
+        jump start
+
+    del_all_confirm:
+        xor single_char, single_char
+        input single_char, deletedall 
+        compare single_char, 01
+        jump nz, del_all_confirm
+        return 
+
+    CLEAR_MENU:
+        load single_char, ascii_FF       
+        store single_char, 00
+        load single_char, ascii_ESC  
+        store single_char, 01
+
+        load max_char, 03
+        CALL PUSH_MENU
+        return
+
+
+
+    PUSH_MENU:
+        xor single_char, single_char
+        xor character_addr, character_addr
+    buffer_full_nop:
+        xor full_input_buffer, full_input_buffer
+    next_letter:
+        input full_input_buffer, buffer_full
+        compare full_input_buffer, 01
+        jump z, buffer_full_nop
+        fetch single_char, (character_addr)
+        add character_addr, 01
+        output single_char, uart_data_tx
+        compare character_addr, max_char
+        jump nz, next_letter
+        xor max_char, max_char
+        return
+
