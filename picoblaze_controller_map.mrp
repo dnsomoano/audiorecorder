@@ -11,25 +11,25 @@ Target Device  : xc6slx45
 Target Package : csg484
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Wed May 04 21:55:42 2022
+Mapped Date    : Thu May 05 17:36:41 2022
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    5
+Number of warnings:    4
 Slice Logic Utilization:
-  Number of Slice Registers:                   582 out of  54,576    1%
-    Number used as Flip Flops:                 582
+  Number of Slice Registers:                   607 out of  54,576    1%
+    Number used as Flip Flops:                 607
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        782 out of  27,288    2%
-    Number used as logic:                      736 out of  27,288    2%
-      Number using O6 output only:             416
+  Number of Slice LUTs:                        819 out of  27,288    3%
+    Number used as logic:                      777 out of  27,288    2%
+      Number using O6 output only:             451
       Number using O5 output only:              55
-      Number using O5 and O6:                  265
+      Number using O5 and O6:                  271
       Number used as ROM:                        0
-    Number used as Memory:                      32 out of   6,408    1%
+    Number used as Memory:                      33 out of   6,408    1%
       Number used as Dual Port RAM:              8
         Number using O6 output only:             0
         Number using O5 output only:             0
@@ -38,25 +38,25 @@ Slice Logic Utilization:
         Number using O6 output only:             8
         Number using O5 output only:             0
         Number using O5 and O6:                  8
-      Number used as Shift Register:             8
-        Number using O6 output only:             1
+      Number used as Shift Register:             9
+        Number using O6 output only:             2
         Number using O5 output only:             0
         Number using O5 and O6:                  7
-    Number used exclusively as route-thrus:     14
-      Number with same-slice register load:      9
+    Number used exclusively as route-thrus:      9
+      Number with same-slice register load:      4
       Number with same-slice carry load:         5
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   267 out of   6,822    3%
+  Number of occupied Slices:                   296 out of   6,822    4%
   Number of MUXCYs used:                       208 out of  13,644    1%
-  Number of LUT Flip Flop pairs used:          836
-    Number with an unused Flip Flop:           334 out of     836   39%
-    Number with an unused LUT:                  54 out of     836    6%
-    Number of fully used LUT-FF pairs:         448 out of     836   53%
-    Number of unique control sets:              53
+  Number of LUT Flip Flop pairs used:          898
+    Number with an unused Flip Flop:           372 out of     898   41%
+    Number with an unused LUT:                  79 out of     898    8%
+    Number of fully used LUT-FF pairs:         447 out of     898   49%
+    Number of unique control sets:              55
     Number of slice register sites lost
-      to control set restrictions:             139 out of  54,576    1%
+      to control set restrictions:             153 out of  54,576    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -65,8 +65,8 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        72 out of     320   22%
-    Number of LOCed IOBs:                       70 out of      72   97%
+  Number of bonded IOBs:                        73 out of     320   22%
+    Number of LOCed IOBs:                       71 out of      73   97%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         4 out of     116    3%
@@ -102,11 +102,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                3.41
+Average Fanout of Non-Clock Nets:                3.47
 
-Peak Memory Usage:  4657 MB
-Total REAL time to MAP completion:  37 secs 
-Total CPU time to MAP completion:   37 secs 
+Peak Memory Usage:  4656 MB
+Total REAL time to MAP completion:  32 secs 
+Total CPU time to MAP completion:   30 secs 
 
 Table of Contents
 -----------------
@@ -129,8 +129,6 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
-WARNING:MapLib:701 - Signal RS232_Uart_RX connected to top level port
-   RS232_Uart_RX has been removed.
 WARNING:Pack:1653 - At least one timing constraint is impossible to meet because component delays alone exceed the constraint. A timing
    constraint summary below shows the failing constraints (preceded with an Asterisk (*)). Please use the Timing Analyzer (GUI) or TRCE
    (command line) with the Mapped NCD and PCF files to identify which constraints and paths are failing because of the component delays
@@ -179,8 +177,8 @@ INFO:LIT:243 - Logical network
    load.
 INFO:LIT:395 - The above info message is repeated 4 more times for the following
    (max. 5 shown):
+   N200,
    N202,
-   N204,
    KYPD_ROW<2>_IBUF,
    AUD_ADCDAT_IBUF
    To see the details of these info messages, please use the -detail switch.
@@ -194,7 +192,7 @@ INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
    1.260 Volts)
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
-INFO:Place:834 - Only a subset of IOs are locked. Out of 72 IOs, 70 are locked
+INFO:Place:834 - Only a subset of IOs are locked. Out of 73 IOs, 71 are locked
    and 2 are not locked. If you would like to print the names of these IOs,
    please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
 INFO:Pack:1650 - Map created a placed design.
@@ -204,9 +202,9 @@ INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-  83 block(s) removed
+  38 block(s) removed
    5 block(s) optimized away
-  88 signal(s) removed
+  32 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -385,63 +383,15 @@ Loadless block "CPU/pblaze_cpu/interrupt_ack_flop" (FF) removed.
 Loadless block "CPU/pblaze_cpu/k_write_strobe_flop" (SFF) removed.
  The signal "CPU/pblaze_cpu/k_write_strobe_value" is loadless and has been
 removed.
-Loadless block "UART/receiver/data_width_loop[0].storage_srl" (SRL16E) removed.
- The signal "UART/receiver/pointer<0>" is loadless and has been removed.
-  Loadless block "UART/receiver/pointer0_flop" (SFF) removed.
-   The signal "UART/receiver/pointer_value<0>" is loadless and has been removed.
- The signal "UART/receiver/pointer<1>" is loadless and has been removed.
-  Loadless block "UART/receiver/pointer1_flop" (SFF) removed.
-   The signal "UART/receiver/pointer_value<1>" is loadless and has been removed.
- The signal "UART/receiver/pointer<2>" is loadless and has been removed.
-  Loadless block "UART/receiver/pointer2_flop" (SFF) removed.
-   The signal "UART/receiver/pointer_value<2>" is loadless and has been removed.
-    Loadless block "UART/receiver/pointer2_lut" (ROM) removed.
-     The signal "UART/receiver/pointer<3>" is loadless and has been removed.
-      Loadless block "UART/receiver/pointer3_flop" (SFF) removed.
-       The signal "UART/receiver/pointer_value<3>" is loadless and has been removed.
-        Loadless block "UART/receiver/pointer3_lut" (ROM) removed.
-         The signal "UART/receiver/buffer_write" is loadless and has been removed.
-          Loadless block "UART/receiver/buffer_write_flop" (FF) removed.
-           The signal "UART/receiver/buffer_write_value" is loadless and has been removed.
-         The signal "read_from_uart" is loadless and has been removed.
-          Loadless block "read_from_uart" (FF) removed.
-           The signal "pb_read_strobe_pb_port_id[7]_AND_61_o" is loadless and has been
-removed.
-            Loadless block "pb_read_strobe_pb_port_id[7]_AND_61_o2" (ROM) removed.
-             The signal "pb_read_strobe" is loadless and has been removed.
-              Loadless block "CPU/pblaze_cpu/read_strobe_flop" (SFF) removed.
-               The signal "CPU/pblaze_cpu/read_strobe_value" is loadless and has been removed.
- The signal "UART/receiver/data<0>" is loadless and has been removed.
-  Loadless block "UART/receiver/data0_flop" (FF) removed.
-   The signal "UART/receiver/data_value<0>" is loadless and has been removed.
+Loadless block "CPU/pblaze_cpu/read_strobe_flop" (SFF) removed.
+ The signal "CPU/pblaze_cpu/read_strobe_value" is loadless and has been removed.
 Loadless block "UART/receiver/data_width_loop[1].storage_srl" (SRL16E) removed.
- The signal "UART/receiver/data<1>" is loadless and has been removed.
-  Loadless block "UART/receiver/data1_flop" (FF) removed.
-   The signal "UART/receiver/data_value<1>" is loadless and has been removed.
 Loadless block "UART/receiver/data_width_loop[2].storage_srl" (SRL16E) removed.
- The signal "UART/receiver/data<2>" is loadless and has been removed.
-  Loadless block "UART/receiver/data2_flop" (FF) removed.
-   The signal "UART/receiver/data_value<2>" is loadless and has been removed.
 Loadless block "UART/receiver/data_width_loop[3].storage_srl" (SRL16E) removed.
- The signal "UART/receiver/data<3>" is loadless and has been removed.
-  Loadless block "UART/receiver/data3_flop" (FF) removed.
-   The signal "UART/receiver/data_value<3>" is loadless and has been removed.
 Loadless block "UART/receiver/data_width_loop[4].storage_srl" (SRL16E) removed.
- The signal "UART/receiver/data<4>" is loadless and has been removed.
-  Loadless block "UART/receiver/data4_flop" (FF) removed.
-   The signal "UART/receiver/data_value<4>" is loadless and has been removed.
 Loadless block "UART/receiver/data_width_loop[5].storage_srl" (SRL16E) removed.
- The signal "UART/receiver/data<5>" is loadless and has been removed.
-  Loadless block "UART/receiver/data5_flop" (FF) removed.
-   The signal "UART/receiver/data_value<5>" is loadless and has been removed.
 Loadless block "UART/receiver/data_width_loop[6].storage_srl" (SRL16E) removed.
- The signal "UART/receiver/data<6>" is loadless and has been removed.
-  Loadless block "UART/receiver/data6_flop" (FF) removed.
-   The signal "UART/receiver/data_value<6>" is loadless and has been removed.
 Loadless block "UART/receiver/data_width_loop[7].storage_srl" (SRL16E) removed.
- The signal "UART/receiver/data<7>" is loadless and has been removed.
-  Loadless block "UART/receiver/data7_flop" (FF) removed.
-   The signal "UART/receiver/data_value<7>" is loadless and has been removed.
 Loadless block "audio_interface/pll/clkout3_buf" (CKBUF) removed.
  The signal "audio_interface/pll/clkout2" is loadless and has been removed.
 
@@ -450,63 +400,9 @@ The trimmed logic reported below is either:
    2. part of disabled logic
    3. a side-effect of other trimmed logic
 
-The signal "RS232_Uart_RX_IBUF" is unused and has been removed.
- Unused block "RS232_Uart_RX_IBUF" (BUF) removed.
-  The signal "RS232_Uart_RX" is unused and has been removed.
-   Unused block "RS232_Uart_RX" (PAD) removed.
-The signal "UART/receiver/start_bit_value" is unused and has been removed.
- Unused block "UART/receiver/start_bit_lut" (ROM) removed.
-  The signal "UART/receiver/start_bit" is unused and has been removed.
-   Unused block "UART/receiver/start_bit_flop" (FF) removed.
-  The signal "UART/receiver/sample_input" is unused and has been removed.
-   Unused block "UART/receiver/sample_input_flop" (FF) removed.
-    The signal "UART/receiver/sample_input_value" is unused and has been removed.
-  The signal "UART/receiver/sample_dly" is unused and has been removed.
-   Unused block "UART/receiver/sample_dly_flop" (FF) removed.
-    The signal "UART/receiver/sample_dly_value" is unused and has been removed.
-  The signal "UART/receiver/sample" is unused and has been removed.
-   Unused block "UART/receiver/sample_flop" (FF) removed.
-    The signal "UART/receiver/sample_value" is unused and has been removed.
-  The signal "UART/receiver/run" is unused and has been removed.
-   Unused block "UART/receiver/run_flop" (FF) removed.
-    The signal "UART/receiver/run_value" is unused and has been removed.
-     Unused block "UART/receiver/run_lut" (ROM) removed.
-The signal "UART/receiver/stop_bit_value" is unused and has been removed.
 The signal "UART/receiver/zero" is unused and has been removed.
-The signal "UART/receiver/full_int" is unused and has been removed.
-The signal "UART/receiver/div<3>" is unused and has been removed.
- Unused block "UART/receiver/div3_flop" (FF) removed.
-  The signal "UART/receiver/div_value<3>" is unused and has been removed.
-The signal "UART/receiver/div<2>" is unused and has been removed.
- Unused block "UART/receiver/div2_flop" (FF) removed.
-  The signal "UART/receiver/div_value<2>" is unused and has been removed.
-The signal "UART/receiver/div<1>" is unused and has been removed.
- Unused block "UART/receiver/div1_flop" (FF) removed.
-  The signal "UART/receiver/div_value<1>" is unused and has been removed.
-The signal "UART/receiver/div<0>" is unused and has been removed.
- Unused block "UART/receiver/div0_flop" (FF) removed.
-  The signal "UART/receiver/div_value<0>" is unused and has been removed.
-The signal "UART/receiver/stop_bit" is unused and has been removed.
- Unused block "UART/receiver/stop_bit_flop" (FF) removed.
-The signal "UART/receiver/data_present_int" is unused and has been removed.
- Unused block "UART/receiver/data_present_flop" (SFF) removed.
-  The signal "UART/receiver/data_present_value" is unused and has been removed.
-The signal "UART/receiver/en_pointer" is unused and has been removed.
-The signal "UART/receiver/div_carry" is unused and has been removed.
 The signal "CPU/pblaze_cpu/active_interrupt_value" is unused and has been
 removed.
-Unused block "UART/receiver/data01_lut" (LUT6_2) removed.
-Unused block "UART/receiver/data23_lut" (LUT6_2) removed.
-Unused block "UART/receiver/data45_lut" (LUT6_2) removed.
-Unused block "UART/receiver/data67_lut" (LUT6_2) removed.
-Unused block "UART/receiver/data_present_lut" (LUT6_2) removed.
-Unused block "UART/receiver/div01_lut" (LUT6_2) removed.
-Unused block "UART/receiver/div23_lut" (LUT6_2) removed.
-Unused block "UART/receiver/full_lut" (LUT6_2) removed.
-Unused block "UART/receiver/pointer01_lut" (LUT6_2) removed.
-Unused block "UART/receiver/sample_input_lut" (LUT6_2) removed.
-Unused block "UART/receiver/sample_lut" (LUT6_2) removed.
-Unused block "UART/receiver/stop_bit_lut" (LUT6_2) removed.
 
 Optimized Block(s):
 TYPE 		BLOCK
@@ -568,7 +464,7 @@ Asterisk (*) preceding a constraint indicates it was not met.
   _infrastructure_inst_clk0_bufg_in" TS_sys |             |            |            |        |            
   _clk_pin * 0.375 HIGH 50%                 |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  TS_audio_interface_pll_clkout0 = PERIOD T | SETUP       |    18.368ns|     1.631ns|       0|           0
+  TS_audio_interface_pll_clkout0 = PERIOD T | SETUP       |    18.371ns|     1.628ns|       0|           0
   IMEGRP "audio_interface_pll_clkout0" TS_c | HOLD        |     0.106ns|            |       0|           0
   lock_generator_clkfx * 0.5 HIGH 50%       | MINPERIOD   |    18.270ns|     1.730ns|       0|           0
 ----------------------------------------------------------------------------------------------------------
@@ -588,8 +484,8 @@ Derived Constraints for TS_sys_clk_pin
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_sys_clk_pin                 |     10.000ns|      3.334ns|     16.006ns|            0|           33|            0|        52277|
-| TS_RAMRapper_u_memory_interfac|     13.333ns|     21.342ns|          N/A|            1|            0|        24323|            0|
+|TS_sys_clk_pin                 |     10.000ns|      3.334ns|     16.006ns|            0|           33|            0|        52511|
+| TS_RAMRapper_u_memory_interfac|     13.333ns|     21.342ns|          N/A|            1|            0|        24238|            0|
 | e_memc3_infrastructure_inst_mc|             |             |             |             |             |             |             |
 | b_drp_clk_bufg_in             |             |             |             |             |             |             |             |
 | TS_RAMRapper_u_memory_interfac|      1.667ns|      1.499ns|          N/A|            0|            0|            0|            0|
@@ -598,13 +494,13 @@ Derived Constraints for TS_sys_clk_pin
 | TS_RAMRapper_u_memory_interfac|      1.667ns|      1.499ns|          N/A|            0|            0|            1|            0|
 | e_memc3_infrastructure_inst_cl|             |             |             |             |             |             |             |
 | k_2x_0                        |             |             |             |             |             |             |             |
-| TS_RAMRapper_u_memory_interfac|     26.667ns|     16.000ns|     10.992ns|            0|           32|           27|        27926|
+| TS_RAMRapper_u_memory_interfac|     26.667ns|     16.000ns|     10.992ns|            0|           32|           27|        28245|
 | e_memc3_infrastructure_inst_cl|             |             |             |             |             |             |             |
 | k0_bufg_in                    |             |             |             |             |             |             |             |
-|  TS_clock_generator_clkfx     |     10.000ns|      4.122ns|      0.865ns|           32|            0|        27489|          437|
-|   TS_AUD_XCK_OBUF             |     88.571ns|      1.376ns|          N/A|            0|            0|           36|            0|
+|  TS_clock_generator_clkfx     |     10.000ns|      4.122ns|      0.865ns|           32|            0|        27808|          437|
 |   TS_audio_interface_pll_clkou|     20.000ns|      1.730ns|          N/A|            0|            0|          401|            0|
 |   t0                          |             |             |             |             |             |             |             |
+|   TS_AUD_XCK_OBUF             |     88.571ns|      1.376ns|          N/A|            0|            0|           36|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 2 constraints not met.
@@ -684,6 +580,7 @@ Section 6 - IOB Properties
 | KYPD_ROW<2>                        | IOB              | INPUT     | LVCMOS18             |       |          |      |              |          |          |
 | KYPD_ROW<3>                        | IOB              | INPUT     | LVCMOS18             |       |          |      |              |          |          |
 | PLL_LOCKED                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| RS232_Uart_RX                      | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
 | RS232_Uart_TX                      | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | RST                                | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | leds<0>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |

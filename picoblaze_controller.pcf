@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Wed May 04 21:56:19 2022
+// Written by: Map P.20131013 on Thu May 05 17:37:12 2022
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -72,6 +72,7 @@ COMP "HW_RAM_LDQS_P" LOCATE = SITE "L3" LEVEL 1;
 COMP "AUD_XCK" LOCATE = SITE "A6" LEVEL 1;
 COMP "HW_RAM_UDQS_N" LOCATE = SITE "T1" LEVEL 1;
 COMP "HW_RAM_UDQS_P" LOCATE = SITE "T2" LEVEL 1;
+COMP "RS232_Uart_RX" LOCATE = SITE "T20" LEVEL 1;
 COMP "RS232_Uart_TX" LOCATE = SITE "T19" LEVEL 1;
 PIN clock_generator/clkout1_buf_pin<1> = BEL "clock_generator/clkout1_buf"
         PINNAME O;
@@ -95,27 +96,27 @@ PIN audio_interface/pll/pll_base_inst/PLL_ADV_pins<2> = BEL
         "audio_interface/pll/pll_base_inst/PLL_ADV" PINNAME CLKIN1;
 TIMEGRP clock_generator_clkfx = BEL "max_address_0" BEL "max_address_1" BEL
         "max_address_2" BEL "max_address_3" BEL "max_address_4" BEL
-        "max_address_5" BEL "track_sel_0" BEL "track_sel_1" BEL "track_sel_2"
-        BEL "UART/en_16_x_baud" BEL "UART/baud_count_0" BEL
-        "UART/baud_count_1" BEL "UART/baud_count_2" BEL "UART/baud_count_3"
-        BEL "UART/baud_count_4" BEL "UART/baud_count_5" BEL
-        "UART/baud_count_6" BEL "UART/baud_count_7" BEL "UART/baud_count_8"
-        BEL "UART/baud_count_9" BEL "address_0" BEL "address_1" BEL
-        "address_2" BEL "address_3" BEL "address_4" BEL "address_5" BEL
-        "address_6" BEL "address_7" BEL "address_8" BEL "address_9" BEL
-        "address_10" BEL "address_11" BEL "address_12" BEL "address_13" BEL
-        "address_14" BEL "address_15" BEL "address_16" BEL "address_17" BEL
-        "address_18" BEL "address_19" BEL "address_20" BEL "address_21" BEL
-        "address_22" BEL "address_23" BEL "state_FSM_FFd4" BEL
-        "divider/count_0" BEL "divider/count_1" BEL "divider/count_2" BEL
-        "divider/count_3" BEL "divider/count_4" BEL "divider/count_5" BEL
-        "divider/count_6" BEL "divider/count_7" BEL "divider/count_8" BEL
-        "divider/count_9" BEL "divider/count_10" BEL "divider/count_11" BEL
-        "divider/count_12" BEL "divider/count_13" BEL "divider/count_14" BEL
-        "divider/count_15" BEL "divider/count_16" BEL "divider/count_17" BEL
-        "divider/count_18" BEL "divider/count_19" BEL "divider/count_20" BEL
-        "divider/count_21" BEL "divider/count_22" BEL "divider/count_23" BEL
-        "divider/count_24" BEL "state_FSM_FFd1" BEL "state_FSM_FFd3" BEL
+        "max_address_5" BEL "pb_in_port_0" BEL "track_sel_0" BEL "track_sel_1"
+        BEL "track_sel_2" BEL "UART/en_16_x_baud" BEL "address_0" BEL
+        "address_1" BEL "address_2" BEL "address_3" BEL "address_4" BEL
+        "address_5" BEL "address_6" BEL "address_7" BEL "address_8" BEL
+        "address_9" BEL "address_10" BEL "address_11" BEL "address_12" BEL
+        "address_13" BEL "address_14" BEL "address_15" BEL "address_16" BEL
+        "address_17" BEL "address_18" BEL "address_19" BEL "address_20" BEL
+        "address_21" BEL "address_22" BEL "address_23" BEL "UART/baud_count_0"
+        BEL "UART/baud_count_1" BEL "UART/baud_count_2" BEL
+        "UART/baud_count_3" BEL "UART/baud_count_4" BEL "UART/baud_count_5"
+        BEL "UART/baud_count_6" BEL "UART/baud_count_7" BEL
+        "UART/baud_count_8" BEL "UART/baud_count_9" BEL "divider/count_0" BEL
+        "divider/count_1" BEL "divider/count_2" BEL "divider/count_3" BEL
+        "divider/count_4" BEL "divider/count_5" BEL "divider/count_6" BEL
+        "divider/count_7" BEL "divider/count_8" BEL "divider/count_9" BEL
+        "divider/count_10" BEL "divider/count_11" BEL "divider/count_12" BEL
+        "divider/count_13" BEL "divider/count_14" BEL "divider/count_15" BEL
+        "divider/count_16" BEL "divider/count_17" BEL "divider/count_18" BEL
+        "divider/count_19" BEL "divider/count_20" BEL "divider/count_21" BEL
+        "divider/count_22" BEL "divider/count_23" BEL "divider/count_24" BEL
+        "state_FSM_FFd4" BEL "state_FSM_FFd3" BEL "state_FSM_FFd1" BEL
         "audio_interface/pll/clkin1_buf" BEL "clock_generator/clkout2_buf" BEL
         "clock_generator/clkout1_buf" BEL "row3/sync3" BEL "row3/out_prev" BEL
         "row3/out" BEL "row3/clock_div_prev" BEL "row1/sync3" BEL
@@ -149,7 +150,20 @@ TIMEGRP clock_generator_clkfx = BEL "max_address_0" BEL "max_address_1" BEL
         "UART/transmitter/pointer0_flop" BEL "UART/transmitter/pointer1_flop"
         BEL "UART/transmitter/pointer2_flop" BEL
         "UART/transmitter/pointer3_flop" BEL
-        "CPU/pblaze_cpu/data_path_loop[7].small_spm.spm_flop" BEL
+        "UART/receiver/data_width_loop[0].storage_srl" BEL
+        "UART/receiver/sample_input_flop" BEL "UART/receiver/div3_flop" BEL
+        "UART/receiver/div2_flop" BEL "UART/receiver/div1_flop" BEL
+        "UART/receiver/div0_flop" BEL "UART/receiver/start_bit_flop" BEL
+        "UART/receiver/run_flop" BEL "UART/receiver/data7_flop" BEL
+        "UART/receiver/data6_flop" BEL "UART/receiver/data5_flop" BEL
+        "UART/receiver/data4_flop" BEL "UART/receiver/data3_flop" BEL
+        "UART/receiver/data2_flop" BEL "UART/receiver/data1_flop" BEL
+        "UART/receiver/data0_flop" BEL "UART/receiver/stop_bit_flop" BEL
+        "UART/receiver/buffer_write_flop" BEL "UART/receiver/sample_dly_flop"
+        BEL "UART/receiver/sample_flop" BEL "UART/receiver/data_present_flop"
+        BEL "UART/receiver/pointer0_flop" BEL "UART/receiver/pointer1_flop"
+        BEL "UART/receiver/pointer2_flop" BEL "UART/receiver/pointer3_flop"
+        BEL "CPU/pblaze_cpu/data_path_loop[7].small_spm.spm_flop" BEL
         "CPU/pblaze_cpu/data_path_loop[7].low_hwbuild.shift_rotate_flop" BEL
         "CPU/pblaze_cpu/data_path_loop[7].arith_logical_flop" BEL
         "CPU/pblaze_cpu/data_path_loop[6].small_spm.spm_flop" BEL
@@ -221,7 +235,7 @@ TIMEGRP clock_generator_clkfx = BEL "max_address_0" BEL "max_address_1" BEL
         "CPU/pblaze_cpu/t_state2_flop" BEL "CPU/pblaze_cpu/t_state1_flop" BEL
         "CPU/pblaze_cpu/internal_reset_flop" BEL "CPU/pblaze_cpu/run_flop" BEL
         "CPU/pblaze_rom/s6_a11_flop" BEL "divider/clk_div" BEL "track5_26" BEL
-        "track2_26" BEL "track4_26" BEL "track3_26" BEL "track1_26" BEL
+        "track4_26" BEL "track3_26" BEL "track2_26" BEL "track1_26" BEL
         "state_FSM_FFd2" PIN "CPU/pblaze_rom/kcpsm6_rom_hh_pins<28>" PIN
         "CPU/pblaze_rom/kcpsm6_rom_hl_pins<28>" PIN
         "CPU/pblaze_rom/kcpsm6_rom_lh_pins<28>" PIN
@@ -719,6 +733,8 @@ TIMEGRP
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/RZQ_IN_R1"
         BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/count_0"
+        BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/WAIT_200us_COUNTER_15"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/WAIT_200us_COUNTER_14"
@@ -791,29 +807,29 @@ TIMEGRP
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd3"
         BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6"
+        BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd7"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd8"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6"
-        BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd10"
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd9"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd11"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd9"
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd12"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd13"
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd10"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd14"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd12"
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd15"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd16"
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd13"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd17"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd15"
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd16"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd19"
         BEL
@@ -821,61 +837,61 @@ TIMEGRP
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd21"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd23"
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd22"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd24"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd22"
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd25"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd26"
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd23"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd27"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd25"
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd28"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd29"
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd26"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd30"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd28"
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd31"
+        BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd29"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd32"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd33"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd31"
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd34"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd35"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd36"
-        BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd34"
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd37"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd38"
         BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd36"
+        BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd39"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd37"
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd40"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd41"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd42"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd40"
-        BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd43"
-        BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd44"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd45"
         BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd43"
+        BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd46"
+        BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd47"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd48"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd49"
-        BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd47"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd51"
         BEL
@@ -894,6 +910,22 @@ TIMEGRP
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd58"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd56"
+        BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_7"
+        BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_6"
+        BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_5"
+        BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_4"
+        BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_3"
+        BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_2"
+        BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_1"
+        BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_0"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RstCounter_9"
         BEL
@@ -915,33 +947,15 @@ TIMEGRP
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RstCounter_0"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_7"
-        BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_6"
-        BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_5"
-        BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_4"
-        BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_3"
-        BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_2"
-        BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_1"
-        BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_0"
-        BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/count_5"
-        BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/count_4"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/count_3"
         BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/count_5"
+        BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/count_2"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/count_1"
-        BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/count_0"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_6"
         BEL
@@ -1145,11 +1159,7 @@ TIMEGRP
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_en"
         BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/MCB_UILDQSINC"
-        BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/IODRPCTRLR_R_WB"
-        BEL
-        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/MCB_UILDQSDEC"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/MCB_USE_BKST"
         BEL
@@ -1335,6 +1345,10 @@ TIMEGRP
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Rst_condition1"
         BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/MCB_UILDQSDEC"
+        BEL
+        "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/MCB_UILDQSINC"
+        BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/state_FSM_FFd4"
         BEL
         "RAMRapper/u_memory_interface/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_mcb_controller/state_FSM_FFd1"
@@ -1381,9 +1395,9 @@ TS_RAMRapper_u_memory_interface_memc3_infrastructure_inst_clk0_bufg_in =
 TS_clock_generator_clkfx = PERIOD TIMEGRP "clock_generator_clkfx"
         TS_RAMRapper_u_memory_interface_memc3_infrastructure_inst_clk0_bufg_in
         * 2.66666667 HIGH 50%;
-TS_AUD_XCK_OBUF = PERIOD TIMEGRP "AUD_XCK_OBUF" TS_clock_generator_clkfx *
-        0.112903226 HIGH 50%;
 TS_audio_interface_pll_clkout0 = PERIOD TIMEGRP "audio_interface_pll_clkout0"
         TS_clock_generator_clkfx * 0.5 HIGH 50%;
+TS_AUD_XCK_OBUF = PERIOD TIMEGRP "AUD_XCK_OBUF" TS_clock_generator_clkfx *
+        0.112903226 HIGH 50%;
 SCHEMATIC END;
 

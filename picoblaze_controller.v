@@ -332,99 +332,32 @@ module picoblaze_controller(
 	// This process block gets the value of the requested input port device
 	// and passes it to PBs in_port. When PB is not requestng data from
 	// a valid input port, set the input to static 0.
-	always @(posedge pb_clk or posedge pb_reset)
-	begin
-		if(pb_reset) begin
-			pb_in_port <= 0;
-			read_from_uart <= 0;
-		end else begin
-			// Set pb input port to appropriate value
-			case(pb_port_id)
-				// TODO: INTERFACE PICOBLAZE PORTS
-				8'h00: pb_in_port <= main_menu;
-				8'h01: pb_in_port <= playback_menu;
-				8'h02: pb_in_port <= uart_data_rx;
-				8'h03: pb_in_port <= recording_menu;
-				8'h04: pb_in_port <= {7'b0000000,uart_data_present};
-				8'h05: pb_in_port <= {7'b0000000,uart_buffer_full};
-				8'h06: pb_in_port <= delete_msg_menu;
-				8'h07: pb_in_port <= del_all_menu;
-				8'h08: pb_in_port <= vol_menu;
-				8'h09: pb_in_port <= is_playing;
-				8'h0A: pb_in_port <= is_recording;
-				default: pb_in_port <= 8'h00;
-			endcase
-			// Set up acknowledge/enable signals.
-			//
-			// Some modules, such as the UART, need confirmation that the data
-			// has been read, since it needs to push it off the queue and make
-			// the next byte available. This logic will set the 'read_from'
-			// signal high for corresponding ports, as needed. Most input
-			// ports will not need this.
-			read_from_uart <= pb_read_strobe & (pb_port_id == 8'h04);
-			// Main menu
-			if (main_menu) begin
-				if (playback_menu) begin
-					play_msg_1 <= (pb_out_port == 8'h01);
-					play_msg_2 <= (pb_out_port == 8'h03);
-					play_msg_3 <= (pb_out_port == 8'h06);
-					play_msg_4 <= (pb_out_port == 8'h07);
-					play_msg_5 <= (pb_out_port == 8'h08);
-				end
-				else if (recording_menu) begin
-					recording_msg_1 <= (pb_out_port == 8'h01);
-					recording_msg_2 <= (pb_out_port == 8'h03);
-					recording_msg_3 <= (pb_out_port == 8'h06);
-					recording_msg_4 <= (pb_out_port == 8'h07);
-					recording_msg_5 <= (pb_out_port == 8'h08);
-				end
-				else if (delete_msg_menu) begin
-					del_1 <= (pb_out_port == 8'h01);
-					del_2 <= (pb_out_port == 8'h03);
-					del_3 <= (pb_out_port == 8'h06);
-					del_4 <= (pb_out_port == 8'h07);
-					del_5 <= (pb_out_port == 8'h08);
-				end
-				// else if (del_all_menu) begin
-				// 	count = 1;
-				// 	while (count < 6) begin
-				// 		case (count)
-				// 			1: pb_in_port <= del_1;
-				// 			2: pb_in_port <= del_2;
-				// 			3: pb_in_port <= del_3;
-				// 			4: pb_in_port <= del_4;
-				// 			5: pb_in_port <= del_5;
-				// 		endcase
-				// 		count = count + 1;
-				// 	end
-				// end
-				else if (vol_menu) begin
-					vol_up <= (pb_out_port == 8'h01);
-					vol_down <= (pb_out_port == 8'h03);
-				end
-			end
-			else if (playback_menu) begin
-				case (playback_menu)
-					play_msg_1: pb_in_port <= is_playing;
-					play_msg_2: pb_in_port <= is_playing;
-					play_msg_3: pb_in_port <= is_playing;
-					play_msg_4: pb_in_port <= is_playing;
-					play_msg_5: pb_in_port <= is_playing;
-					default: pb_in_port <= playback_menu;
-				endcase
-			end
-			else if (recording_menu) begin
-				case (recording_menu)
-					recording_msg_1: pb_in_port <= is_recording;
-					recording_msg_2: pb_in_port <= is_recording;
-					recording_msg_3: pb_in_port <= is_recording;
-					recording_msg_4: pb_in_port <= is_recording;
-					recording_msg_5: pb_in_port <= is_recording;
-					default: pb_in_port <= recording_menu;
-				endcase
-			end
-		end
-	end
+	// always @(posedge pb_clk or posedge pb_reset)
+	// begin
+	// 	if(pb_reset) begin
+	// 		pb_in_port <= 0;
+	// 		read_from_uart <= 0;
+	// 	end else begin
+	// 		// Set pb input port to appropriate value
+	// 		// case(pb_port_id)
+	// 		// 	8'h02: pb_in_port <= uart_data_rx;
+	// 		// 	8'h04: pb_in_port <= {7'b0000000,uart_data_present};
+	// 		// 	8'h05: pb_in_port <= {7'b0000000,uart_buffer_full};
+	// 		// 	8'h08: pb_in_port <= vol_menu;
+	// 		// 	8'h09: pb_in_port <= is_playing;
+	// 		// 	8'h0A: pb_in_port <= is_recording;
+	// 		// 	default: pb_in_port <= 8'h00;
+	// 		// endcase
+	// 		// Set up acknowledge/enable signals.
+	// 		//
+	// 		// Some modules, such as the UART, need confirmation that the data
+	// 		// has been read, since it needs to push it off the queue and make
+	// 		// the next byte available. This logic will set the 'read_from'
+	// 		// signal high for corresponding ports, as needed. Most input
+	// 		// ports will not need this.
+	// 		read_from_uart <= pb_read_strobe & (pb_port_id == 8'h04);
+	// 	end
+	// end
 
 	// Debouncers for keypad rows and cols (comment this block out if debouncers are not needed)
 	//
@@ -492,6 +425,19 @@ module picoblaze_controller(
 	//
 	// FSM logic
 	always@ (posedge pb_clk) begin
+		case(pb_port_id)
+			8'h00: pb_in_port <= main_menu;
+			8'h01: pb_in_port <= playback_menu;
+			8'h02: pb_in_port <= uart_data_rx;
+			8'h03: pb_in_port <= recording_menu;
+			8'h04: pb_in_port <= {7'b0000000,uart_data_present};
+			8'h05: pb_in_port <= {7'b0000000,uart_buffer_full};
+			8'h08: pb_in_port <= vol_menu;
+			8'h09: pb_in_port <= vol_up;
+			8'h0A: pb_in_port <= vol_down;
+			8'h0B: pb_in_port <= storage_full;
+			default: pb_in_port <= 8'h00;
+		endcase
 		// Reset case
 		if (pb_reset) begin
 			enableWrite <= 0;
@@ -502,7 +448,6 @@ module picoblaze_controller(
 			state 		<= init_state;
 		end
 		// State logic
-		// TODO: INSERT PICOBLAZE PORT COMMANDS
 		else begin
 			case (state)
 				// Initialization state
@@ -564,7 +509,13 @@ module picoblaze_controller(
 				end
 				// Play state - begin playing audio from selected track
 				play_state: begin
-					// TODO: AUDIO PLAYBACK LOGIC
+					case (track_sel) 
+						3'b001: pb_in_port <= play_msg_1;
+						3'b010: pb_in_port <= play_msg_2;
+						3'b011: pb_in_port <= play_msg_3;
+						3'b100: pb_in_port <= play_msg_4;
+						3'b101: pb_in_port <= play_msg_5;
+					endcase
 				end
 				// Record intializaion state - logic for checking for a free track to record on
 				record_init: begin
@@ -698,7 +649,7 @@ module picoblaze_controller(
 				end
 				// Memory full state - displays picoblaze message that memory is full and returns to menu
 				mem_full_state: begin
-					// TODO: INSERT PICOBLAZE PORT FOR MEMORY FULL MESSAGE
+					pb_in_port <= storage_full;
 					state <= menu;
 				end
 				// Change volume state - select 'up' or 'down' to change volume
@@ -716,14 +667,14 @@ module picoblaze_controller(
 				volume_up: begin
 					if (volume < 3'b111)
 						volume <= volume + 1;
-					// TODO: PICOBLAZE PORT FOR VOLUME INDICATOR
+					pb_in_port <= vol_up;
 					state <= change_volume;
 				end
 				// Volume down state - decrease volume by 1 if it is not already at min
 				volume_down: begin
 					if (volume > 3'b000)
 						volume <= volume + 1;
-					// TODO: PICOBLAZE PORT FOR VOLUME INDICATOR
+					pb_in_port <= vol_down;
 					state <= change_volume;
 				end
 			endcase

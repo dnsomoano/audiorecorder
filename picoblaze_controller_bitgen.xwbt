@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.ncd
-OUTFILE=C:\Users\sagew\Xilinx\Projects\final_lab\picoblaze_controller.bit
+INFILE=C:\Users\Halberd\audiorecorder2\picoblaze_controller.ncd
+OUTFILE=C:\Users\Halberd\audiorecorder2\picoblaze_controller.bit
 FAMILY=Spartan6
 PART=xc6slx45-3csg484
-WORKINGDIR=C:\Users\sagew\Xilinx\Projects\final_lab
+WORKINGDIR=C:\Users\Halberd\audiorecorder2
 LICENSE=WebPack
-USER_INFO=212387185_0_0_357
+USER_INFO=212386664_0_0_531

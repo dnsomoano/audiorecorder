@@ -1,7 +1,7 @@
 Release 14.7 - par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Wed May 04 21:56:50 2022
+Thu May 05 17:37:30 2022
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -413,7 +413,7 @@ Pinout by Pin Number:
 |T17       |             |IOBM     |IO_L72P_1                    |UNUSED   |             |1             |          |         |           |         |         |          |           |                |
 |T18       |             |IOBS     |IO_L72N_1                    |UNUSED   |             |1             |          |         |           |         |         |          |           |                |
 |T19       |RS232_Uart_TX|IOB      |IO_L74P_AWAKE_1              |OUTPUT   |LVCMOS33     |1             |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
-|T20       |             |IOBS     |IO_L74N_DOUT_BUSY_1          |UNUSED   |             |1             |          |         |           |         |         |          |           |                |
+|T20       |RS232_Uart_RX|IOB      |IO_L74N_DOUT_BUSY_1          |INPUT    |LVCMOS33     |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |T21       |             |IOBM     |IO_L50P_M1UDQS_1             |UNUSED   |             |1             |          |         |           |         |         |          |           |                |
 |T22       |             |IOBS     |IO_L50N_M1UDQSN_1            |UNUSED   |             |1             |          |         |           |         |         |          |           |                |
 |U1        |HW_RAM_DQ<13>|IOB      |IO_L33N_M3DQ13_3             |BIDIR    |SSTL2_II     |3             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
